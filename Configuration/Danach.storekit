@@ -21,8 +21,10 @@
   ],
   "settings" : {
     "_applicationInternalID" : "DANACH",
-    "_developerTeamID" : "",
-    "_lastSynchronizedDate" : 0
+    "_developerTeamID" : "DUX7KX7V69",
+    "_lastSynchronizedDate" : 0,
+    "_locale" : "de_DE",
+    "_storefront" : "DEU"
   },
   "subscriptionGroups" : [
   ],
