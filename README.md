@@ -137,6 +137,24 @@ python3 -m pip install Pillow
 python3 Tools/make_appicon.py
 ```
 
+## Vorschau im Browser
+
+Bevor Sie Xcode öffnen, lässt sich die App klickbar im Browser ansehen –
+alle Bildschirme, echte Inhalte, echte Fristberechnung:
+
+```bash
+python3 Tools/preview/build.py
+open Tools/preview/index.html
+```
+
+Die Vorschau setzt den Inhalt aus `Danach/Content` in eine Einzeldatei ein
+und bildet Onboarding, Phasen, Aufgabendetail, Fristen, Unterlagen, Paywall
+und Einstellungen nach. Sie hat einen Regler für Dynamic Type, damit
+sichtbar wird, wie das Layout bei stark vergrößerter Schrift hält.
+
+Sie ist Beurteilungshilfe, kein Ersatz für den Simulator: Wischgesten,
+Tastatur, Benachrichtigungen und StoreKit fehlen.
+
 ## Bauen
 
 Xcode 16 oder neuer, `Danach.xcodeproj` öffnen, Schema `Danach`, Simulator ab
