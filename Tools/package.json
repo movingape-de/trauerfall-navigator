@@ -1,0 +1,16 @@
+{
+  "name": "danach-tools",
+  "private": true,
+  "type": "module",
+  "description": "Prüfwerkzeuge, die ohne macOS und ohne Xcode laufen.",
+  "scripts": {
+    "check:content": "node validate_content.mjs",
+    "check:swift": "node check_swift.mjs ../Danach",
+    "check:symbols": "node check_symbols.mjs ../Danach",
+    "check:project": "python3 check_project.py"
+  },
+  "dependencies": {
+    "tree-sitter": "^0.22.4",
+    "tree-sitter-swift": "^0.7.1"
+  }
+}

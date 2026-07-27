@@ -4,7 +4,7 @@
   ],
   "products" : [
     {
-      "displayPrice" : "9.99",
+      "displayPrice" : "14.99",
       "familyShareable" : false,
       "internalID" : "DANACH0001",
       "localizations" : [
@@ -14,7 +14,7 @@
           "locale" : "de_DE"
         }
       ],
-      "productID" : "de.guteinern.danach.vollversion",
+      "productID" : "de.movingape.danach.vollversion",
       "referenceName" : "Vollversion",
       "type" : "NonConsumable"
     }

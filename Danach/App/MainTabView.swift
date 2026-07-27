@@ -37,6 +37,7 @@ struct MainTabView: View {
 
     /// Erinnerungen gehören zur Vollversion. Ohne Kauf werden nur die
     /// Fristen aus der kostenfreien Phase eingeplant.
+    @MainActor
     private func syncReminders() async {
         let states = Checklist.stateMap(taskStates)
         var entries = Checklist.deadlineEntries(profile: profile.snapshot, states: states)

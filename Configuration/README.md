@@ -22,10 +22,10 @@ In App Store Connect ein nicht verbrauchbares Produkt anlegen:
 
 | Feld | Wert |
 |---|---|
-| Produkt-ID | `de.guteinern.danach.vollversion` |
+| Produkt-ID | `de.movingape.danach.vollversion` |
 | Typ | Nicht verbrauchbar |
 | Referenzname | Vollversion |
-| Preisstufe | 9,99 € |
+| Preisstufe | 14,99 € |
 | Anzeigename | Vollversion freischalten |
 
 Die Produkt-ID steht in `PurchaseManager.productID` und muss übereinstimmen.

@@ -107,21 +107,49 @@ Mögliche Bedingungswerte: `placeOfDeath` = `home`, `hospital`, `care_home`,
 `elsewhere` · `relationship` = `spouse`, `partner`, `child`, `parent`, `other` ·
 `hasWill` und `hasFuneralProvision` = `yes`, `no`, `unknown`.
 
-## Content prüfen
+## Prüfen ohne Xcode
+
+Alle vier Prüfungen laufen unter Linux und macOS, ohne Xcode:
 
 ```bash
-node Tools/validate_content.mjs
+cd Tools && npm install && cd ..
+
+node Tools/validate_content.mjs      # Aufgaben- und Dokumentenkatalog
+node Tools/check_swift.mjs Danach    # Swift-Syntax aller Dateien
+node Tools/check_symbols.mjs Danach  # verwendete gegen deklarierte Typen
+python3 Tools/check_project.py       # Struktur der Xcode-Projektdatei
 ```
 
-Das Skript prüft Schema, doppelte IDs, unbekannte Bedingungswerte und spielt
-alle 180 Onboarding-Kombinationen durch, um leere Phasen zu finden. Ohne
-Abhängigkeiten, läuft mit jedem Node ab Version 18.
+| Prüfung | Was sie findet | Was sie nicht findet |
+|---|---|---|
+| `validate_content` | Schemafehler, doppelte IDs, unbekannte Bedingungswerte, leere Phasen über alle 180 Onboarding-Kombinationen | inhaltliche Fehler in den Texten |
+| `check_swift` | Syntaxfehler in allen Swift-Dateien, per tree-sitter | Typfehler – dafür braucht es einen Compiler |
+| `check_symbols` | Verweise auf Typen, die es nicht gibt, etwa nach einer Umbenennung | falsche Signaturen |
+| `check_project` | kaputte Projektdatei, unbekannte Objekt-IDs, fehlendes Schema | fehlerhafte Build-Einstellungen |
+
+Dieselben vier Schritte laufen in GitHub Actions bei jedem Push.
+
+Das App-Icon wird ebenfalls aus Code erzeugt, damit Änderungen nachvollziehbar
+bleiben:
+
+```bash
+python3 -m pip install Pillow
+python3 Tools/make_appicon.py
+```
 
 ## Bauen
 
 Xcode 16 oder neuer, `Danach.xcodeproj` öffnen, Schema `Danach`, Simulator ab
 iOS 17. Das Projekt nutzt synchronisierte Ordner: neue Dateien im Ordner
 `Danach/` werden automatisch Teil des Targets.
+
+Das geteilte Schema verweist bereits auf `Configuration/Danach.storekit`. Die
+Kaufstrecke funktioniert damit im Simulator sofort, ohne Eintrag in App Store
+Connect.
+
+Beim ersten Öffnen fragt Xcode nach einem Signing-Team. Unter *Signing &
+Capabilities* Ihr Team auswählen; der Bundle-Identifier ist
+`de.movingape.danach`.
 
 ## Rechtliches
 
@@ -141,10 +169,23 @@ die App weist an den betroffenen Stellen darauf hin.
 | Lokale Erinnerungen | fertig |
 | StoreKit 2, Paywall, Wiederherstellung | fertig |
 | Aufgabenkatalog | 59 Aufgaben, 18 Unterlagen |
+| App-Icon | fertig, aus Code erzeugt |
+| Syntaxprüfung aller Swift-Dateien | grün |
 | Kompilierlauf in Xcode | steht noch aus |
-| App-Icon | Platzhalter |
-| Impressum | Platzhalter, vor Veröffentlichung ersetzen |
 
-Das Projekt wurde in einer Linux-Umgebung ohne Xcode geschrieben. Der
-Content ist maschinell geprüft, der Swift-Code nicht kompiliert. Rechnen
-Sie beim ersten Build mit einzelnen Korrekturen.
+### Vor der Veröffentlichung
+
+- [ ] Impressum ausfüllen: `Danach/Views/Settings/LegalViews.swift`, `struct ImprintView` – alle Angaben in eckigen Klammern
+- [ ] Signing-Team in Xcode setzen
+- [ ] In App Store Connect das Produkt `de.movingape.danach.vollversion` anlegen, siehe `Configuration/README.md`
+- [ ] Datenschutzerklärung als erreichbare URL hinterlegen
+- [ ] App-Datenschutz im App Store: keine Datenerfassung – das trifft hier tatsächlich zu
+- [ ] `tasks_de.json` von einem Fachanwalt für Erbrecht gegenlesen lassen
+
+### Was maschinell geprüft ist und was nicht
+
+Das Projekt entstand in einer Linux-Umgebung ohne Xcode. Geprüft sind:
+Content-Schema, Swift-Syntax aller 27 Dateien, Typverweise und die Struktur
+der Projektdatei. Nicht geprüft ist der Typcheck des Swift-Compilers –
+rechnen Sie beim ersten Build mit einzelnen Korrekturen, vor allem an
+SwiftUI-Modifiern.

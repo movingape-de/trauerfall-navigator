@@ -125,7 +125,7 @@ struct SettingsView: View {
             .scrollContentBackground(.hidden)
             .background(Palette.background)
             .navigationTitle("Mehr")
-            .sheet(isPresented: $showsPaywall) { PaywallView() }
+            .sheet(isPresented: $showsPaywall) { PaywallView().environmentObject(purchases) }
             .alert("Hinweis", isPresented: Binding(
                 get: { restoreMessage != nil },
                 set: { if !$0 { restoreMessage = nil } }
@@ -151,6 +151,7 @@ struct SettingsView: View {
         return "\(version) (\(build))"
     }
 
+    @MainActor
     private func reset() {
         NotificationService.shared.cancelAll()
         for state in taskStates { modelContext.delete(state) }

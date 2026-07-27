@@ -8,7 +8,7 @@ import StoreKit
 @MainActor
 final class PurchaseManager: ObservableObject {
 
-    static let productID = "de.guteinern.danach.vollversion"
+    static let productID = "de.movingape.danach.vollversion"
 
     enum State: Equatable {
         case idle
@@ -23,12 +23,15 @@ final class PurchaseManager: ObservableObject {
 
     private var updateTask: Task<Void, Never>?
 
-    #if DEBUG
     /// Erlaubt das Freischalten im Simulator ohne StoreKit-Konfiguration.
+    /// Wird nur in Debug-Builds ausgewertet, siehe `refreshEntitlements()`.
     @Published var debugUnlockOverride: Bool = false {
-        didSet { isUnlocked = isUnlocked || debugUnlockOverride }
+        didSet {
+            #if DEBUG
+            isUnlocked = isUnlocked || debugUnlockOverride
+            #endif
+        }
     }
-    #endif
 
     init() {
         updateTask = Task { [weak self] in
@@ -46,7 +49,7 @@ final class PurchaseManager: ObservableObject {
 
     /// Preis als Text, wie ihn der App Store liefert. Fällt auf den
     /// hinterlegten Preis zurück, solange nichts geladen ist.
-    var displayPrice: String { product?.displayPrice ?? "9,99 €" }
+    var displayPrice: String { product?.displayPrice ?? "14,99 €" }
 
     func start() async {
         await loadProduct()

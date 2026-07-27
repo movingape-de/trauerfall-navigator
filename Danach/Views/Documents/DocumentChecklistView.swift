@@ -33,7 +33,7 @@ struct DocumentChecklistView: View {
             }
             .background(Palette.background)
             .navigationTitle("Unterlagen")
-            .sheet(isPresented: $showsPaywall) { PaywallView() }
+            .sheet(isPresented: $showsPaywall) { PaywallView().environmentObject(purchases) }
         }
     }
 

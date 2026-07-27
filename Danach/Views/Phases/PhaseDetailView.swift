@@ -98,6 +98,7 @@ struct PhaseDetailView: View {
         }
     }
 
+    @MainActor
     private func toggle(_ entry: ChecklistEntry) {
         let state = TaskStateAccess.state(for: entry.definition.id,
                                           in: taskStates,

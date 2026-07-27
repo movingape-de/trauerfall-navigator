@@ -37,6 +37,7 @@ struct PhaseOverviewView: View {
             .navigationBarTitleDisplayMode(.large)
             .sheet(isPresented: $showsPaywall) {
                 PaywallView()
+                    .environmentObject(purchases)
             }
         }
     }

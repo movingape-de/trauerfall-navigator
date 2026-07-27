@@ -20,3 +20,7 @@ xcuserdata/
 # Fastlane / CI
 fastlane/report.xml
 fastlane/screenshots
+
+# Node (Prüfwerkzeuge)
+Tools/node_modules/
+Tools/package-lock.json

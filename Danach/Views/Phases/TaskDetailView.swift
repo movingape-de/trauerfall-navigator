@@ -191,6 +191,7 @@ struct TaskDetailView: View {
 
     // MARK: - Änderungen
 
+    @MainActor
     private func setStatus(_ status: TaskStatus) {
         let state = TaskStateAccess.state(for: taskID, in: taskStates, context: modelContext)
         state.status = status

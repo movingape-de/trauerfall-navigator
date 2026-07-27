@@ -34,7 +34,9 @@ struct DeadlineOverviewView: View {
             }
         }
 
-        var result: [(String, [ChecklistEntry])] = []
+        // Beschriftete Tupel: Ohne die Labels passt der Typ nicht zum
+        // Rückgabetyp, weil Swift Tupel-Labels in Arrays nicht angleicht.
+        var result: [(title: String, entries: [ChecklistEntry])] = []
         if !passed.isEmpty { result.append(("Frist verstrichen", passed)) }
         if !thisWeek.isEmpty { result.append(("In den nächsten Tagen", thisWeek)) }
         if !later.isEmpty { result.append(("Später", later)) }
@@ -72,7 +74,7 @@ struct DeadlineOverviewView: View {
             }
             .background(Palette.background)
             .navigationTitle("Fristen")
-            .sheet(isPresented: $showsPaywall) { PaywallView() }
+            .sheet(isPresented: $showsPaywall) { PaywallView().environmentObject(purchases) }
         }
     }
 

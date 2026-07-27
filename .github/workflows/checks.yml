@@ -1,0 +1,32 @@
+name: Prüfungen
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Werkzeuge installieren
+        working-directory: Tools
+        run: npm install
+
+      - name: Aufgaben- und Dokumentenkatalog
+        run: node Tools/validate_content.mjs
+
+      - name: Swift-Syntax
+        run: node Tools/check_swift.mjs Danach
+
+      - name: Symbole abgleichen
+        run: node Tools/check_symbols.mjs Danach
+
+      - name: Projektdatei
+        run: python3 Tools/check_project.py

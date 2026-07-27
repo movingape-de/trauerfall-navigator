@@ -3,7 +3,12 @@ import SwiftUI
 /// Gemeinsamer Aufbau der Rechtstexte: viel Weißraum, lange Zeilen begrenzt.
 private struct LegalPage<Content: View>: View {
     let title: String
-    @ViewBuilder let content: Content
+    let content: Content
+
+    init(title: String, @ViewBuilder content: () -> Content) {
+        self.title = title
+        self.content = content()
+    }
 
     var body: some View {
         ScrollView {
