@@ -236,6 +236,9 @@
   }
   .viewport::-webkit-scrollbar { width: 0; }
 
+  /* [hidden] verliert sonst gegen display:grid aus dieser Regel. */
+  .tabbar[hidden] { display: none; }
+
   .tabbar {
     flex: 0 0 auto;
     display: grid;
@@ -261,6 +264,10 @@
 
   /* ------------------------------------------------- App-Inneres */
 
+  /* Symbole in em, damit sie wie SF Symbols mit Dynamic Type mitwachsen. */
+  .screen svg { width: 1.25em; height: 1.25em; flex: 0 0 auto; }
+  .screen svg.big { width: 2.6em; height: 2.6em; }
+
   .app { padding: 18px 20px 32px; display: grid; gap: 18px; }
 
   .nav {
@@ -282,6 +289,7 @@
     align-items: center;
     gap: 4px;
   }
+  .nav svg { width: 1em; height: 1em; }
   .nav-title {
     font-size: 1.02em;
     font-weight: 600;
@@ -315,6 +323,7 @@
   .card.accent { background: var(--accent-bg); }
   .card.muted-bg { background: var(--surface-muted); }
   .card.flat { padding: 0; overflow: hidden; }
+  .card > div > span > svg { width: 0.95em; height: 0.95em; }
 
   .row-btn {
     font: inherit;
@@ -392,13 +401,13 @@
   .check {
     font: inherit;
     flex: 0 0 auto;
-    width: 52px; height: 52px;
+    width: max(52px, 3.2em); height: max(52px, 3.2em);
     display: grid; place-items: center;
     background: none; border: 0; cursor: pointer;
     color: var(--text-2);
   }
   .check.done { color: var(--accent); }
-  .check svg { width: 26px; height: 26px; }
+  .check svg { width: 1.65em; height: 1.65em; }
   .task-main { flex: 1; display: grid; gap: 4px; padding: 8px 0; min-width: 0; }
   .task-title { font-weight: 600; font-size: 1.02em; }
   .task-row.done .task-main { opacity: 0.65; }
@@ -409,6 +418,7 @@
   .deadline.passed, .deadline.today { color: var(--alert); }
   .deadline.imminent, .deadline.soon { color: var(--caution); }
   .deadline.upcoming, .deadline.distant { color: var(--text-2); }
+  .deadline svg { width: 0.95em; height: 0.95em; }
   .deadline-box { border-radius: 12px; padding: 10px 14px; display: grid; gap: 2px; }
   .deadline-box.passed, .deadline-box.today { background: var(--alert-bg); }
   .deadline-box.imminent, .deadline-box.soon { background: var(--caution-bg); }
@@ -417,7 +427,7 @@
   .bullets { display: grid; gap: 12px; }
   .bullet { display: flex; gap: 12px; align-items: baseline; }
   .bullet .ic { flex: 0 0 18px; color: var(--accent); }
-  .bullet svg { width: 15px; height: 15px; }
+  .bullet svg { width: 0.95em; height: 0.95em; }
 
   .segment {
     display: grid;
@@ -458,7 +468,7 @@
   }
   .list-row:last-child { border-bottom: 0; }
   .list-row .ic { color: var(--accent); display: grid; place-items: center; }
-  .list-row svg { width: 17px; height: 17px; }
+  .list-row svg { width: 1.05em; height: 1.05em; }
   .list-row .chev { margin-left: auto; color: var(--text-2); }
   button.list-row { font: inherit; width: 100%; text-align: left; background: none; border-top: 0; border-left: 0; border-right: 0; color: inherit; cursor: pointer; }
 
@@ -625,7 +635,9 @@
     if (!spec) return null;
     const amount = spec.amount ?? spec.days ?? 0;
     switch (spec.unit || 'days') {
-      case 'hours':  return new Date(dod.getTime() + amount * 3600000);
+      // Wie in DeadlineEngine: Stundenfristen runden auf das Tagesende,
+      // weil wir nur das Sterbedatum kennen, nicht die Uhrzeit.
+      case 'hours':  return endOfDay(new Date(dod.getTime() + amount * 3600000));
       case 'months': {
         const d = new Date(dod); d.setMonth(d.getMonth() + amount); return endOfDay(d);
       }
@@ -659,13 +671,7 @@
   }
 
   const fmtDate = new Intl.DateTimeFormat('de-DE', { day: 'numeric', month: 'long', year: 'numeric' });
-  const fmtDateTime = new Intl.DateTimeFormat('de-DE', {
-    day: 'numeric', month: 'long', year: 'numeric', hour: '2-digit', minute: '2-digit',
-  });
-  const formatDue = (due, spec) =>
-    spec && spec.unit === 'hours' && (spec.amount ?? 0) > 0
-      ? fmtDateTime.format(due) + ' Uhr'
-      : fmtDate.format(due);
+  const formatDue = (due) => fmtDate.format(due);
   const isImmediate = (spec) => spec && (spec.amount ?? spec.days ?? 0) === 0;
 
   // ------------------------------------------------------------- Stammdaten
@@ -771,11 +777,16 @@
     return { done: rel.filter((t) => statusOf(t.id) === 'done').length, total: rel.length };
   }
 
+  // Spiegelt Checklist.deadlineEntries: „unverzüglich“ ist keine Frist,
+  // und verstrichene Empfehlungen sollen die Übersicht nicht zur Mahnliste
+  // machen. Verstrichene gesetzliche Fristen bleiben sichtbar.
   function deadlineEntries() {
+    const now = NOW();
     return TASKS
-      .filter((t) => t.deadline && matches(t.conditions) && statusOf(t.id) === 'open')
+      .filter((t) => t.deadline && !isImmediate(t.deadline)
+                  && matches(t.conditions) && statusOf(t.id) === 'open')
       .map((t) => ({ task: t, due: dueDate(t.deadline, profile.dateOfDeath) }))
-      .filter((e) => e.due)
+      .filter((e) => e.due && !(e.due < now && !e.task.deadline.strict))
       .sort((a, b) => a.due - b.due || (a.task.priority ?? 0) - (b.task.priority ?? 0));
   }
 
@@ -806,7 +817,7 @@
     if (style === 'box') {
       return `<div class="deadline-box ${u}">
         <div class="deadline ${u}">${icon(u === 'passed' ? 'warn' : 'clock')}<span>${esc(text)}</span></div>
-        ${immediate ? '' : `<span class="tiny muted">${esc(formatDue(due, spec))}</span>`}
+        ${immediate ? '' : `<span class="tiny muted">${esc(formatDue(due))}</span>`}
         ${spec.note ? `<span class="tiny muted">${esc(spec.note)}</span>` : ''}
       </div>`;
     }
@@ -825,7 +836,7 @@
 
     if (step === 'welcome') {
       body = `
-        <div style="color:var(--accent);margin-bottom:4px">${icon('leaf', '')}</div>
+        <div style="color:var(--accent);margin-bottom:4px">${icon('leaf', 'big')}</div>
         <h1 class="title-lg">Danach</h1>
         <p class="lede">Es tut uns leid, dass Sie diese App brauchen.</p>
         <p class="muted" style="line-height:1.55">${para('Nach einem Todesfall gibt es vieles zu regeln, und fast nichts davon ist offensichtlich. Diese App zeigt Ihnen, was zu tun ist – in Ruhe, Schritt für Schritt, in der richtigen Reihenfolge.\n\nWir stellen Ihnen dafür fünf kurze Fragen. Sie können jede Antwort später ändern.\n\nAlles, was Sie eingeben, bleibt auf diesem Gerät.')}</p>`;
@@ -926,7 +937,7 @@
       return `<button class="row-btn" data-act="${locked ? 'paywall' : 'phase'}" data-phase="${p.id}">
         <div class="card">
           <div style="display:flex;gap:12px;align-items:flex-start">
-            <span style="color:${locked ? 'var(--text-2)' : 'var(--accent)'};flex:0 0 26px">
+            <span style="color:${locked ? 'var(--text-2)' : 'var(--accent)'};flex:0 0 auto;width:1.7em;display:grid;place-items:center">
               ${icon(locked ? 'lock' : ['clock','checklist','folder','leaf'][p.id-1])}</span>
             <span style="flex:1;display:grid;gap:3px">
               <span class="task-title">${p.title}</span>
@@ -1049,7 +1060,7 @@
     const entries = deadlineEntries();
     const now = NOW();
     const groups = [
-      ['Frist verstrichen', entries.filter((e) => urgency(e.due, now) === 'passed')],
+      ['Abgelaufen', entries.filter((e) => urgency(e.due, now) === 'passed')],
       ['In den nächsten Tagen', entries.filter((e) => ['today','imminent','soon'].includes(urgency(e.due, now)))],
       ['Später', entries.filter((e) => ['upcoming','distant'].includes(urgency(e.due, now)))],
     ].filter(([, list]) => list.length);
@@ -1057,6 +1068,7 @@
     const body = groups.map(([title, list]) => `
       <div style="display:grid;gap:8px">
         <span class="group-head">${title}</span>
+        ${title === 'Abgelaufen' ? '<span class="tiny muted" style="margin:-4px 2px 4px">Eine abgelaufene Frist heißt nicht, dass nichts mehr geht. Oft lässt sich etwas nachholen oder eine Verlängerung erreichen. Fragen Sie bei der zuständigen Stelle nach.</span>' : ''}
         <div class="card flat" style="padding:2px 16px">
           ${list.map((e, i) => {
             const locked = e.task.phase !== 1 && !unlocked;
@@ -1066,7 +1078,7 @@
                 <span style="flex:1;display:grid;gap:3px">
                   <span class="task-title">${esc(e.task.title)}</span>
                   <span class="deadline ${u}">${icon(u === 'passed' ? 'warn' : 'clock')}<span>${esc(isImmediate(e.task.deadline) ? e.task.deadline.label : countdown(e.due, now))}</span></span>
-                  ${isImmediate(e.task.deadline) ? '' : `<span class="tiny muted">${esc(formatDue(e.due, e.task.deadline))}</span>`}
+                  ${isImmediate(e.task.deadline) ? '' : `<span class="tiny muted">${esc(formatDue(e.due))}</span>`}
                   <span class="tiny muted">${PHASES.find((p) => p.id === e.task.phase).title}</span>
                 </span>
                 <span class="muted">${icon(locked ? 'lock' : 'chev')}</span>
@@ -1096,7 +1108,7 @@
       vp.innerHTML = `<div class="app">
         <h1 class="title-lg">Unterlagen</h1>
         <div class="card">
-          <span style="color:var(--accent)">${icon('folder')}</span>
+          <span style="color:var(--accent)">${icon('folder', 'big')}</span>
           <span class="title-md">Die Unterlagen-Mappe</span>
           <span class="muted small">Eine abhakbare Liste aller Dokumente, die Sie in den nächsten Wochen brauchen werden – mit der empfohlenen Anzahl, der ausstellenden Stelle und dem Grund. Enthalten in der Vollversion.</span>
         </div>

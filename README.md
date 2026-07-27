@@ -11,6 +11,20 @@ dafür.
 **Die App ersetzt keine Rechtsberatung.** Alle Angaben sind allgemeine
 Orientierung.
 
+## So sieht es aus
+
+| Aufgaben | Aufgabendetail | Fristen |
+|---|---|---|
+| ![Phasenübersicht](Tools/preview/bilder/aufgaben.png) | ![Aufgabendetail](Tools/preview/bilder/aufgabe.png) | ![Fristen](Tools/preview/bilder/fristen.png) |
+
+| Paywall im Dunkelmodus | Schrift auf 170 Prozent |
+|---|---|
+| ![Paywall](Tools/preview/bilder/paywall-dunkel.png) | ![Große Schrift](Tools/preview/bilder/grossschrift.png) |
+
+Die Bilder stammen aus der Browser-Vorschau, nicht aus dem Simulator. Auf dem
+Gerät rendert iOS in SF Pro; hier steht eine Ersatzschrift, die etwas breiter
+läuft.
+
 ## Grundsätze
 
 - **Komplett lokal.** Kein Backend, kein Account, kein Tracking, keine
@@ -145,6 +159,13 @@ alle Bildschirme, echte Inhalte, echte Fristberechnung:
 ```bash
 python3 Tools/preview/build.py
 open Tools/preview/index.html
+```
+
+Screenshots aller Bildschirme in hell und dunkel erzeugt:
+
+```bash
+cd Tools && npm install playwright-core && cd ..
+node Tools/preview/shoot.mjs "$PWD/Tools/preview/index.html" Tools/preview/screenshots
 ```
 
 Die Vorschau setzt den Inhalt aus `Danach/Content` in eine Einzeldatei ein

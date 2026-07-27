@@ -37,10 +37,17 @@ struct DeadlineOverviewView: View {
         // Beschriftete Tupel: Ohne die Labels passt der Typ nicht zum
         // Rückgabetyp, weil Swift Tupel-Labels in Arrays nicht angleicht.
         var result: [(title: String, entries: [ChecklistEntry])] = []
-        if !passed.isEmpty { result.append(("Frist verstrichen", passed)) }
+        if !passed.isEmpty { result.append(("Abgelaufen", passed)) }
         if !thisWeek.isEmpty { result.append(("In den nächsten Tagen", thisWeek)) }
         if !later.isEmpty { result.append(("Später", later)) }
         return result
+    }
+
+    /// Erklärung unter einer Gruppenüberschrift. Nur dort, wo sie nötig ist.
+    private func note(for title: String) -> String? {
+        title == "Abgelaufen"
+            ? "Eine abgelaufene Frist heißt nicht, dass nichts mehr geht. Oft lässt sich etwas nachholen oder eine Verlängerung erreichen. Fragen Sie bei der zuständigen Stelle nach."
+            : nil
     }
 
     var body: some View {
@@ -53,6 +60,13 @@ struct DeadlineOverviewView: View {
                         ForEach(groups, id: \.title) { group in
                             VStack(alignment: .leading, spacing: Spacing.s) {
                                 SectionHeading(text: group.title)
+                                if let note = note(for: group.title) {
+                                    Text(note)
+                                        .font(.footnote)
+                                        .foregroundStyle(Palette.textSecondary)
+                                        .fixedSize(horizontal: false, vertical: true)
+                                        .padding(.bottom, Spacing.xs)
+                                }
                                 VStack(spacing: 0) {
                                     ForEach(Array(group.entries.enumerated()), id: \.element.id) { index, entry in
                                         row(entry)

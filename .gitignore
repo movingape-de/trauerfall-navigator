@@ -24,3 +24,6 @@ fastlane/screenshots
 # Node (Prüfwerkzeuge)
 Tools/node_modules/
 Tools/package-lock.json
+
+# Screenshots werden per Tools/preview/shoot.mjs erzeugt
+Tools/preview/screenshots/

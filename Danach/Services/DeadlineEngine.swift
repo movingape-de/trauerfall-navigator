@@ -45,7 +45,12 @@ enum DeadlineEngine {
 
         switch spec.unit {
         case .hours:
-            return calendar.date(byAdding: .hour, value: spec.amount, to: dateOfDeath)
+            // Wir erfragen nur das Sterbedatum, nicht die Uhrzeit. Eine
+            // minutengenaue Frist würde eine Genauigkeit vortäuschen, die wir
+            // nicht haben. Deshalb rundet auch eine Stundenfrist auf das Ende
+            // des erreichten Tages; die genaue Vorgabe steht im Frist-Text.
+            let reached = calendar.date(byAdding: .hour, value: spec.amount, to: dateOfDeath) ?? dateOfDeath
+            return endOfDay(reached)
         case .days:
             let day = calendar.date(byAdding: .day, value: spec.amount, to: dateOfDeath) ?? dateOfDeath
             return endOfDay(day)
@@ -136,20 +141,10 @@ enum DeadlineEngine {
         return formatter
     }()
 
-    static let dateTimeFormatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.locale = Locale(identifier: "de_DE")
-        formatter.dateStyle = .long
-        formatter.timeStyle = .short
-        return formatter
-    }()
-
-    /// Bei stundengenauen Fristen ist die Uhrzeit relevant.
+    /// Fristen werden auf den Tag genau angezeigt. Die genauere Vorgabe,
+    /// etwa „binnen 48 Stunden“, steht im Text der Frist.
     static func formatted(_ due: Date, spec: DeadlineSpec?) -> String {
-        if spec?.unit == .hours && (spec?.amount ?? 0) > 0 {
-            return dateTimeFormatter.string(from: due)
-        }
-        return dateFormatter.string(from: due)
+        dateFormatter.string(from: due)
     }
 
     private static func endOfDay(_ date: Date) -> Date {

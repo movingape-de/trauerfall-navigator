@@ -53,13 +53,28 @@ enum Checklist {
     }
 
     /// Alle Einträge mit Frist, sortiert nach Dringlichkeit.
-    /// Erledigte und als nicht relevant markierte Aufgaben fallen heraus.
+    ///
+    /// Nicht jede Angabe im Feld `deadline` gehört in eine Countdown-Liste.
+    /// Zwei Fälle bleiben bewusst draußen, weil die Übersicht sonst schon am
+    /// zweiten Tag nach dem Todesfall wie eine Mahnliste aussieht:
+    ///
+    /// - „unverzüglich“ und „sofort“ beschreiben eine Reihenfolge, keine Frist.
+    ///   Sie stehen in der Aufgabenliste, wo sie hingehören.
+    /// - Weiche Empfehlungen wie „in den ersten Tagen“ verschwinden, sobald sie
+    ///   verstrichen sind. Wer am fünften Tag zum ersten Mal die App öffnet,
+    ///   soll nicht mit acht roten Zeilen begrüßt werden.
+    ///
+    /// Verstrichene gesetzliche und vertragliche Fristen bleiben sichtbar.
+    /// Die darf man nicht verschweigen.
     static func deadlineEntries(profile: ProfileSnapshot,
                                 states: [String: TaskState],
+                                now: Date = Date(),
                                 content: ContentStore = .shared) -> [ChecklistEntry] {
         content.tasks(for: profile)
             .compactMap { definition -> ChecklistEntry? in
-                guard definition.deadline != nil else { return nil }
+                guard let spec = definition.deadline else { return nil }
+                guard !DeadlineEngine.isImmediate(spec) else { return nil }
+
                 let state = states[definition.id]
                 let status = state?.status ?? .open
                 guard status == .open else { return nil }
@@ -68,6 +83,7 @@ enum Checklist {
                                                        override: state?.customDueDate) else {
                     return nil
                 }
+                if due < now && !spec.strict { return nil }
                 return ChecklistEntry(definition: definition, state: state, dueDate: due)
             }
             .sorted { lhs, rhs in
