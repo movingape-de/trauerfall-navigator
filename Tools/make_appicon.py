@@ -5,25 +5,23 @@ Erzeugt das App-Icon aus der Farbwelt der App.
     python3 -m pip install Pillow
     python3 Tools/make_appicon.py
 
-Motiv: ein offener Ring in gedämpftem Salbeigrün auf warmem Off-White.
-Die Öffnung zeigt nach oben – etwas, das nicht abgeschlossen ist, aber
-auch nicht zerbrochen. Kein Kreuz, keine Kerze, kein Grabstein: Die App
-soll auf dem Homescreen nicht wie eine Beerdigung aussehen, sondern wie
-etwas, das man ohne Überwindung antippt.
+Motiv: ein Blatt in gedämpftem Salbeigrün auf warmem Off-White, um
+fünfundvierzig Grad gestellt. Dasselbe Zeichen begrüßt die Nutzer im
+Onboarding – Icon und App führen bewusst dieselbe Bildmarke.
 
-Der Ring trägt bis hinunter zu 40 Pixeln Kantenlänge, wo eine gefüllte
-Scheibe – das frühere Motiv – nur noch ein Punkt war.
+Kein Kreuz, keine Kerze, kein Grabstein: Die App soll auf dem Homescreen
+nicht wie eine Beerdigung aussehen, sondern wie etwas, das man ohne
+Überwindung antippt.
 
-Eine Horizontlinie ist vorgesehen, aber abgeschaltet: Sie verschwindet
-beim Verkleinern lange bevor das Icon seine tatsächliche Größe erreicht,
-und in voller Größe schneidet sie den Ring, statt ihn zu tragen. Wer sie
-zurückholen will, setzt HORIZONT_Y auf einen Anteil der Bildhöhe –
-0.635 schneidet den Ring, 0.782 legt sie knapp unter ihn.
+Der Umriss entsteht aus einer Kurve, die an der Basis breit ansetzt und
+zur Spitze ausläuft; die Mittelrippe ist ausgespart statt aufgemalt,
+damit sie beim Verkleinern zuerst verschwindet und nicht verschmiert.
+Ein reiner Umriss statt der Fläche wurde verworfen: Er franst an den
+Rundungen aus und ist bei sechzig Pixeln nicht mehr zu lesen.
 
 Nur Pillow als Abhängigkeit.
 """
 
-import math
 from pathlib import Path
 
 from PIL import Image, ImageDraw
@@ -33,74 +31,65 @@ SS = 4  # Supersampling für weiche Kanten
 
 BG_TOP = (250, 248, 244)      # warmes Off-White
 BG_BOTTOM = (241, 237, 230)
-HORIZON = (214, 207, 195)
-RING = (95, 127, 102)         # gedämpftes Salbeigrün, wie Palette.accent
-# Auf dem Homescreen steht das Icon neben Watch und Fitness, die beide
-# ebenfalls Ringe zeigen. Wem es dort zu leise ist: (72, 99, 79) mit
-# RING_RADIUS 0.330 und RING_STRICH 0.068 trägt bei 60 Pixeln deutlich
-# weiter, weicht dafür von der Akzentfarbe ins Dunklere ab.
+LEAF = (95, 127, 102)         # gedämpftes Salbeigrün, wie Palette.accent
 
-HORIZONT_Y = None             # None = keine Linie, sonst Anteil der Höhe
+# Alle Maße als Anteil der Bildkante.
+BLATT_LAENGE = 0.80
+BLATT_BREITE = 0.215
+RIPPE_STAERKE = 0.036
+NEIGUNG = 45                  # Grad gegen den Uhrzeigersinn
 
-# Lage und Stärke des Rings, jeweils als Anteil der Bildkante.
-RING_MITTE_X = 0.485          # eine Spur nach links, das wirkt weniger starr
-RING_MITTE_Y = 0.500
-RING_RADIUS = 0.310
-RING_STRICH = 0.062
-
-# Pillow zählt Winkel im Uhrzeigersinn ab der Drei-Uhr-Position.
-# Diese beiden lassen oben eine Lücke von gut achtzig Grad offen.
-BOGEN_START = 313
-BOGEN_ENDE = 591
+# Exponenten der Umrisskurve. Der kleinere Wert sitzt an der Basis und
+# hält sie breit, der größere lässt die Spitze auslaufen. Vertauscht man
+# beide, steht das Blatt auf dem Kopf.
+E_BASIS = 0.62
+E_SPITZE = 1.05
 
 OUT = Path(__file__).resolve().parent.parent / \
     "Danach/Resources/Assets.xcassets/AppIcon.appiconset/AppIcon-1024.png"
 
 
+def umriss(mitte: float, laenge: float, breite: float, punkte: int = 500):
+    """Halbe Kontur oben, halbe unten – zusammen ein geschlossenes Blatt."""
+    oben, unten = [], []
+    for i in range(punkte + 1):
+        t = -1 + 2 * i / punkte          # -1 Basis, +1 Spitze
+        w = (1 + t) ** E_BASIS * (1 - t) ** E_SPITZE
+        y = breite * w / 1.05
+        x = laenge * t / 2
+        oben.append((mitte + x, mitte - y))
+        unten.append((mitte + x, mitte + y))
+    return oben + unten[::-1]
+
+
 def build() -> Image.Image:
     w = SIZE * SS
-    image = Image.new("RGB", (w, w), BG_TOP)
-    draw = ImageDraw.Draw(image)
+    mitte = w / 2
 
-    # Sehr sanfter senkrechter Verlauf
+    blatt = Image.new("RGBA", (w, w), (0, 0, 0, 0))
+    draw = ImageDraw.Draw(blatt)
+    laenge = BLATT_LAENGE * w
+    draw.polygon(umriss(mitte, laenge, BLATT_BREITE * w), fill=LEAF)
+
+    # Mittelrippe: aus der Fläche geschnitten, nicht daraufgesetzt.
+    draw.line(
+        [(mitte - laenge / 2, mitte), (mitte + laenge / 2, mitte)],
+        fill=(0, 0, 0, 0),
+        width=round(RIPPE_STAERKE * w),
+    )
+
+    blatt = blatt.rotate(NEIGUNG, resample=Image.BICUBIC, center=(mitte, mitte))
+
+    image = Image.new("RGB", (w, w), BG_TOP)
+    grund = ImageDraw.Draw(image)
     for y in range(w):
         t = y / (w - 1)
         color = tuple(
             round(BG_TOP[i] + (BG_BOTTOM[i] - BG_TOP[i]) * t) for i in range(3)
         )
-        draw.line([(0, y), (w, y)], fill=color)
+        grund.line([(0, y), (w, y)], fill=color)
 
-    if HORIZONT_Y is not None:
-        y = round(HORIZONT_Y * w)
-        draw.line([(0, y), (w, y)], fill=HORIZON, width=max(1, round(0.006 * w)))
-
-    mitte_x = round(RING_MITTE_X * w)
-    mitte_y = round(RING_MITTE_Y * w)
-    radius = round(RING_RADIUS * w)
-    strich = round(RING_STRICH * w)
-
-    draw.arc(
-        [mitte_x - radius, mitte_y - radius,
-         mitte_x + radius, mitte_y + radius],
-        start=BOGEN_START,
-        end=BOGEN_ENDE,
-        fill=RING,
-        width=strich,
-    )
-
-    # Pillow zeichnet Bögen stumpf ab. Die runden Enden setzen wir selbst.
-    mittlerer_radius = radius - strich / 2
-    ende_radius = strich / 2
-    for winkel in (BOGEN_START, BOGEN_ENDE):
-        bogen = math.radians(winkel)
-        x = mitte_x + mittlerer_radius * math.cos(bogen)
-        y = mitte_y + mittlerer_radius * math.sin(bogen)
-        draw.ellipse(
-            [x - ende_radius, y - ende_radius,
-             x + ende_radius, y + ende_radius],
-            fill=RING,
-        )
-
+    image.paste(blatt, (0, 0), blatt)
     return image.resize((SIZE, SIZE), Image.LANCZOS)
 
 
