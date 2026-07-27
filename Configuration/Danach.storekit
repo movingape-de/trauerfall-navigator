@@ -1,0 +1,33 @@
+{
+  "identifier" : "A1B2C3D4",
+  "nonRenewingSubscriptions" : [
+  ],
+  "products" : [
+    {
+      "displayPrice" : "9.99",
+      "familyShareable" : false,
+      "internalID" : "DANACH0001",
+      "localizations" : [
+        {
+          "description" : "Alle vier Phasen, Erinnerungen an Fristen und die Unterlagen-Mappe. Einmalige Zahlung, kein Abonnement.",
+          "displayName" : "Vollversion freischalten",
+          "locale" : "de_DE"
+        }
+      ],
+      "productID" : "de.guteinern.danach.vollversion",
+      "referenceName" : "Vollversion",
+      "type" : "NonConsumable"
+    }
+  ],
+  "settings" : {
+    "_applicationInternalID" : "DANACH",
+    "_developerTeamID" : "",
+    "_lastSynchronizedDate" : 0
+  },
+  "subscriptionGroups" : [
+  ],
+  "version" : {
+    "major" : 4,
+    "minor" : 0
+  }
+}
