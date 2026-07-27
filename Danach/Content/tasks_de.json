@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "updated": "2026-07-27",
   "tasks": [
     {
@@ -7,7 +7,7 @@
       "phase": 1,
       "title": "Arzt rufen für die Todesbescheinigung",
       "summary": "Wenn jemand zuhause stirbt, muss ein Arzt kommen und den Tod feststellen.",
-      "details": "Rufen Sie den Hausarzt der verstorbenen Person an. Ist die Praxis geschlossen, wählen Sie den ärztlichen Bereitschaftsdienst unter 116 117. Bei einem plötzlichen oder ungeklärten Tod wählen Sie 112.\n\nDer Arzt führt die Leichenschau durch und stellt die Todesbescheinigung aus, die oft auch Totenschein genannt wird. Ohne dieses Dokument geht nichts weiter: Das Standesamt braucht es für die Sterbeurkunde, der Bestatter für die Überführung.\n\nSie müssen sich nicht beeilen im Sinne von Hetze. Nehmen Sie sich die Zeit, die Sie brauchen, um Abschied zu nehmen. Es ist erlaubt, dass die verstorbene Person noch einige Stunden zuhause bleibt.",
+      "details": "Rufen Sie den Hausarzt der verstorbenen Person an. Ist die Praxis geschlossen, wählen Sie den ärztlichen Bereitschaftsdienst unter 116 117. Bei einem plötzlichen oder ungeklärten Tod wählen Sie 112.\n\nDer Arzt führt die Leichenschau durch und stellt die Todesbescheinigung aus, die oft Totenschein genannt wird. Ohne dieses Dokument geht nichts weiter: Das Standesamt braucht es für die Sterbeurkunde, der Bestatter für die Überführung.\n\nSie müssen sich nicht hetzen. Nehmen Sie sich die Zeit, die Sie brauchen, um Abschied zu nehmen. Es ist erlaubt und üblich, dass die verstorbene Person noch einige Stunden zuhause bleibt.",
       "documents": [
         "Personalausweis oder Reisepass der verstorbenen Person",
         "Krankenversichertenkarte",
@@ -20,7 +20,8 @@
       ],
       "tips": [
         "Fragen Sie nach mehreren Ausfertigungen der Todesbescheinigung.",
-        "Notieren Sie sich Name und Anschrift des Arztes – das wird später gelegentlich abgefragt."
+        "Notieren Sie Name und Anschrift des Arztes. Das wird später gelegentlich abgefragt.",
+        "Verändern Sie nichts am Sterbeort, solange die Todesursache unklar ist."
       ],
       "deadline": {
         "type": "relative",
@@ -30,7 +31,9 @@
         "strict": true
       },
       "conditions": {
-        "placeOfDeath": ["home"]
+        "placeOfDeath": [
+          "home"
+        ]
       },
       "priority": 1
     },
@@ -39,7 +42,7 @@
       "phase": 1,
       "title": "Todesbescheinigung von der Einrichtung erhalten",
       "summary": "Krankenhaus oder Pflegeheim stellen die Todesbescheinigung aus. Fragen Sie danach.",
-      "details": "In Krankenhaus und Pflegeheim übernimmt der diensthabende Arzt die Leichenschau. Sie müssen selbst keinen Arzt rufen.\n\nFragen Sie an der Station oder in der Verwaltung nach, wann die Todesbescheinigung vorliegt und wer sie Ihnen aushändigt. Häufig wird sie direkt an den Bestatter übergeben, den Sie beauftragen.\n\nKlären Sie im selben Gespräch, bis wann die verstorbene Person dort bleiben kann und wann die persönlichen Sachen abgeholt werden sollen.",
+      "details": "In Krankenhaus und Pflegeheim übernimmt der diensthabende Arzt die Leichenschau. Sie müssen selbst keinen Arzt rufen.\n\nFragen Sie an der Station oder in der Verwaltung nach, wann die Todesbescheinigung vorliegt und wer sie Ihnen aushändigt. Häufig wird sie direkt an den Bestatter übergeben, den Sie beauftragen.\n\nKlären Sie im selben Gespräch, bis wann die verstorbene Person dort bleiben kann und wann die persönlichen Sachen abgeholt werden sollen. Manche Einrichtungen drängen, andere lassen Ihnen Zeit. Sie dürfen um Zeit bitten.",
       "documents": [
         "Ihr eigener Personalausweis",
         "Personalausweis der verstorbenen Person"
@@ -50,7 +53,8 @@
       ],
       "tips": [
         "Fragen Sie nach mehreren Ausfertigungen.",
-        "Bitten Sie darum, dass Wertsachen dokumentiert und Ihnen gegen Quittung übergeben werden."
+        "Bitten Sie darum, dass Wertsachen dokumentiert und Ihnen gegen Quittung übergeben werden.",
+        "Im Pflegeheim endet der Heimvertrag meist zum Todestag. Lassen Sie sich das schriftlich bestätigen."
       ],
       "deadline": {
         "type": "relative",
@@ -60,23 +64,80 @@
         "strict": false
       },
       "conditions": {
-        "placeOfDeath": ["hospital", "care_home"]
+        "placeOfDeath": [
+          "hospital",
+          "care_home"
+        ]
       },
-      "priority": 1
+      "priority": 2
+    },
+    {
+      "id": "todesfall_andernorts",
+      "phase": 1,
+      "title": "Behörden am Sterbeort einschalten",
+      "summary": "Bei einem Todesfall unterwegs oder im Ausland läuft vieles anders.",
+      "details": "Ist die Person außerhalb von Wohnung, Krankenhaus oder Heim gestorben, ist meist die Polizei eingeschaltet. Sie sorgt für die Leichenschau und gibt den Leichnam frei, sobald die Todesursache geklärt ist. Bis dahin kann kein Bestatter tätig werden.\n\nIm Ausland wenden Sie sich an die deutsche Botschaft oder das Konsulat. Dort erfahren Sie, welche Papiere nötig sind. Eine Überführung nach Deutschland ist aufwendig und teuer; Versicherungen übernehmen die Kosten nur, wenn die Rückführung ausdrücklich mitversichert ist.\n\nPrüfen Sie deshalb früh, ob eine Reiseversicherung, eine Kreditkarte, ein Automobilclub oder der Arbeitgeber eine Rückführung abdeckt.",
+      "documents": [
+        "Personalausweis oder Reisepass der verstorbenen Person",
+        "Reiseunterlagen und Versicherungspolicen",
+        "Sterbeurkunde des Sterbelandes, möglichst international"
+      ],
+      "contacts": [
+        "Polizei vor Ort",
+        "Deutsche Botschaft oder Konsulat",
+        "Auswärtiges Amt, Bürgerservice",
+        "Bestatter mit Erfahrung in Überführungen"
+      ],
+      "tips": [
+        "Lassen Sie sich eine internationale Sterbeurkunde ausstellen, das erspart Übersetzungen.",
+        "Bei ungeklärter Todesursache kann eine Obduktion angeordnet werden. Das verzögert die Bestattung und ist nicht zu verhindern."
+      ],
+      "deadline": {
+        "type": "relative",
+        "unit": "days",
+        "amount": 2,
+        "label": "so früh wie möglich",
+        "strict": false
+      },
+      "conditions": {
+        "placeOfDeath": [
+          "elsewhere"
+        ]
+      },
+      "priority": 3
+    },
+    {
+      "id": "innehalten_unterstuetzung",
+      "phase": 1,
+      "title": "Sich selbst nicht vergessen",
+      "summary": "Holen Sie jemanden dazu. Niemand muss das allein durchstehen.",
+      "details": "Die nächsten Tage bringen viele Telefonate, Formulare und Entscheidungen. Das ist selbst in guter Verfassung anstrengend, und Sie sind es gerade nicht.\n\nBitten Sie eine Person Ihres Vertrauens, dabei zu sein: bei den Telefonaten, beim Gespräch mit dem Bestatter, beim Behördengang. Zu zweit übersieht man weniger und unterschreibt nichts, was man später bereut.\n\nEssen und schlafen Sie, so gut es geht. Wenn Sie berufstätig sind, melden Sie sich für die nächsten Tage ab, bevor Sie es vergessen.\n\nDiese Aufgabe hat keine Frist. Sie steht hier, weil sie sonst untergeht.",
+      "documents": [],
+      "contacts": [
+        "Telefonseelsorge, rund um die Uhr und kostenfrei: 0800 111 0 111 oder 0800 111 0 222",
+        "Hausarzt",
+        "Gemeinde, Seelsorge oder Trauerbegleitung vor Ort"
+      ],
+      "tips": [
+        "Sagen Sie einer Person konkret, worum Sie bitten. „Kannst du morgen mitkommen?“ hilft mehr als „melde dich, wenn du kannst“.",
+        "Verschieben Sie große Entscheidungen, die keine Frist haben."
+      ],
+      "priority": 4
     },
     {
       "id": "engste_angehoerige",
       "phase": 1,
       "title": "Die engsten Angehörigen benachrichtigen",
       "summary": "Nur der kleine Kreis, der es sofort erfahren sollte. Alles Weitere hat Zeit.",
-      "details": "Überlegen Sie in Ruhe, wer es unbedingt heute erfahren muss: Kinder, Eltern, Geschwister, engste Freunde.\n\nSie müssen nicht alle selbst anrufen. Es ist völlig in Ordnung, jemanden zu bitten, einen Teil der Anrufe zu übernehmen. Schreiben Sie sich auf, wer schon informiert ist – in diesem Zustand vergisst man das leicht.\n\nAlle anderen können später erfahren, oft ohnehin erst mit der Traueranzeige oder der Einladung zur Trauerfeier.",
+      "details": "Überlegen Sie in Ruhe, wer es unbedingt heute erfahren muss: Kinder, Eltern, Geschwister, engste Freunde.\n\nSie müssen nicht alle selbst anrufen. Es ist völlig in Ordnung, jemanden zu bitten, einen Teil der Anrufe zu übernehmen. Schreiben Sie auf, wer schon informiert ist; in diesem Zustand vergisst man das leicht.\n\nAlle anderen können später erfahren, oft ohnehin erst mit der Traueranzeige oder der Einladung zur Trauerfeier.",
       "documents": [
-        "Adressbuch oder Telefonliste der verstorbenen Person"
+        "Adressbuch, Telefonliste oder Handy der verstorbenen Person"
       ],
       "contacts": [],
       "tips": [
         "Bitten Sie eine Person Ihres Vertrauens, die Telefonate zu verteilen.",
-        "Nutzen Sie das Notizfeld unten, um festzuhalten, wen Sie schon erreicht haben."
+        "Nutzen Sie das Notizfeld, um festzuhalten, wen Sie schon erreicht haben.",
+        "Denken Sie an Menschen ohne Familienanschluss: Nachbarn, alte Kollegen, den Verein."
       ],
       "deadline": {
         "type": "relative",
@@ -85,31 +146,90 @@
         "label": "am ersten Tag",
         "strict": false
       },
-      "priority": 2
+      "priority": 5
+    },
+    {
+      "id": "letzte_wuensche_pruefen",
+      "phase": 1,
+      "title": "Nach Wünschen zur Bestattung suchen",
+      "summary": "Eine Bestattungsverfügung nimmt Ihnen schwere Entscheidungen ab.",
+      "details": "Viele Menschen halten schriftlich fest, wie sie bestattet werden möchten: Erd- oder Feuerbestattung, Friedhof, Seebestattung, Musik, ob eine Trauerfeier gewünscht ist.\n\nSolche Wünsche stehen in einer Bestattungsverfügung, manchmal auch in einer Patientenverfügung, im Testament oder einfach in einem Brief. Suchen Sie im Ordner mit wichtigen Papieren, im Nachttisch, im Schreibtisch.\n\nEin Hinweis, der oft überrascht: Wünsche im Testament werden häufig zu spät bekannt, weil das Testament erst nach der Bestattung eröffnet wird. Suchen Sie deshalb aktiv, statt auf das Nachlassgericht zu warten.\n\nGibt es nichts Schriftliches, entscheiden die nächsten Angehörigen. Sprechen Sie sich in der Familie ab, bevor Sie etwas beauftragen.",
+      "documents": [
+        "Bestattungsverfügung",
+        "Patientenverfügung",
+        "Grabnutzungsurkunde für ein bestehendes Familiengrab"
+      ],
+      "contacts": [
+        "Familie und enge Freunde",
+        "Hausarzt oder Pflegedienst, wenn Verfügungen dort hinterlegt waren"
+      ],
+      "tips": [
+        "Gibt es ein Familiengrab, klärt die Grabnutzungsurkunde, wer dort beigesetzt werden darf.",
+        "Eine Feuerbestattung setzt in einigen Bundesländern eine schriftliche Willenserklärung voraus."
+      ],
+      "deadline": {
+        "type": "relative",
+        "unit": "days",
+        "amount": 1,
+        "label": "vor dem Gespräch mit dem Bestatter",
+        "strict": false
+      },
+      "priority": 6
+    },
+    {
+      "id": "bestattungsvorsorge_pruefen",
+      "phase": 1,
+      "title": "Unterlagen zur Bestattungsvorsorge heraussuchen",
+      "summary": "Prüfen Sie, ob es einen Vorsorgevertrag gibt. Er legt vieles bereits fest.",
+      "details": "Wenn die verstorbene Person zu Lebzeiten vorgesorgt hat, sind viele Entscheidungen bereits getroffen und häufig auch bezahlt. Das erspart Ihnen schwierige Fragen und schützt vor unnötigen Kosten.\n\nSuchen Sie nach einem Bestattungsvorsorgevertrag, einer Sterbegeldversicherung, einem Treuhandvertrag oder einer Grabnutzungsurkunde. Solche Unterlagen liegen oft bei den Versicherungspapieren, im Ordner mit wichtigen Dokumenten oder im Bankschließfach.\n\nGeben Sie den Vertrag dem Bestatter, bevor Sie Neues beauftragen. Ein bestehender Vorsorgevertrag bindet in der Regel an ein bestimmtes Institut.",
+      "documents": [
+        "Bestattungsvorsorgevertrag",
+        "Sterbegeldversicherung",
+        "Treuhandvertrag",
+        "Grabnutzungsurkunde"
+      ],
+      "contacts": [
+        "Bestattungsinstitut, mit dem der Vertrag geschlossen wurde",
+        "Deutsche Bestattungsvorsorge Treuhand AG bei Treuhandverträgen",
+        "Hausbank, falls ein Vorsorgekonto besteht"
+      ],
+      "tips": [
+        "Auch wenn Sie unsicher sind: Ein Blick in den Versicherungsordner lohnt sich fast immer.",
+        "Ein Vorsorgevertrag deckt oft nur einen Teil der Kosten. Lassen Sie sich die Differenz vorab ausrechnen."
+      ],
+      "conditions": {
+        "hasFuneralProvision": [
+          "yes",
+          "unknown"
+        ]
+      },
+      "priority": 7
     },
     {
       "id": "bestatter_beauftragen",
       "phase": 1,
       "title": "Ein Bestattungsinstitut auswählen",
       "summary": "Der Bestatter übernimmt Überführung, Behördengänge und die Organisation der Bestattung.",
-      "details": "Sie sind frei in der Wahl des Bestatters und nicht an Empfehlungen des Krankenhauses oder Heims gebunden. Nehmen Sie sich ein paar Stunden Zeit und holen Sie ruhig zwei Angebote ein – die Preise unterscheiden sich erheblich.\n\nEin guter Bestatter erklärt Ihnen jede Position, drängt zu nichts und legt Ihnen einen schriftlichen Kostenvoranschlag vor, bevor Sie unterschreiben.\n\nDer Bestatter übernimmt üblicherweise auch die Anzeige beim Standesamt und besorgt die Sterbeurkunden. Klären Sie ausdrücklich, was im Preis enthalten ist und was zusätzlich berechnet wird.",
+      "details": "Sie sind frei in der Wahl des Bestatters und nicht an Empfehlungen des Krankenhauses oder Heims gebunden. Nehmen Sie sich ein paar Stunden Zeit und holen Sie ruhig zwei Angebote ein. Die Preise unterscheiden sich erheblich, oft um mehrere tausend Euro bei gleicher Leistung.\n\nEin guter Bestatter erklärt jede Position, drängt zu nichts und legt einen schriftlichen Kostenvoranschlag vor, bevor Sie unterschreiben.\n\nDer Bestatter übernimmt üblicherweise auch die Anzeige beim Standesamt und besorgt die Sterbeurkunden. Klären Sie ausdrücklich, was im Preis enthalten ist und was zusätzlich berechnet wird.",
       "documents": [
         "Todesbescheinigung",
         "Personalausweis der verstorbenen Person",
         "Geburtsurkunde oder Stammbuch",
         "Bei Verheirateten: Heiratsurkunde",
         "Bei Geschiedenen: Scheidungsurteil",
-        "Bei Verwitweten: Sterbeurkunde des Partners",
-        "Falls vorhanden: Unterlagen zur Bestattungsvorsorge, Grabnutzungsurkunde"
+        "Bei Verwitweten: Sterbeurkunde des früheren Partners",
+        "Falls vorhanden: Bestattungsvorsorge, Grabnutzungsurkunde"
       ],
       "contacts": [
         "Bestattungsinstitute in Ihrer Nähe",
-        "Bundesverband Deutscher Bestatter für die Suche nach Mitgliedsbetrieben"
+        "Bundesverband Deutscher Bestatter für Mitgliedsbetriebe",
+        "Verbraucherzentrale bei Zweifeln an einem Angebot"
       ],
       "tips": [
         "Lassen Sie sich einen schriftlichen Kostenvoranschlag geben, bevor Sie beauftragen.",
-        "Bestellen Sie gleich mehrere beglaubigte Sterbeurkunden – Sie brauchen erfahrungsgemäß fünf bis zehn.",
-        "Wenn das Geld knapp ist: Der Antrag auf Bestattungskosten beim Sozialamt sollte gestellt werden, bevor Sie einen teuren Auftrag unterschreiben."
+        "Bestellen Sie gleich mehrere beglaubigte Sterbeurkunden. Erfahrungsgemäß brauchen Sie fünf bis zehn.",
+        "Wenn das Geld knapp ist: Der Antrag beim Sozialamt sollte gestellt werden, bevor Sie einen teuren Auftrag unterschreiben.",
+        "Sie müssen keine Leistung annehmen, die Sie nicht wollen, und den Sarg nicht im Bestattungshaus kaufen."
       ],
       "deadline": {
         "type": "relative",
@@ -119,37 +239,104 @@
         "strict": false,
         "note": "In den meisten Bundesländern muss die Überführung binnen 36 Stunden erfolgen."
       },
-      "priority": 3
+      "priority": 8
     },
     {
-      "id": "bestattungsvorsorge_pruefen",
+      "id": "wohnung_sichern",
       "phase": 1,
-      "title": "Unterlagen zur Bestattungsvorsorge heraussuchen",
-      "summary": "Prüfen Sie, ob es einen Vorsorgevertrag gibt – er legt vieles bereits fest.",
-      "details": "Wenn die verstorbene Person zu Lebzeiten vorgesorgt hat, sind viele Entscheidungen bereits getroffen und häufig auch bezahlt. Das erspart Ihnen schwierige Fragen und schützt vor unnötigen Kosten.\n\nSuchen Sie nach einem Bestattungsvorsorgevertrag, einer Sterbegeldversicherung, einem Treuhandvertrag oder einer Grabnutzungsurkunde. Solche Unterlagen liegen oft bei den Versicherungspapieren, im Ordner mit wichtigen Dokumenten oder im Bankschließfach.\n\nGeben Sie den Vertrag dem Bestatter, bevor Sie Neues beauftragen.",
+      "title": "Die Wohnung sichern und versorgen",
+      "summary": "Fenster schließen, Herd prüfen, Verderbliches entsorgen, Schlüssel klären.",
+      "details": "Wenn die verstorbene Person allein gelebt hat, kümmert sich jetzt niemand mehr um die Wohnung. Gehen Sie einmal durch: Fenster und Türen schließen, Herd und Bügeleisen prüfen, Wasserhähne zudrehen, Verderbliches aus dem Kühlschrank nehmen, Pflanzen gießen.\n\nKlären Sie, wer einen Schlüssel hat. Wechseln Sie das Schloss nur, wenn es einen konkreten Anlass gibt, und stimmen Sie sich vorher mit den übrigen Erben ab.\n\nNehmen Sie nichts von Wert mit, auch nicht in guter Absicht. Solange die Erbfolge nicht geklärt ist, gehört der Hausrat allen Erben gemeinsam. Wenn Sie etwas sichern müssen, notieren Sie, was Sie wohin gebracht haben.",
       "documents": [
-        "Bestattungsvorsorgevertrag",
-        "Sterbegeldversicherung",
-        "Grabnutzungsurkunde für ein bestehendes Familiengrab"
+        "Wohnungsschlüssel",
+        "Mietvertrag, falls auffindbar"
       ],
       "contacts": [
-        "Bestattungsinstitut, mit dem der Vertrag geschlossen wurde",
-        "Deutsche Bestattungsvorsorge Treuhand AG bei Treuhandverträgen"
+        "Nachbarn",
+        "Hausverwaltung oder Vermieter",
+        "Übrige Erben"
       ],
       "tips": [
-        "Auch wenn Sie unsicher sind: Ein Blick in den Ordner mit den Versicherungen lohnt sich fast immer."
+        "Fotografieren Sie die Räume, bevor etwas bewegt wird. Das beugt Streit vor.",
+        "Wertsachen und Bargeld gehören in den Nachlass und sollten dokumentiert werden.",
+        "Sagen Sie den Nachbarn Bescheid, damit die Wohnung nicht unbeaufsichtigt wirkt."
       ],
-      "conditions": {
-        "hasFuneralProvision": ["yes", "unknown"]
+      "deadline": {
+        "type": "relative",
+        "unit": "days",
+        "amount": 2,
+        "label": "in den ersten Tagen",
+        "strict": false
       },
-      "priority": 4
+      "priority": 9
+    },
+    {
+      "id": "haustiere_versorgen",
+      "phase": 1,
+      "title": "Haustiere versorgen",
+      "summary": "Tiere brauchen sofort jemanden, der sich kümmert.",
+      "details": "Hunde, Katzen und andere Tiere in der Wohnung brauchen unmittelbar Futter, Wasser und Auslauf. Klären Sie noch heute, wer das übernimmt.\n\nWenn niemand aus der Familie das Tier dauerhaft aufnehmen kann, wenden Sie sich an das örtliche Tierheim. Dort ist man solche Fälle gewohnt und hilft ohne Vorwürfe. Manche Tierschutzvereine vermitteln Tiere aus Todesfällen bevorzugt weiter.\n\nRechtlich gehören Tiere zum Nachlass. Wenn im Testament etwas zum Verbleib steht, hat das Vorrang.",
+      "documents": [
+        "Impfpass des Tieres",
+        "Angaben zum Tierarzt",
+        "Falls vorhanden: Hinweise im Testament"
+      ],
+      "contacts": [
+        "Tierarzt der verstorbenen Person",
+        "Örtliches Tierheim",
+        "Tierschutzverein"
+      ],
+      "tips": [
+        "Nehmen Sie gewohntes Futter und einen vertrauten Gegenstand mit, wenn das Tier umzieht.",
+        "Denken Sie an eine Ummeldung bei der Hundesteuer und der Tierhalterhaftpflicht."
+      ],
+      "deadline": {
+        "type": "relative",
+        "unit": "hours",
+        "amount": 12,
+        "label": "sofort",
+        "strict": false
+      },
+      "priority": 10
+    },
+    {
+      "id": "unterlagen_zusammensuchen",
+      "phase": 1,
+      "title": "Wichtige Unterlagen an einer Stelle sammeln",
+      "summary": "Ein Ordner, in dem alles liegt, erspart Ihnen in den nächsten Wochen viele Wege.",
+      "details": "In den kommenden Wochen wird jede Stelle etwas anderes von Ihnen sehen wollen. Wenn Sie jetzt einmal gründlich suchen, sparen Sie sich später wiederholtes Kramen.\n\nSammeln Sie: Ausweise, Stammbuch, Geburts- und Heiratsurkunde, Rentenbescheide, Versicherungspolicen, Kontoauszüge, Kredit- und Mietverträge, Steuerbescheide, Vollmachten und Verfügungen.\n\nSchauen Sie auch in Schließfach, Schreibtisch, Nachttisch und in die Ablage neben dem Fernseher. Kontoauszüge sind der beste Hinweis auf laufende Verträge, an die sonst niemand denkt.\n\nDie Unterlagen-Mappe in dieser App hilft Ihnen dabei, den Überblick zu behalten.",
+      "documents": [
+        "Personalausweis und Reisepass",
+        "Stammbuch, Geburts- und Heiratsurkunde",
+        "Rentenbescheide und Sozialversicherungsausweis",
+        "Versicherungsunterlagen",
+        "Kontoauszüge der letzten Monate",
+        "Miet-, Kredit- und Versorgungsverträge",
+        "Testament, Vollmachten, Verfügungen"
+      ],
+      "contacts": [
+        "Hausbank wegen eines möglichen Schließfachs",
+        "Steuerberater der verstorbenen Person"
+      ],
+      "tips": [
+        "Kontoauszüge der letzten zwölf Monate zeigen fast jedes laufende Abonnement.",
+        "Legen Sie ein Blatt an, auf dem Sie notieren, wem Sie welches Dokument gegeben haben."
+      ],
+      "deadline": {
+        "type": "relative",
+        "unit": "days",
+        "amount": 3,
+        "label": "in den ersten Tagen",
+        "strict": false
+      },
+      "priority": 11
     },
     {
       "id": "sterbeurkunde_standesamt",
       "phase": 2,
       "title": "Sterbefall beim Standesamt anzeigen",
       "summary": "Der Sterbefall muss spätestens am dritten Werktag nach dem Tod angezeigt werden.",
-      "details": "Zuständig ist das Standesamt des Ortes, an dem die Person gestorben ist – nicht das des Wohnortes. Das Standesamt beurkundet den Sterbefall und stellt die Sterbeurkunde aus.\n\nIn der Praxis übernimmt fast immer der Bestatter diesen Gang. Fragen Sie ausdrücklich nach, ob er das tut, und bitten Sie um mehrere beglaubigte Ausfertigungen.\n\nSie brauchen die Sterbeurkunde für nahezu jeden weiteren Schritt: Banken, Versicherungen, Rentenversicherung, Nachlassgericht, Vermieter.",
+      "details": "Zuständig ist das Standesamt des Ortes, an dem die Person gestorben ist, nicht das des Wohnortes. Das Standesamt beurkundet den Sterbefall und stellt die Sterbeurkunde aus.\n\nIn der Praxis übernimmt fast immer der Bestatter diesen Gang. Fragen Sie ausdrücklich nach, ob er das tut, und bitten Sie um mehrere beglaubigte Ausfertigungen.\n\nSie brauchen die Sterbeurkunde für nahezu jeden weiteren Schritt: Banken, Versicherungen, Rentenversicherung, Nachlassgericht, Vermieter. Die meisten Stellen behalten das Original ein.\n\nDas Standesamt meldet den Sterbefall automatisch weiter, unter anderem an das Zentrale Testamentsregister und an die Meldebehörde.",
       "documents": [
         "Todesbescheinigung",
         "Personalausweis der verstorbenen Person",
@@ -163,7 +350,8 @@
       ],
       "tips": [
         "Bestellen Sie fünf bis zehn beglaubigte Ausfertigungen. Nachbestellen kostet Zeit und Wege.",
-        "Für die Rentenversicherung gibt es eine gebührenfreie Ausfertigung – fragen Sie danach."
+        "Für Renten- und Sozialversicherung gibt es gebührenfreie Ausfertigungen. Fragen Sie danach.",
+        "Beglaubigte Kopien fertigt jedes Bürgeramt an, wenn eine Stelle keine Ausfertigung behalten muss."
       ],
       "deadline": {
         "type": "relative",
@@ -171,56 +359,62 @@
         "amount": 3,
         "label": "spätestens am dritten Werktag",
         "strict": true,
-        "note": "Gesetzlich geregelt in § 28 Personenstandsgesetz."
+        "note": "Geregelt in § 28 Personenstandsgesetz. Werktage sind Montag bis Samstag ohne Feiertage."
       },
       "priority": 1
     },
     {
-      "id": "arbeitgeber_informieren",
+      "id": "bestattungsart_festlegen",
       "phase": 2,
-      "title": "Arbeitgeber informieren",
-      "summary": "Den Arbeitgeber der verstorbenen Person und Ihren eigenen benachrichtigen.",
-      "details": "Informieren Sie den Arbeitgeber der verstorbenen Person. Dort sind offene Gehaltszahlungen, Urlaubsabgeltung, eine mögliche Betriebsrente und die Direktversicherung zu klären. Fragen Sie ausdrücklich nach einer betrieblichen Altersversorgung – daran denkt sonst niemand.\n\nMelden Sie sich außerdem bei Ihrem eigenen Arbeitgeber. Für nahe Angehörige sehen viele Arbeits- und Tarifverträge bezahlte Freistellung vor, üblich sind ein bis drei Tage. Die Grundlage ist meist § 616 BGB oder Ihr Tarifvertrag.",
+      "title": "Bestattungsart und Grabstelle festlegen",
+      "summary": "Erd- oder Feuerbestattung, Friedhof, Grabart. Die Bestattungsfrist ist knapp.",
+      "details": "Jetzt fällt die Entscheidung über Bestattungsart und Grab. Wenn es eine Bestattungsverfügung gibt, folgen Sie ihr; das ist bindend und nimmt Ihnen die Last der Entscheidung ab.\n\nZur Auswahl stehen üblicherweise Erdbestattung im Reihen- oder Wahlgrab, Feuerbestattung mit Urnengrab, Baum- oder Waldbestattung, anonyme Bestattung oder Seebestattung. Die Folgekosten unterscheiden sich stark: Ein Wahlgrab verpflichtet Sie über Jahrzehnte zur Grabpflege, eine Baumbestattung nicht.\n\nDie Bestattungsfristen regeln die Bundesländer. Verbreitet ist, dass die Erdbestattung frühestens 48 Stunden und spätestens vier bis zehn Tage nach dem Tod stattfinden muss. Ihr Bestatter kennt die Regel für Ihr Bundesland und kann eine Verlängerung beantragen, wenn Angehörige aus dem Ausland anreisen.",
       "documents": [
         "Sterbeurkunde",
-        "Arbeitsvertrag der verstorbenen Person, falls auffindbar"
+        "Bestattungsverfügung, falls vorhanden",
+        "Grabnutzungsurkunde bei bestehendem Familiengrab"
       ],
       "contacts": [
-        "Personalabteilung des Arbeitgebers",
-        "Betriebsrat",
-        "Ihre eigene Personalabteilung"
+        "Friedhofsverwaltung",
+        "Bestattungsinstitut",
+        "Kirchengemeinde bei kirchlichen Friedhöfen"
       ],
       "tips": [
-        "Fragen Sie nach Betriebsrente, Direktversicherung und Unterstützungskasse.",
-        "War der Tod Folge eines Arbeitsunfalls, muss die Berufsgenossenschaft informiert werden."
+        "Fragen Sie nach den Folgekosten: Grabnutzungsgebühr, Grabpflege, Grabstein.",
+        "Ein bestehendes Familiengrab ist oft die günstigste Lösung, wenn die Ruhefrist es zulässt.",
+        "Bei einer Feuerbestattung ist eine zweite Leichenschau vorgeschrieben. Das kostet extra und dauert länger."
       ],
       "deadline": {
         "type": "relative",
         "unit": "days",
-        "amount": 3,
-        "label": "in den ersten Tagen",
-        "strict": false
+        "amount": 4,
+        "label": "innerhalb weniger Tage",
+        "strict": true,
+        "note": "Die genaue Bestattungsfrist steht im Bestattungsgesetz Ihres Bundeslandes."
       },
-      "priority": 5
+      "priority": 2
     },
     {
       "id": "lebensversicherung_melden",
       "phase": 2,
       "title": "Lebensversicherung melden",
       "summary": "Viele Verträge verlangen eine Meldung binnen 48 bis 72 Stunden.",
-      "details": "Lebens- und Unfallversicherungen haben kurze Meldefristen, die in den Vertragsbedingungen stehen. Üblich sind 48 bis 72 Stunden. Melden Sie den Todesfall deshalb zuerst formlos per Telefon oder E-Mail und reichen Sie Unterlagen später nach.\n\nWichtig: Bei einer Lebensversicherung mit benanntem Bezugsberechtigten fällt die Summe nicht in den Nachlass. Sie wird direkt ausgezahlt – auch dann, wenn das Erbe später ausgeschlagen wird.\n\nPrüfen Sie auch, ob es eine Restschuldversicherung zu einem Kredit gab.",
+      "details": "Lebens- und Sterbegeldversicherungen haben kurze Meldefristen, die in den Vertragsbedingungen stehen. Üblich sind 48 bis 72 Stunden. Melden Sie den Todesfall deshalb zuerst formlos per Telefon oder E-Mail und reichen Sie Unterlagen später nach. Das wahrt die Frist.\n\nWichtig: Bei einer Lebensversicherung mit benanntem Bezugsberechtigten fällt die Summe nicht in den Nachlass. Sie wird direkt an die begünstigte Person ausgezahlt, auch wenn das Erbe später ausgeschlagen wird. Das kann bei einem überschuldeten Nachlass entscheidend sein.\n\nPrüfen Sie auch, ob zu einem Kredit eine Restschuldversicherung besteht. Sie tilgt im Todesfall die Restschuld.",
       "documents": [
         "Versicherungsschein oder Policennummer",
         "Sterbeurkunde",
-        "Todesbescheinigung mit Angabe der Todesursache, sofern verlangt"
+        "Todesbescheinigung mit Angabe der Todesursache, sofern verlangt",
+        "Bankverbindung der begünstigten Person"
       ],
       "contacts": [
         "Versicherungsgesellschaft",
-        "Ihr Versicherungsmakler"
+        "Ihr Versicherungsmakler",
+        "Kreditinstitut bei Restschuldversicherungen"
       ],
       "tips": [
         "Fristwahrend ist schon eine kurze formlose Meldung. Unterlagen können nachgereicht werden.",
-        "Bei Unfalltod gilt oft eine gesonderte, noch kürzere Frist."
+        "Notieren Sie Datum, Uhrzeit und Namen des Gesprächspartners.",
+        "Suchen Sie in den Kontoauszügen nach Beiträgen an Versicherer, von denen Sie nichts wissen."
       ],
       "deadline": {
         "type": "relative",
@@ -233,14 +427,462 @@
       "priority": 3
     },
     {
+      "id": "unfallversicherung_melden",
+      "phase": 2,
+      "title": "Unfallversicherung melden",
+      "summary": "Bei Unfalltod gilt oft eine Frist von 48 Stunden.",
+      "details": "War der Tod die Folge eines Unfalls, greift möglicherweise eine private Unfallversicherung. Diese Verträge sehen regelmäßig sehr kurze Meldefristen vor, häufig 48 Stunden, und verlangen zusätzlich eine ärztliche Untersuchung.\n\nMelden Sie den Todesfall deshalb sofort telefonisch, auch wenn Sie noch keine Unterlagen haben. Versäumte Fristen führen bei Unfallversicherungen häufiger zur Leistungsablehnung als bei jeder anderen Versicherungsart.\n\nEin Unfall im Sinne der Bedingungen ist mehr als ein Verkehrsunfall: Auch ein Sturz, eine Vergiftung oder eine Infektion nach einer Verletzung kann darunterfallen. Melden Sie im Zweifel.\n\nTrifft das auf Ihren Fall nicht zu, markieren Sie diese Aufgabe als nicht relevant.",
+      "documents": [
+        "Versicherungsschein",
+        "Sterbeurkunde",
+        "Todesbescheinigung",
+        "Polizeibericht oder Unfallprotokoll, falls vorhanden"
+      ],
+      "contacts": [
+        "Private Unfallversicherung",
+        "Berufsgenossenschaft bei einem Arbeits- oder Wegeunfall",
+        "Kfz-Versicherung bei einem Verkehrsunfall"
+      ],
+      "tips": [
+        "Auch ein Sturz im Haushalt kann ein Unfall im Sinne der Bedingungen sein.",
+        "Bei einem Arbeits- oder Wegeunfall bestehen Ansprüche gegen die gesetzliche Unfallversicherung. Der Arbeitgeber muss den Unfall melden.",
+        "Wenn Sie unsicher sind: melden und die Prüfung dem Versicherer überlassen."
+      ],
+      "deadline": {
+        "type": "relative",
+        "unit": "hours",
+        "amount": 48,
+        "label": "meist binnen 48 Stunden",
+        "strict": true,
+        "note": "Nur einschlägig, wenn der Tod Folge eines Unfalls war."
+      },
+      "priority": 4
+    },
+    {
+      "id": "sterbegeldversicherung_melden",
+      "phase": 2,
+      "title": "Sterbegeldversicherung in Anspruch nehmen",
+      "summary": "Sie zahlt die Bestattungskosten und wird oft schnell ausgezahlt.",
+      "details": "Eine Sterbegeldversicherung ist eine kleine Lebensversicherung, die zweckgebunden für die Bestattung gedacht ist. Häufig ist bereits das Bestattungsinstitut als Bezugsberechtigter eingetragen und rechnet direkt ab.\n\nMelden Sie den Todesfall zügig; auch hier gelten oft kurze Fristen. Die Auszahlung erfolgt meist innerhalb weniger Tage, was hilft, weil die Rechnung des Bestatters schnell fällig wird.\n\nWurde die Versicherung über eine Sterbekasse oder einen Bestattungsvorsorge-Treuhänder abgeschlossen, wenden Sie sich dorthin.",
+      "documents": [
+        "Versicherungsschein",
+        "Sterbeurkunde",
+        "Rechnung des Bestattungsinstituts"
+      ],
+      "contacts": [
+        "Versicherungsgesellschaft oder Sterbekasse",
+        "Deutsche Bestattungsvorsorge Treuhand AG",
+        "Bestattungsinstitut"
+      ],
+      "tips": [
+        "Reicht die Summe nicht, klären Sie früh, wer die Differenz trägt.",
+        "Die gesetzliche Krankenkasse zahlt seit 2004 kein Sterbegeld mehr. Warten Sie nicht darauf."
+      ],
+      "deadline": {
+        "type": "relative",
+        "unit": "days",
+        "amount": 3,
+        "label": "in den ersten Tagen",
+        "strict": false
+      },
+      "conditions": {
+        "hasFuneralProvision": [
+          "yes",
+          "unknown"
+        ]
+      },
+      "priority": 5
+    },
+    {
+      "id": "arbeitgeber_verstorbene",
+      "phase": 2,
+      "title": "Arbeitgeber der verstorbenen Person informieren",
+      "summary": "Offene Bezüge, Betriebsrente und Direktversicherung müssen geklärt werden.",
+      "details": "Das Arbeitsverhältnis endet mit dem Tod. Zu klären sind restliches Gehalt, nicht genommener Urlaub, anteiliges Weihnachts- und Urlaubsgeld sowie ein möglicher Zeitwertkontostand.\n\nFragen Sie ausdrücklich nach der betrieblichen Altersversorgung. Direktversicherung, Pensionskasse, Unterstützungskasse oder Direktzusage sehen häufig Hinterbliebenenleistungen vor, an die sonst niemand denkt. Der Arbeitgeber ist nicht verpflichtet, Sie von sich aus darauf hinzuweisen.\n\nWar der Tod Folge eines Arbeits- oder Wegeunfalls oder einer Berufskrankheit, muss der Arbeitgeber die Berufsgenossenschaft einschalten. Dann kommen Hinterbliebenenrente und Sterbegeld aus der gesetzlichen Unfallversicherung in Betracht.",
+      "documents": [
+        "Sterbeurkunde",
+        "Arbeitsvertrag, falls auffindbar",
+        "Letzte Gehaltsabrechnung",
+        "Unterlagen zur betrieblichen Altersversorgung"
+      ],
+      "contacts": [
+        "Personalabteilung",
+        "Betriebsrat",
+        "Zuständige Berufsgenossenschaft bei Arbeitsunfall",
+        "Versorgungswerk bei freien Berufen"
+      ],
+      "tips": [
+        "Fragen Sie konkret nach: Direktversicherung, Pensionskasse, Unterstützungskasse, Zeitwertkonto.",
+        "Bei Beamten gibt es Sterbegeld nach dem Beamtenversorgungsgesetz. Wenden Sie sich an die Bezügestelle.",
+        "Lassen Sie sich eine Abrechnung schriftlich geben."
+      ],
+      "deadline": {
+        "type": "relative",
+        "unit": "days",
+        "amount": 3,
+        "label": "in den ersten Tagen",
+        "strict": false
+      },
+      "priority": 6
+    },
+    {
+      "id": "sonderurlaub_eigener_arbeitgeber",
+      "phase": 2,
+      "title": "Beim eigenen Arbeitgeber freistellen lassen",
+      "summary": "Für nahe Angehörige gibt es meist ein bis drei Tage bezahlte Freistellung.",
+      "details": "Melden Sie sich bei Ihrem eigenen Arbeitgeber. Viele Arbeits- und Tarifverträge sehen für den Tod naher Angehöriger bezahlte Freistellung vor, üblich sind ein bis drei Arbeitstage. Grundlage ist meist § 616 BGB oder Ihr Tarifvertrag; im öffentlichen Dienst sind es nach TVöD zwei Arbeitstage beim Tod von Ehegatten, Lebenspartner, Kind oder Elternteil.\n\nManche Arbeitsverträge schließen § 616 BGB ausdrücklich aus. Dann bleibt Urlaub oder unbezahlte Freistellung. Fragen Sie trotzdem; viele Arbeitgeber zeigen sich kulanter, als der Vertrag verlangt.\n\nWenn Sie merken, dass Sie länger nicht arbeitsfähig sind, sprechen Sie mit Ihrem Hausarzt. Trauer kann krank machen, und das ist kein Makel.",
+      "documents": [
+        "Sterbeurkunde oder Todesanzeige als Nachweis",
+        "Ihr Arbeitsvertrag oder Tarifvertrag"
+      ],
+      "contacts": [
+        "Ihre Personalabteilung",
+        "Betriebsrat oder Personalrat",
+        "Ihr Hausarzt"
+      ],
+      "tips": [
+        "Klären Sie die Freistellung, bevor Sie einfach fernbleiben.",
+        "Hatten Sie Pflegezeit für die verstorbene Person, endet auch die und muss abgemeldet werden."
+      ],
+      "deadline": {
+        "type": "relative",
+        "unit": "days",
+        "amount": 2,
+        "label": "sofort",
+        "strict": false
+      },
+      "conditions": {
+        "relationship": [
+          "spouse",
+          "partner",
+          "child",
+          "parent"
+        ]
+      },
+      "priority": 7
+    },
+    {
+      "id": "bank_informieren",
+      "phase": 2,
+      "title": "Bank informieren und Bestattungskosten klären",
+      "summary": "Konten werden zu Nachlasskonten. Bestattungskosten zahlt die Bank meist trotzdem.",
+      "details": "Melden Sie den Todesfall der Hausbank. Das Konto wird zum Nachlasskonto: Lastschriften und Daueraufträge laufen zunächst weiter, Vollmachten und Kontokarten werden aber überprüft.\n\nWichtig für Sie: Die Rechnung des Bestatters begleicht die Bank in der Regel vom Konto der verstorbenen Person, auch wenn die Erbfolge noch nicht geklärt ist. Legen Sie dafür die Rechnung vor. Zahlen Sie nach Möglichkeit nicht aus eigener Tasche, solange unklar ist, ob der Nachlass überschuldet ist.\n\nEine Vollmacht über den Tod hinaus bleibt gültig und erspart Ihnen den Erbschein. Eine reine Kontovollmacht zu Lebzeiten erlischt dagegen häufig.\n\nLassen Sie sich eine Aufstellung aller Konten, Depots, Kredite und Schließfächer geben. Das brauchen Sie für den Überblick über den Nachlass.",
+      "documents": [
+        "Sterbeurkunde",
+        "Ihr Personalausweis",
+        "Vorhandene Vollmachten",
+        "Rechnung des Bestattungsinstituts",
+        "Testament, sofern schon eröffnet"
+      ],
+      "contacts": [
+        "Hausbank und alle weiteren Kreditinstitute",
+        "Bausparkasse",
+        "Depotbank"
+      ],
+      "tips": [
+        "Fragen Sie nach einem Schließfach und nach dem Zugang dazu.",
+        "Kündigen Sie noch keine Daueraufträge, ohne zu prüfen, was sie bezahlen.",
+        "Über die zentrale Sperrnummer 116 116 lassen sich Karten sperren.",
+        "Banken melden Guthaben ab bestimmter Höhe automatisch dem Finanzamt."
+      ],
+      "deadline": {
+        "type": "relative",
+        "unit": "days",
+        "amount": 7,
+        "label": "in der ersten Woche",
+        "strict": false
+      },
+      "priority": 8
+    },
+    {
+      "id": "rentenversicherung_melden",
+      "phase": 2,
+      "title": "Rentenversicherung und Rentenservice informieren",
+      "summary": "Renten werden nur bis zum Ende des Sterbemonats gezahlt.",
+      "details": "Melden Sie den Tod eines Rentenbeziehers unverzüglich. Zuständig ist der Rentenservice der Deutschen Post, bei dem die Rentenzahlung eingestellt wird. Die Deutsche Rentenversicherung erfährt zwar über die Sterbefallmitteilung des Standesamts davon, verlassen Sie sich aber nicht darauf.\n\nDie Rente wird bis zum Ende des Sterbemonats gezahlt. Alles, was danach eingeht, muss zurückgezahlt werden. Heben Sie später eingehende Beträge deshalb nicht ab; die Bank zieht sie in der Regel selbst wieder ein.\n\nBezog die verstorbene Person eine Betriebsrente, eine Rente aus einem Versorgungswerk oder eine private Rente, sind diese Stellen gesondert zu informieren.",
+      "documents": [
+        "Sterbeurkunde",
+        "Rentenversicherungsnummer",
+        "Letzter Rentenbescheid",
+        "Kontoverbindung"
+      ],
+      "contacts": [
+        "Rentenservice der Deutschen Post",
+        "Deutsche Rentenversicherung, kostenfrei unter 0800 1000 4800",
+        "Versicherungsamt oder Bürgerbüro Ihrer Gemeinde",
+        "Berufsständisches Versorgungswerk"
+      ],
+      "tips": [
+        "Für die Rentenversicherung gibt es eine gebührenfreie Sterbeurkunde vom Standesamt.",
+        "Die Auskunfts- und Beratungsstellen der Rentenversicherung helfen kostenlos beim Ausfüllen der Anträge.",
+        "Rufen Sie erst an, wenn Sie die Rentenversicherungsnummer zur Hand haben."
+      ],
+      "deadline": {
+        "type": "relative",
+        "unit": "days",
+        "amount": 7,
+        "label": "in der ersten Woche",
+        "strict": true
+      },
+      "priority": 9
+    },
+    {
+      "id": "sterbevierteljahr_vorschuss",
+      "phase": 2,
+      "title": "Vorschuss für das Sterbevierteljahr beantragen",
+      "summary": "Witwen und Witwer können sich drei Monatsrenten im Voraus auszahlen lassen.",
+      "details": "In den ersten drei Monaten nach dem Tod erhalten Witwen und Witwer die Hinterbliebenenrente in Höhe der vollen Rente der verstorbenen Person. Das nennt sich Sterbevierteljahr. Eigenes Einkommen wird in dieser Zeit nicht angerechnet.\n\nDamit Sie nicht wochenlang auf Geld warten, können Sie beim Rentenservice der Deutschen Post einen Vorschuss beantragen. Die drei Monatsbeträge werden dann in einer Summe vorab ausgezahlt. Das geht auch in jeder Postfiliale mit Postbank-Schalter.\n\nStellen Sie den Antrag zügig; üblich ist eine Frist von 30 Tagen nach dem Tod. Der Vorschuss wird später mit der laufenden Hinterbliebenenrente verrechnet.\n\nDen eigentlichen Antrag auf Witwen- oder Witwerrente stellen Sie separat; er steht in dieser App unter „Die ersten Wochen“.",
+      "documents": [
+        "Sterbeurkunde, möglichst die gebührenfreie Ausfertigung für Rentenzwecke",
+        "Rentennummer der verstorbenen Person",
+        "Ihr Personalausweis",
+        "Heiratsurkunde"
+      ],
+      "contacts": [
+        "Rentenservice der Deutschen Post",
+        "Postfiliale mit Postbank-Schalter",
+        "Deutsche Rentenversicherung"
+      ],
+      "tips": [
+        "Der Vorschuss ist kein zusätzliches Geld, sondern eine Vorauszahlung. Planen Sie entsprechend.",
+        "War die verstorbene Person noch nicht in Rente, gibt es kein Sterbevierteljahr in dieser Form."
+      ],
+      "deadline": {
+        "type": "relative",
+        "unit": "days",
+        "amount": 30,
+        "label": "innerhalb von 30 Tagen",
+        "strict": true
+      },
+      "conditions": {
+        "relationship": [
+          "spouse"
+        ]
+      },
+      "priority": 10
+    },
+    {
+      "id": "krankenkasse_informieren",
+      "phase": 2,
+      "title": "Krankenkasse informieren",
+      "summary": "Die Mitgliedschaft endet. Für mitversicherte Angehörige muss etwas Neues gefunden werden.",
+      "details": "Melden Sie den Tod der Krankenkasse und geben Sie die Versichertenkarte zurück. Die Mitgliedschaft endet mit dem Todestag.\n\nWichtig, wenn Sie oder Kinder über die verstorbene Person familienversichert waren: Dieser Schutz endet. Sie müssen sich kurzfristig selbst versichern, oft über eine freiwillige Mitgliedschaft oder die Familienversicherung eines anderen Elternteils. Sprechen Sie das im selben Gespräch an, sonst entsteht eine Lücke.\n\nBei privat Versicherten prüfen Sie, ob mitversicherte Angehörige den Vertrag fortführen können.\n\nEin Sterbegeld zahlen die gesetzlichen Krankenkassen seit 2004 nicht mehr.",
+      "documents": [
+        "Sterbeurkunde",
+        "Versichertenkarte der verstorbenen Person",
+        "Angaben zu mitversicherten Angehörigen"
+      ],
+      "contacts": [
+        "Gesetzliche oder private Krankenkasse",
+        "Beihilfestelle bei Beamten"
+      ],
+      "tips": [
+        "Klären Sie im selben Anruf, wie es mit der Versicherung der Hinterbliebenen weitergeht.",
+        "Offene Rechnungen und Zuzahlungsbefreiungen sollten Sie ansprechen.",
+        "Beziehen Sie Witwen- oder Witwerrente, ändert sich Ihr Versicherungsstatus. Fragen Sie nach."
+      ],
+      "deadline": {
+        "type": "relative",
+        "unit": "days",
+        "amount": 14,
+        "label": "in den ersten zwei Wochen",
+        "strict": false
+      },
+      "priority": 11
+    },
+    {
+      "id": "pflegekasse_melden",
+      "phase": 2,
+      "title": "Pflegekasse und Pflegedienst abmelden",
+      "summary": "Pflegegeld wird bis zum Ende des Sterbemonats gezahlt, danach zurückgefordert.",
+      "details": "War die verstorbene Person pflegebedürftig, melden Sie den Tod der Pflegekasse. Pflegegeld wird für den Sterbemonat noch gezahlt, spätere Zahlungen werden zurückgefordert.\n\nMelden Sie außerdem den ambulanten Pflegedienst, das Pflegeheim, den Essensdienst und den Hausnotruf ab. Diese Verträge laufen sonst weiter und werden weiter berechnet.\n\nHilfsmittel wie Pflegebett, Rollstuhl oder Sauerstoffgerät sind häufig nur geliehen. Fragen Sie nach, wer sie abholt; für nicht zurückgegebene Hilfsmittel wird gelegentlich Ersatz verlangt.",
+      "documents": [
+        "Sterbeurkunde",
+        "Pflegegradbescheid",
+        "Verträge mit Pflegedienst oder Heim"
+      ],
+      "contacts": [
+        "Pflegekasse bei der Krankenkasse",
+        "Ambulanter Pflegedienst",
+        "Sanitätshaus wegen der Hilfsmittel",
+        "Anbieter des Hausnotrufs"
+      ],
+      "tips": [
+        "Fragen Sie beim Sanitätshaus nach einer Abholung, statt Geräte selbst zu entsorgen.",
+        "Ein Heimvertrag endet meist zum Todestag. Das Zimmer muss oft binnen weniger Tage geräumt werden. Bitten Sie um eine Frist."
+      ],
+      "deadline": {
+        "type": "relative",
+        "unit": "days",
+        "amount": 14,
+        "label": "in den ersten zwei Wochen",
+        "strict": false
+      },
+      "priority": 12
+    },
+    {
+      "id": "sozialamt_bestattungskosten",
+      "phase": 2,
+      "title": "Bestattungskosten beim Sozialamt beantragen",
+      "summary": "Der Antrag sollte gestellt werden, bevor Sie einen teuren Auftrag unterschreiben.",
+      "details": "Wer bestattungspflichtig ist, muss die Kosten zunächst tragen, auch wenn er nichts erbt. Reicht das eigene Einkommen und Vermögen dafür nicht, übernimmt das Sozialamt die erforderlichen Kosten einer einfachen, würdigen Bestattung.\n\nStellen Sie den Antrag möglichst, bevor Sie den Bestatter beauftragen, jedenfalls aber sofort danach. Übernommen wird nur, was erforderlich ist; wer vorher eine aufwendige Bestattung bestellt, bleibt auf der Differenz sitzen.\n\nZuständig ist das Sozialamt am letzten Wohnsitz der verstorbenen Person. Sagen Sie dem Bestatter offen, dass Sie einen Antrag stellen. Seriöse Institute kennen das Verfahren und rechnen direkt mit dem Amt ab.\n\nDas ist kein Almosen, sondern ein gesetzlicher Anspruch nach dem Sozialgesetzbuch.",
+      "documents": [
+        "Sterbeurkunde",
+        "Kostenvoranschlag des Bestatters",
+        "Nachweise über Ihr Einkommen und Vermögen",
+        "Angaben zum Nachlass der verstorbenen Person"
+      ],
+      "contacts": [
+        "Sozialamt am letzten Wohnsitz der verstorbenen Person",
+        "Bestattungsinstitut",
+        "Sozialberatung der Kirchen oder Wohlfahrtsverbände"
+      ],
+      "tips": [
+        "Zuerst muss der Nachlass für die Bestattung verwendet werden. Erst danach greift das Sozialamt.",
+        "Auch wer das Erbe ausschlägt, kann bestattungspflichtig bleiben. Das sind zwei verschiedene Dinge.",
+        "Lassen Sie sich vom Amt schriftlich bestätigen, dass der Antrag eingegangen ist."
+      ],
+      "deadline": {
+        "type": "relative",
+        "unit": "days",
+        "amount": 3,
+        "label": "vor der Beauftragung",
+        "strict": true
+      },
+      "priority": 13
+    },
+    {
+      "id": "testament_suchen",
+      "phase": 2,
+      "title": "Nach einem Testament suchen",
+      "summary": "Schauen Sie in der Wohnung nach und prüfen Sie, ob eines hinterlegt ist.",
+      "details": "Ein Testament kann überall liegen: im Schreibtisch, im Ordner mit Versicherungen, im Bankschließfach, bei einem Notar oder beim Amtsgericht.\n\nWurde ein Testament notariell beurkundet oder beim Amtsgericht hinterlegt, ist es im Zentralen Testamentsregister der Bundesnotarkammer erfasst. Das Standesamt meldet den Sterbefall automatisch dorthin, und das Register benachrichtigt das zuständige Nachlassgericht. In diesem Fall müssen Sie selbst nichts tun.\n\nEin handschriftliches Testament zuhause ist dagegen nur registriert, wenn es ausdrücklich hinterlegt wurde. Suchen Sie deshalb selbst.\n\nFinden Sie eines, müssen Sie es unverzüglich beim Nachlassgericht abliefern, auch wenn es Ihnen ungültig erscheint. Das ist eine Pflicht, keine Möglichkeit.",
+      "documents": [
+        "Sterbeurkunde",
+        "Ihr Personalausweis"
+      ],
+      "contacts": [
+        "Nachlassgericht beim Amtsgericht des letzten Wohnsitzes",
+        "Notare, mit denen die verstorbene Person zu tun hatte",
+        "Bundesnotarkammer, Zentrales Testamentsregister",
+        "Bank wegen eines Schließfachs"
+      ],
+      "tips": [
+        "Ein gültiges eigenhändiges Testament muss vollständig handschriftlich und unterschrieben sein.",
+        "Auch ein gemeinschaftliches Testament von Eheleuten, oft „Berliner Testament“ genannt, zählt.",
+        "Vernichten Sie niemals ein gefundenes Testament, auch wenn es Ihnen ungerecht erscheint. Das ist strafbar."
+      ],
+      "deadline": {
+        "type": "relative",
+        "unit": "days",
+        "amount": 14,
+        "label": "in den ersten zwei Wochen",
+        "strict": false
+      },
+      "conditions": {
+        "hasWill": [
+          "unknown",
+          "no"
+        ]
+      },
+      "priority": 14
+    },
+    {
+      "id": "trauerfeier_planen",
+      "phase": 2,
+      "title": "Trauerfeier planen",
+      "summary": "Termin, Ort, Redner, Musik, Blumen und wer eingeladen wird.",
+      "details": "Der Bestatter stimmt den Termin mit Friedhof und Trauerhalle ab. Sie entscheiden über Form und Umfang.\n\nZu klären sind: kirchlich oder weltlich, wer die Ansprache hält, welche Musik gespielt wird, Blumenschmuck, ob es einen Leichenschmaus gibt und wo. Fragen Sie andere Angehörige, ob jemand etwas beitragen möchte: ein Musikstück, ein paar Worte, ein Foto.\n\nEs gibt keine Pflicht zur großen Feier. Eine Beisetzung im engsten Kreis ist genauso richtig, wenn sie zur verstorbenen Person passt.\n\nWenn Sie sich das alles nicht zutrauen: Sagen Sie das dem Bestatter. Er macht Vorschläge, aus denen Sie nur noch auswählen müssen.",
+      "documents": [
+        "Adressliste für Einladungen",
+        "Fotos für Trauerkarte und Aushang",
+        "Lebenslauf für die Trauerrede"
+      ],
+      "contacts": [
+        "Bestattungsinstitut",
+        "Pfarramt oder freier Trauerredner",
+        "Friedhofsverwaltung",
+        "Gastwirtschaft für den Leichenschmaus"
+      ],
+      "tips": [
+        "Schreiben Sie dem Redner ein paar persönliche Sätze auf. Das macht den Unterschied zwischen einer beliebigen und einer treffenden Rede.",
+        "Bitten Sie jemanden, während der Feier Kondolenzkarten und Blumengrüße zu notieren. Für die Danksagungen ist das später Gold wert."
+      ],
+      "deadline": {
+        "type": "relative",
+        "unit": "days",
+        "amount": 5,
+        "label": "in den ersten Tagen",
+        "strict": false
+      },
+      "priority": 15
+    },
+    {
+      "id": "traueranzeige",
+      "phase": 2,
+      "title": "Traueranzeige und Trauerbriefe",
+      "summary": "So erfahren entferntere Bekannte vom Tod und vom Termin der Feier.",
+      "details": "Eine Anzeige in der Tageszeitung erreicht Bekannte, deren Adresse Sie nicht haben, gerade bei älteren Verstorbenen. Der Bestatter übernimmt die Schaltung, oft mit Vorlagen zur Auswahl.\n\nTrauerbriefe gehen an Menschen, die persönlich eingeladen werden sollen. Denken Sie an Kollegen, Vereine, Nachbarn und alte Freunde.\n\nÜberlegen Sie, ob Sie um eine Spende statt Blumen bitten möchten, etwa für einen Hospizdienst oder eine Einrichtung, die der verstorbenen Person wichtig war. Nennen Sie dann Empfänger und Verwendungszweck.\n\nWenn Sie das nicht möchten, ist auch das in Ordnung. Es gibt keine Pflicht zur Traueranzeige.",
+      "documents": [
+        "Adressliste",
+        "Text und Foto für die Anzeige"
+      ],
+      "contacts": [
+        "Bestattungsinstitut",
+        "Anzeigenabteilung der Tageszeitung",
+        "Druckerei für Trauerkarten"
+      ],
+      "tips": [
+        "Anzeigen werden nach Größe abgerechnet und können teuer werden. Fragen Sie vorher nach dem Preis.",
+        "Nennen Sie in der Anzeige keine vollständige Wohnadresse. Es gab Fälle von Einbrüchen während der Trauerfeier."
+      ],
+      "deadline": {
+        "type": "relative",
+        "unit": "days",
+        "amount": 5,
+        "label": "vor der Trauerfeier",
+        "strict": false
+      },
+      "priority": 16
+    },
+    {
+      "id": "vermieter_informieren",
+      "phase": 2,
+      "title": "Vermieter informieren",
+      "summary": "Das Mietverhältnis endet nicht mit dem Tod. Es laufen kurze Fristen.",
+      "details": "Informieren Sie Vermieter oder Hausverwaltung schriftlich über den Tod. Das Mietverhältnis endet nicht automatisch; es geht auf Angehörige oder Erben über.\n\nEs laufen dabei zwei Fristen von jeweils einem Monat ab Kenntnis vom Tod: Wer mit der verstorbenen Person im Haushalt lebte, tritt automatisch in den Vertrag ein und muss innerhalb dieser Frist erklären, wenn er das nicht möchte. Erben, die nicht dort wohnten, können innerhalb der Frist außerordentlich mit gesetzlicher Frist von drei Monaten kündigen.\n\nMelden Sie sich deshalb zügig, auch wenn Sie noch nicht wissen, wie es weitergehen soll. Ein Satz genügt zunächst.\n\nDie Einzelheiten stehen in dieser App unter „Die ersten Wochen“ bei der Aufgabe zum Mietvertrag.",
+      "documents": [
+        "Sterbeurkunde",
+        "Mietvertrag"
+      ],
+      "contacts": [
+        "Vermieter oder Hausverwaltung",
+        "Mieterverein",
+        "Mitbewohner im Haushalt"
+      ],
+      "tips": [
+        "Schreiben Sie kurz und schriftlich, per Einwurf-Einschreiben oder mit Zeugen.",
+        "Notieren Sie das Datum, an dem Sie vom Tod erfahren haben. Davon laufen die Fristen."
+      ],
+      "deadline": {
+        "type": "relative",
+        "unit": "days",
+        "amount": 7,
+        "label": "in der ersten Woche",
+        "strict": false
+      },
+      "priority": 17
+    },
+    {
       "id": "testament_abliefern",
       "phase": 3,
       "title": "Testament beim Nachlassgericht abliefern",
-      "summary": "Wer ein Testament findet, muss es unverzüglich beim Nachlassgericht abgeben.",
-      "details": "Jedes Testament und jeder Erbvertrag muss beim Nachlassgericht abgeliefert werden – auch dann, wenn Sie glauben, es sei ungültig oder überholt. Das gilt selbst für handschriftliche Zettel.\n\nZuständig ist das Amtsgericht am letzten Wohnsitz der verstorbenen Person. Das Gericht eröffnet das Testament und benachrichtigt anschließend alle Beteiligten schriftlich.\n\nWurde das Testament beim Amtsgericht oder Notar hinterlegt, geschieht das automatisch über das Zentrale Testamentsregister. Sie müssen dann nichts tun.\n\nDas Testament zurückzuhalten ist strafbar.",
+      "summary": "Wer ein Testament findet, muss es unverzüglich abgeben.",
+      "details": "Jedes Testament und jeder Erbvertrag muss beim Nachlassgericht abgeliefert werden, auch dann, wenn Sie es für ungültig oder überholt halten. Das gilt auch für handschriftliche Zettel und für mehrere widersprüchliche Fassungen. Alle müssen abgegeben werden.\n\nZuständig ist das Amtsgericht am letzten Wohnsitz der verstorbenen Person. Das Gericht eröffnet das Testament und benachrichtigt anschließend alle Beteiligten schriftlich. Diese Nachricht ist wichtig: Mit ihr beginnt für testamentarisch eingesetzte Erben die Frist zur Ausschlagung.\n\nWurde das Testament notariell beurkundet oder amtlich hinterlegt, geschieht die Eröffnung automatisch über das Zentrale Testamentsregister. Sie müssen dann nichts tun.\n\nEin Testament zurückzuhalten oder zu vernichten ist strafbar.",
       "documents": [
         "Testament oder Erbvertrag im Original",
-        "Sterbeurkunde"
+        "Sterbeurkunde",
+        "Ihr Personalausweis"
       ],
       "contacts": [
         "Nachlassgericht beim Amtsgericht des letzten Wohnsitzes",
@@ -248,7 +890,8 @@
       ],
       "tips": [
         "Geben Sie das Original ab und behalten Sie eine Kopie für sich.",
-        "Auch mehrere widersprüchliche Testamente müssen alle abgegeben werden."
+        "Die Eröffnung kostet eine Gebühr, die aus dem Nachlass gezahlt wird.",
+        "Sie können das Testament auch bei jedem anderen Amtsgericht abgeben; es wird weitergeleitet."
       ],
       "deadline": {
         "type": "relative",
@@ -256,33 +899,72 @@
         "amount": 14,
         "label": "unverzüglich",
         "strict": true,
-        "note": "Das Gesetz sagt „unverzüglich“ (§ 2259 BGB) und nennt keine feste Zahl. Wir schlagen zwei Wochen als Erinnerung vor."
+        "note": "Das Gesetz verlangt „unverzüglich“ (§ 2259 BGB) und nennt keine feste Zahl. Zwei Wochen sind unsere Erinnerung, kein Grenzwert."
       },
       "conditions": {
-        "hasWill": ["yes", "unknown"]
+        "hasWill": [
+          "yes",
+          "unknown"
+        ]
       },
       "priority": 1
+    },
+    {
+      "id": "nachlass_ueberblick",
+      "phase": 3,
+      "title": "Überblick über Vermögen und Schulden verschaffen",
+      "summary": "Bevor Sie über das Erbe entscheiden, müssen Sie wissen, was da ist.",
+      "details": "Bevor die Ausschlagungsfrist abläuft, sollten Sie wissen, was zum Nachlass gehört. Sammeln Sie: Kontostände, Depots, Bausparverträge, Immobilien, Fahrzeuge, Wertsachen und auf der anderen Seite Kredite, offene Rechnungen, Steuerschulden, Bürgschaften und Mietrückstände.\n\nDie Kontoauszüge der letzten zwölf Monate sind der beste Ausgangspunkt: Jede Abbuchung verweist auf einen Vertrag, jede Gutschrift auf eine Einnahmequelle.\n\nWar die verstorbene Person selbstständig, gehören auch das Gewerbe, offene Forderungen und Verbindlichkeiten dazu. Ein Gewerbe muss beim Gewerbeamt abgemeldet werden; sprechen Sie hier früh mit dem Steuerberater.\n\nÖffnen Sie die Post der verstorbenen Person. Sie dürfen das als Erbe, und Sie erfahren so von Verträgen, die sonst unbemerkt weiterlaufen.",
+      "documents": [
+        "Kontoauszüge der letzten zwölf Monate",
+        "Kreditverträge und Ratenzahlungsvereinbarungen",
+        "Grundbuchauszug bei Immobilien",
+        "Steuerbescheide",
+        "Offene Rechnungen und Mahnungen"
+      ],
+      "contacts": [
+        "Banken und Sparkassen",
+        "Steuerberater",
+        "Grundbuchamt",
+        "Gewerbeamt bei Selbstständigkeit"
+      ],
+      "tips": [
+        "Lassen Sie sich bei jeder Bank eine Aufstellung zum Todestag geben. Die brauchen Sie später auch für das Finanzamt.",
+        "Beim Nachlassgericht können Sie ein Nachlassverzeichnis anregen, wenn Sie den Überblick nicht selbst herstellen können.",
+        "Zahlen Sie keine Rechnungen aus eigenem Geld, solange die Ausschlagungsfrist läuft."
+      ],
+      "deadline": {
+        "type": "relative",
+        "unit": "days",
+        "amount": 28,
+        "label": "vor Ablauf der Ausschlagungsfrist",
+        "strict": false
+      },
+      "priority": 2
     },
     {
       "id": "erbausschlagung_pruefen",
       "phase": 3,
       "title": "Prüfen, ob das Erbe ausgeschlagen werden sollte",
-      "summary": "Sechs Wochen ab Kenntnis – danach haften Sie für Schulden mit Ihrem eigenen Vermögen.",
-      "details": "Mit dem Erbe gehen auch Schulden über. Wer nichts tut, nimmt das Erbe automatisch an, sobald sechs Wochen verstrichen sind.\n\nDie Frist beginnt, sobald Sie vom Todesfall und davon erfahren haben, dass Sie Erbe sind – bei gesetzlicher Erbfolge also meist mit dem Todestag, bei einem Testament erst mit dem Schreiben des Nachlassgerichts.\n\nVerschaffen Sie sich deshalb zügig einen Überblick über Vermögen und Schulden: Kontoauszüge, Kredite, offene Rechnungen, Bürgschaften. Sind Sie unsicher, lassen Sie sich anwaltlich beraten. Es gibt neben Annahme und Ausschlagung auch Zwischenwege wie die Nachlassverwaltung.\n\nDie Ausschlagung wird beim Nachlassgericht oder beim Notar erklärt und kostet eine Gebühr.",
+      "summary": "Sechs Wochen ab Kenntnis. Danach haften Sie für Schulden mit Ihrem eigenen Vermögen.",
+      "details": "Mit dem Erbe gehen auch Schulden über. Wer nichts tut, nimmt das Erbe automatisch an, sobald die Frist verstrichen ist.\n\nDie Frist beträgt sechs Wochen und beginnt, sobald Sie vom Todesfall und davon erfahren haben, dass Sie Erbe sind: bei gesetzlicher Erbfolge meist mit dem Todestag, bei einem Testament erst mit dem Schreiben des Nachlassgerichts. Lebte die verstorbene Person zuletzt im Ausland oder halten Sie sich im Ausland auf, sind es sechs Monate.\n\nDie Ausschlagung wird zur Niederschrift beim Nachlassgericht oder notariell beglaubigt erklärt. Ein Brief genügt nicht. Es fallen Gebühren an, die sich nach dem Nachlasswert richten.\n\nEs gibt Zwischenwege: Nachlassverwaltung und Nachlassinsolvenz begrenzen die Haftung auf den Nachlass, ohne dass Sie auf ein mögliches Guthaben verzichten. Bei nennenswerten Beträgen oder Unsicherheit ist eine anwaltliche Beratung das Geld wert.",
       "documents": [
         "Sterbeurkunde",
         "Ihr Personalausweis",
-        "Übersicht über Vermögen und Verbindlichkeiten"
+        "Übersicht über Vermögen und Verbindlichkeiten",
+        "Schreiben des Nachlassgerichts, falls vorhanden"
       ],
       "contacts": [
         "Nachlassgericht beim Amtsgericht",
         "Notar",
-        "Fachanwalt für Erbrecht"
+        "Fachanwalt für Erbrecht",
+        "Verbraucherzentrale"
       ],
       "tips": [
-        "Schlagen Sie aus, rücken Ihre Kinder nach – auch minderjährige. Denken Sie das mit.",
-        "Zahlen Sie keine Rechnungen des Erblassers aus dem Nachlass, solange Sie über eine Ausschlagung nachdenken.",
-        "Leben Sie im Ausland oder hatte die verstorbene Person ihren letzten Wohnsitz im Ausland, beträgt die Frist sechs Monate."
+        "Schlagen Sie aus, rücken Ihre Kinder nach, auch minderjährige. Denken Sie das mit und schlagen Sie gegebenenfalls für sie mit aus.",
+        "Wer Nachlassgegenstände an sich nimmt oder Rechnungen bezahlt, nimmt das Erbe unter Umständen stillschweigend an.",
+        "Die Bestattungskosten können Sie auch dann treffen, wenn Sie ausschlagen.",
+        "Ausschlagen kann man nur ganz, nicht teilweise."
       ],
       "deadline": {
         "type": "from_knowledge",
@@ -290,9 +972,875 @@
         "amount": 42,
         "label": "sechs Wochen ab Kenntnis",
         "strict": true,
-        "note": "Die Frist läuft ab Kenntnis vom Erbfall (§ 1944 BGB). Wir rechnen ab dem Sterbedatum – im Zweifel haben Sie also eher mehr Zeit, verlassen Sie sich aber nicht darauf."
+        "note": "Die Frist läuft ab Kenntnis vom Erbfall und vom Berufungsgrund (§ 1944 BGB). Wir rechnen ab dem Sterbedatum. Im Zweifel haben Sie also eher mehr Zeit, verlassen Sie sich aber nicht darauf."
+      },
+      "priority": 3
+    },
+    {
+      "id": "hinterbliebenenrente_antrag",
+      "phase": 3,
+      "title": "Witwen- oder Witwerrente beantragen",
+      "summary": "Innerhalb eines Monats gestellt, wird ab dem Todestag gezahlt.",
+      "details": "Die Hinterbliebenenrente wird nur auf Antrag gezahlt. Stellen Sie ihn innerhalb eines Monats nach dem Tod, wird ab dem Todestag geleistet; später wird höchstens zwölf Monate rückwirkend gezahlt.\n\nUnterschieden wird zwischen kleiner und großer Witwenrente. Die große Witwenrente erhalten Sie, wenn Sie ein Kind erziehen, erwerbsgemindert sind oder die Altersgrenze erreicht haben, sonst die kleine. Nach den ersten drei Monaten wird eigenes Einkommen oberhalb eines Freibetrags angerechnet.\n\nVoraussetzung ist in der Regel, dass die Ehe mindestens ein Jahr bestanden hat. Bei einer Wiederheirat entfällt der Anspruch; dafür gibt es eine Abfindung.\n\nDie Beratungsstellen der Deutschen Rentenversicherung füllen den Antrag mit Ihnen gemeinsam aus. Das ist kostenlos, und es lohnt sich: Die Formulare sind sperrig.",
+      "documents": [
+        "Sterbeurkunde",
+        "Heiratsurkunde",
+        "Rentenversicherungsnummern beider Personen",
+        "Ihr Personalausweis",
+        "Nachweise über eigenes Einkommen",
+        "Geburtsurkunden der Kinder"
+      ],
+      "contacts": [
+        "Deutsche Rentenversicherung, kostenfrei unter 0800 1000 4800",
+        "Auskunfts- und Beratungsstellen der Rentenversicherung",
+        "Versicherungsamt Ihrer Gemeinde",
+        "Versorgungswerk bei freien Berufen"
+      ],
+      "tips": [
+        "Vereinbaren Sie einen Beratungstermin, statt das Formular allein auszufüllen.",
+        "Auch aus einer geschiedenen Ehe kann ein Anspruch bestehen. Fragen Sie danach.",
+        "Bei einem Arbeitsunfall zahlt zusätzlich die Berufsgenossenschaft."
+      ],
+      "deadline": {
+        "type": "relative",
+        "unit": "days",
+        "amount": 30,
+        "label": "möglichst innerhalb eines Monats",
+        "strict": true
+      },
+      "conditions": {
+        "relationship": [
+          "spouse"
+        ]
+      },
+      "priority": 4
+    },
+    {
+      "id": "waisenrente_antrag",
+      "phase": 3,
+      "title": "Waisenrente beantragen",
+      "summary": "Für Kinder bis 18, in Ausbildung bis 27 Jahre.",
+      "details": "Kinder einer verstorbenen versicherten Person haben Anspruch auf Halbwaisenrente, wenn noch ein Elternteil lebt, sonst auf Vollwaisenrente.\n\nGezahlt wird bis zum 18. Geburtstag, bei Schule, Studium, Ausbildung, freiwilligem sozialem Jahr oder wegen Behinderung längstens bis zum 27. Geburtstag.\n\nAuch hier gilt: innerhalb eines Monats beantragt, wird ab dem Todestag gezahlt, sonst höchstens zwölf Monate rückwirkend. Für minderjährige Kinder stellen die Sorgeberechtigten den Antrag.\n\nDenken Sie auch an Waisenrenten aus einer betrieblichen Altersversorgung, einem Versorgungswerk oder einer privaten Versicherung.",
+      "documents": [
+        "Sterbeurkunde",
+        "Geburtsurkunde des Kindes",
+        "Rentenversicherungsnummer der verstorbenen Person",
+        "Schul- oder Ausbildungsbescheinigung bei über 18-Jährigen",
+        "Personalausweis der antragstellenden Person"
+      ],
+      "contacts": [
+        "Deutsche Rentenversicherung",
+        "Auskunfts- und Beratungsstelle vor Ort",
+        "Familienkasse wegen des Kindergeldes"
+      ],
+      "tips": [
+        "Ausbildungsbescheinigungen müssen jährlich nachgereicht werden, sonst wird die Zahlung eingestellt.",
+        "Die Waisenrente wird bei Kindergeld nicht angerechnet, wohl aber unter Umständen bei Sozialleistungen."
+      ],
+      "deadline": {
+        "type": "relative",
+        "unit": "days",
+        "amount": 30,
+        "label": "möglichst innerhalb eines Monats",
+        "strict": true
+      },
+      "conditions": {
+        "relationship": [
+          "child",
+          "spouse",
+          "partner"
+        ]
+      },
+      "priority": 5
+    },
+    {
+      "id": "betriebsrente_zusatzversorgung",
+      "phase": 3,
+      "title": "Betriebsrente und Zusatzversorgung prüfen",
+      "summary": "Hinterbliebenenleistungen aus dem Berufsleben werden oft übersehen.",
+      "details": "Neben der gesetzlichen Rente gibt es häufig weitere Ansprüche, an die niemand von selbst denkt: Betriebsrente, Direktversicherung, Pensionskasse, Unterstützungskasse, Zusatzversorgung im öffentlichen Dienst und berufsständische Versorgungswerke bei Ärzten, Anwälten, Architekten oder Apothekern.\n\nViele dieser Einrichtungen zahlen Hinterbliebenenrenten, melden sich aber nicht von selbst. Fragen Sie beim letzten Arbeitgeber nach, welche Zusagen bestanden, und arbeiten Sie sich anhand alter Gehaltsabrechnungen durch frühere Arbeitgeber.\n\nAuch aus einem längst beendeten Arbeitsverhältnis können unverfallbare Anwartschaften bestehen. Eine zentrale Übersicht darüber gibt es nicht; hier hilft nur nachfragen.",
+      "documents": [
+        "Sterbeurkunde",
+        "Alte Gehaltsabrechnungen",
+        "Unterlagen zur betrieblichen Altersversorgung",
+        "Mitgliedsnummer beim Versorgungswerk"
+      ],
+      "contacts": [
+        "Letzter und frühere Arbeitgeber",
+        "Pensionskasse oder Versorgungsträger",
+        "Versorgungsanstalt des Bundes und der Länder bei öffentlichem Dienst",
+        "Berufsständisches Versorgungswerk"
+      ],
+      "tips": [
+        "Der Versicherungsverlauf der Deutschen Rentenversicherung nennt frühere Arbeitgeber. Das hilft beim Suchen.",
+        "Bei Insolvenz eines früheren Arbeitgebers ist der Pensions-Sicherungs-Verein zuständig."
+      ],
+      "deadline": {
+        "type": "relative",
+        "unit": "days",
+        "amount": 42,
+        "label": "in den ersten Wochen",
+        "strict": false
+      },
+      "priority": 6
+    },
+    {
+      "id": "private_altersvorsorge",
+      "phase": 3,
+      "title": "Private Vorsorgeverträge prüfen",
+      "summary": "Riester, Rürup, private Rente und Depots folgen jeweils eigenen Regeln.",
+      "details": "Private Vorsorgeverträge werden im Todesfall sehr unterschiedlich behandelt.\n\nBei einem Riester-Vertrag kann das Guthaben auf einen Riester-Vertrag des Ehepartners übertragen werden, ohne dass Zulagen und Steuervorteile zurückgezahlt werden müssen. Wird es an andere Erben ausgezahlt, sind die Förderungen zurückzuzahlen. Für die Übertragung gilt eine kurze Frist, die im Vertrag steht.\n\nEin Rürup-Vertrag ist grundsätzlich nicht vererbbar, es sei denn, eine Hinterbliebenenabsicherung wurde vereinbart.\n\nPrivate Rentenversicherungen zahlen je nach Vertrag eine Rentengarantiezeit weiter oder erstatten das Guthaben. Depots und Bausparverträge fallen in den Nachlass.\n\nGehen Sie die Verträge einzeln durch und fragen Sie bei jedem Anbieter konkret nach der Todesfallleistung.",
+      "documents": [
+        "Verträge zu Riester, Rürup und privater Rente",
+        "Sterbeurkunde",
+        "Erbschein oder Testament mit Eröffnungsprotokoll",
+        "Depotauszüge"
+      ],
+      "contacts": [
+        "Versicherungsgesellschaften",
+        "Bank oder Depotbank",
+        "Bausparkasse",
+        "Zentrale Zulagenstelle für Altersvermögen"
+      ],
+      "tips": [
+        "Fragen Sie bei Riester ausdrücklich nach der Übertragung auf den Ehepartner, bevor Sie eine Auszahlung beantragen.",
+        "Bei Depots kann es steuerlich sinnvoll sein, Wertpapiere zu übertragen statt zu verkaufen. Sprechen Sie mit dem Steuerberater."
+      ],
+      "deadline": {
+        "type": "relative",
+        "unit": "days",
+        "amount": 42,
+        "label": "in den ersten Wochen",
+        "strict": false
+      },
+      "priority": 7
+    },
+    {
+      "id": "bankkonten_regeln",
+      "phase": 3,
+      "title": "Konten und Daueraufträge ordnen",
+      "summary": "Laufende Zahlungen prüfen, Zugriff klären, Kontostände sichern.",
+      "details": "Sobald die Erbfolge geklärt ist, sollten Sie die Konten aufräumen. Prüfen Sie jeden Dauerauftrag und jede Lastschrift: Was gehört zu einem Vertrag, der ohnehin gekündigt wird? Was muss weiterlaufen, etwa Miete oder Strom, bis die Wohnung übergeben ist?\n\nFür den Zugriff verlangen Banken einen Erbnachweis. Das ist ein Erbschein oder ein notarielles Testament samt Eröffnungsprotokoll. Eine Vollmacht über den Tod hinaus erspart Ihnen beides.\n\nBei einer Erbengemeinschaft können die Erben nur gemeinsam über das Konto verfügen. Klären Sie früh, wer die laufenden Ausgaben übernimmt und wie abgerechnet wird.\n\nLassen Sie sich für das Finanzamt eine Bestätigung der Kontostände zum Todestag geben.",
+      "documents": [
+        "Erbschein oder eröffnetes Testament",
+        "Sterbeurkunde",
+        "Personalausweise aller Erben",
+        "Liste der Daueraufträge und Lastschriften"
+      ],
+      "contacts": [
+        "Alle Kreditinstitute",
+        "Miterben",
+        "Steuerberater"
+      ],
+      "tips": [
+        "Stoppen Sie nicht blind alle Lastschriften. Eine gekündigte Versicherung ist schnell ersetzt, eine gestoppte Mietzahlung wird teuer.",
+        "Ein Gemeinschaftskonto mit Ehepartner bleibt in der Regel nutzbar.",
+        "Lösen Sie das Konto erst auf, wenn alle Erstattungen eingegangen sind. Nachträgliche Zahlungen laufen sonst ins Leere."
+      ],
+      "deadline": {
+        "type": "relative",
+        "unit": "days",
+        "amount": 56,
+        "label": "in den ersten Wochen",
+        "strict": false
+      },
+      "priority": 8
+    },
+    {
+      "id": "mietvertrag_klaeren",
+      "phase": 3,
+      "title": "Mietvertrag kündigen oder fortsetzen",
+      "summary": "Ein Monat ab Kenntnis für die Erklärung, dann drei Monate Kündigungsfrist.",
+      "details": "Wer mit der verstorbenen Person in einem gemeinsamen Haushalt lebte, tritt kraft Gesetzes in den Mietvertrag ein: Ehegatte, eingetragener Lebenspartner, Kinder und andere Haushaltsangehörige. Wollen Sie das nicht, müssen Sie das dem Vermieter innerhalb eines Monats nach Kenntnis vom Tod erklären. Dann endet das Mietverhältnis für Sie.\n\nLebte niemand sonst in der Wohnung, geht der Vertrag auf die Erben über. Sie und der Vermieter können ihn innerhalb eines Monats nach Kenntnis außerordentlich kündigen, mit gesetzlicher Frist von drei Monaten. Versäumen Sie diesen Monat, gilt die reguläre Frist, und die Miete läuft entsprechend länger.\n\nDrei Monate Miete für eine leere Wohnung sind viel Geld. Kümmern Sie sich deshalb früh darum, auch wenn die Wohnungsauflösung selbst noch warten kann.\n\nEine Wohnungsübergabe ohne Zeugen ist unklug. Erstellen Sie ein Übergabeprotokoll.",
+      "documents": [
+        "Mietvertrag",
+        "Sterbeurkunde",
+        "Erbnachweis",
+        "Kautionsunterlagen"
+      ],
+      "contacts": [
+        "Vermieter oder Hausverwaltung",
+        "Mieterverein",
+        "Miterben"
+      ],
+      "tips": [
+        "Kündigen Sie schriftlich und lassen Sie sich den Zugang bestätigen.",
+        "Bei einer Erbengemeinschaft müssen alle Erben die Kündigung unterschreiben.",
+        "Die Kaution steht dem Nachlass zu. Fordern Sie sie nach der Übergabe aktiv ein.",
+        "Schönheitsreparaturen sind oft nicht geschuldet. Prüfen Sie die Klausel, bevor Sie renovieren."
+      ],
+      "deadline": {
+        "type": "from_knowledge",
+        "unit": "days",
+        "amount": 30,
+        "label": "ein Monat ab Kenntnis",
+        "strict": true,
+        "note": "Die Fristen nach §§ 563 und 564 BGB laufen ab Kenntnis vom Tod. Wir rechnen ab dem Sterbedatum."
+      },
+      "priority": 9
+    },
+    {
+      "id": "versicherungen_pruefen",
+      "phase": 3,
+      "title": "Versicherungen kündigen oder umschreiben",
+      "summary": "Manche enden mit dem Tod, andere laufen weiter und müssen aktiv beendet werden.",
+      "details": "Gehen Sie alle Versicherungsverträge durch. Die Regeln sind uneinheitlich.\n\nDie private Haftpflichtversicherung endet grundsätzlich mit dem Tod; mitversicherte Angehörige sind meist noch bis zur nächsten Beitragsfälligkeit geschützt und sollten sich dann selbst versichern. Hausrat- und Wohngebäudeversicherung gehen auf die Erben über und laufen weiter, solange der Hausrat vorhanden ist; nach dem Übergang besteht häufig ein Sonderkündigungsrecht. Rechtsschutz-, Reise- und Zusatzversicherungen enden oder gehen über, je nach Bedingungen.\n\nKündigen Sie nicht vorschnell die Hausratversicherung einer noch möblierten Wohnung. Ein Wasserschaden in der leerstehenden Wohnung ohne Versicherung ist ein teurer Fehler.\n\nÜberzahlte Beiträge werden anteilig erstattet. Fordern Sie das ein, es geschieht nicht automatisch.",
+      "documents": [
+        "Alle Versicherungsscheine",
+        "Sterbeurkunde",
+        "Erbnachweis",
+        "Kontoauszüge als Hinweis auf unbekannte Verträge"
+      ],
+      "contacts": [
+        "Versicherungsgesellschaften",
+        "Versicherungsmakler",
+        "Verbraucherzentrale bei strittigen Fällen"
+      ],
+      "tips": [
+        "Kündigen Sie schriftlich mit Angabe der Versicherungsscheinnummer und legen Sie die Sterbeurkunde bei.",
+        "Ein Sonderkündigungsrecht gilt meist nur innerhalb weniger Wochen nach Kenntnis.",
+        "Prüfen Sie, ob Sie selbst über die verstorbene Person mitversichert waren und jetzt ohne Schutz dastehen."
+      ],
+      "deadline": {
+        "type": "relative",
+        "unit": "days",
+        "amount": 42,
+        "label": "in den ersten Wochen",
+        "strict": false
+      },
+      "priority": 10
+    },
+    {
+      "id": "kfz_regeln",
+      "phase": 3,
+      "title": "Fahrzeug ummelden oder abmelden",
+      "summary": "Kfz-Versicherung und Steuer laufen weiter, bis Sie handeln.",
+      "details": "Ein Fahrzeug gehört zum Nachlass. Es bleibt zugelassen, und Versicherung wie Kfz-Steuer laufen weiter, bis Sie es ummelden, verkaufen oder abmelden.\n\nDie Kfz-Haftpflichtversicherung geht auf die Erben über. Es besteht in der Regel ein Sonderkündigungsrecht innerhalb eines Monats nach Kenntnis. Wollen Sie das Fahrzeug behalten, melden Sie es auf sich um; oft ist ein neuer Vertrag mit dem eigenen Schadenfreiheitsrabatt günstiger.\n\nRegeln Sie die Zulassung zügig, damit Halterpflichten wie Hauptuntersuchung und Steuer nicht ins Leere laufen.\n\nEin Verkauf durch eine Erbengemeinschaft setzt die Zustimmung aller Erben voraus.",
+      "documents": [
+        "Zulassungsbescheinigung Teil I und II",
+        "Sterbeurkunde",
+        "Erbnachweis",
+        "Versicherungsbestätigung",
+        "Kennzeichen bei Abmeldung"
+      ],
+      "contacts": [
+        "Kfz-Zulassungsstelle",
+        "Kfz-Versicherung",
+        "Hauptzollamt wegen der Kfz-Steuer"
+      ],
+      "tips": [
+        "Bei einer Abmeldung wird die Kfz-Steuer anteilig erstattet.",
+        "Der Schadenfreiheitsrabatt kann in bestimmten Fällen übertragen werden. Fragen Sie danach.",
+        "Denken Sie an Parkausweise sowie laufende Leasing- oder Finanzierungsverträge."
+      ],
+      "deadline": {
+        "type": "relative",
+        "unit": "days",
+        "amount": 30,
+        "label": "in den ersten Wochen",
+        "strict": false
+      },
+      "priority": 11
+    },
+    {
+      "id": "strom_gas_kuendigen",
+      "phase": 3,
+      "title": "Strom, Gas, Wasser und Heizung ummelden",
+      "summary": "Die Verträge laufen weiter. Zählerstände jetzt ablesen.",
+      "details": "Versorgungsverträge enden nicht mit dem Tod. Melden Sie den Sterbefall dem Versorger und teilen Sie mit, ob der Vertrag gekündigt oder umgeschrieben werden soll.\n\nLesen Sie die Zählerstände ab und notieren oder fotografieren Sie sie mit Datum. Das ist die Grundlage der Schlussrechnung und verhindert Streit.\n\nSolange die Wohnung noch nicht übergeben ist, sollten Strom und Heizung angemeldet bleiben. Eine ungeheizte Wohnung im Winter führt zu Frostschäden, für die der Nachlass haftet.\n\nBei einer Eigentumswohnung informieren Sie zusätzlich die Hausverwaltung wegen des Hausgeldes.",
+      "documents": [
+        "Verträge und Kundennummern",
+        "Zählerstände mit Datum",
+        "Sterbeurkunde",
+        "Letzte Jahresabrechnung"
+      ],
+      "contacts": [
+        "Strom- und Gasanbieter",
+        "Stadtwerke",
+        "Hausverwaltung",
+        "Schornsteinfeger bei Ölheizung"
+      ],
+      "tips": [
+        "Fotografieren Sie die Zähler. Ein Foto mit Datum ist der beste Nachweis.",
+        "Ein Guthaben aus der Jahresabrechnung gehört zum Nachlass. Geben Sie eine Bankverbindung an.",
+        "Kündigen Sie erst zum Übergabetermin, nicht früher."
+      ],
+      "deadline": {
+        "type": "relative",
+        "unit": "days",
+        "amount": 42,
+        "label": "in den ersten Wochen",
+        "strict": false
+      },
+      "priority": 12
+    },
+    {
+      "id": "telefon_internet_mobilfunk",
+      "phase": 3,
+      "title": "Telefon, Internet und Mobilfunk kündigen",
+      "summary": "Mit der Sterbeurkunde ist meist eine Kündigung zum Monatsende möglich.",
+      "details": "Telekommunikationsverträge laufen weiter und gehen auf die Erben über. Die meisten Anbieter räumen im Todesfall eine Kündigung zum Ende des laufenden Monats oder mit kurzer Frist ein, wenn Sie die Sterbeurkunde vorlegen.\n\nÜberlegen Sie vor der Kündigung, ob die Rufnummer noch gebraucht wird. Viele Bestätigungen von Behörden und Banken gehen per SMS oder an die E-Mail-Adresse, die an diesen Anschluss gebunden ist. Es kann sinnvoll sein, die Mobilfunknummer noch einige Wochen zu behalten oder auf sich umschreiben zu lassen.\n\nEin gemeinsam genutzter Internetanschluss sollte umgeschrieben und nicht gekündigt werden, sonst stehen die Verbliebenen ohne Anschluss da und warten wochenlang auf eine Neuschaltung.",
+      "documents": [
+        "Verträge und Kundennummern",
+        "Sterbeurkunde",
+        "Erbnachweis bei Umschreibung"
+      ],
+      "contacts": [
+        "Telefon- und Internetanbieter",
+        "Mobilfunkanbieter"
+      ],
+      "tips": [
+        "Klären Sie vorher, welche wichtigen Konten an diese Rufnummer oder E-Mail-Adresse gebunden sind.",
+        "Router und Receiver sind oft geliehen und müssen zurückgeschickt werden, sonst wird Ersatz berechnet.",
+        "Eine Rufnummernmitnahme ist nach der Kündigung nicht mehr möglich."
+      ],
+      "deadline": {
+        "type": "relative",
+        "unit": "days",
+        "amount": 42,
+        "label": "in den ersten Wochen",
+        "strict": false
+      },
+      "priority": 13
+    },
+    {
+      "id": "rundfunkbeitrag_abmelden",
+      "phase": 3,
+      "title": "Rundfunkbeitrag abmelden oder umschreiben",
+      "summary": "Der Beitrag läuft weiter, bis Sie ihn abmelden.",
+      "details": "Der Rundfunkbeitrag wird pro Wohnung erhoben und endet nicht automatisch mit dem Tod des Beitragszahlers.\n\nWird die Wohnung aufgelöst, melden Sie den Beitrag ab und geben das Datum der Wohnungsübergabe an. Bleibt jemand in der Wohnung wohnen, wird das Beitragskonto auf diese Person umgeschrieben; ein zweiter Beitrag fällt für dieselbe Wohnung nicht an.\n\nZu viel gezahlte Beiträge werden erstattet, wenn Sie eine Bankverbindung angeben.\n\nWenn Sie als Hinterbliebene Sozialleistungen beziehen, prüfen Sie im selben Zug, ob Sie sich vom Beitrag befreien lassen können.",
+      "documents": [
+        "Beitragsnummer",
+        "Sterbeurkunde",
+        "Datum der Wohnungsübergabe"
+      ],
+      "contacts": [
+        "Beitragsservice von ARD, ZDF und Deutschlandradio"
+      ],
+      "tips": [
+        "Die Abmeldung geht online, per Formular oder formlos schriftlich.",
+        "Geben Sie eine Bankverbindung für die Erstattung an, sonst bleibt das Guthaben liegen."
+      ],
+      "deadline": {
+        "type": "relative",
+        "unit": "days",
+        "amount": 56,
+        "label": "in den ersten Wochen",
+        "strict": false
+      },
+      "priority": 14
+    },
+    {
+      "id": "abos_mitgliedschaften",
+      "phase": 3,
+      "title": "Abonnements und Mitgliedschaften beenden",
+      "summary": "Zeitung, Verein, Fitnessstudio, Streaming, Zeitschriften.",
+      "details": "Vereinsmitgliedschaften enden mit dem Tod, weil sie nicht vererblich sind; eine kurze Mitteilung genügt. Abonnements und Verträge über Dienstleistungen gehen dagegen auf die Erben über und müssen gekündigt werden.\n\nGehen Sie die Kontoauszüge des letzten Jahres durch. Dort taucht alles auf: Zeitungsabo, Fitnessstudio, Streamingdienste, Zeitschriften, Automobilclub, Partei, Gewerkschaft, Wohltätigkeitsorganisationen mit Dauerspende, Gartenverein.\n\nViele Anbieter kündigen im Todesfall kulant zum nächstmöglichen Termin, wenn Sie die Sterbeurkunde beifügen, auch wenn der Vertrag eigentlich länger liefe. Fragen Sie danach.",
+      "documents": [
+        "Kontoauszüge der letzten zwölf Monate",
+        "Sterbeurkunde",
+        "Kunden- und Mitgliedsnummern"
+      ],
+      "contacts": [
+        "Zeitungsverlag",
+        "Vereine und Verbände",
+        "Fitnessstudio",
+        "Anbieter digitaler Dienste"
+      ],
+      "tips": [
+        "Ein Serienbrief mit Platzhaltern spart Zeit. Sterbeurkunde in Kopie beilegen, Original nur wenn verlangt.",
+        "Dauerspenden laufen oft jahrelang weiter, weil niemand sie bemerkt.",
+        "Beobachten Sie nach der Kündigung die Lastschriften. Bucht jemand weiter ab, können Sie widersprechen."
+      ],
+      "deadline": {
+        "type": "relative",
+        "unit": "days",
+        "amount": 56,
+        "label": "in den ersten Wochen",
+        "strict": false
+      },
+      "priority": 15
+    },
+    {
+      "id": "digitaler_nachlass",
+      "phase": 3,
+      "title": "Digitalen Nachlass ordnen",
+      "summary": "E-Mail, soziale Netzwerke, Cloud, Online-Konten und Abos.",
+      "details": "Erben treten auch in digitale Verträge ein. Das hat der Bundesgerichtshof 2018 klargestellt: Ein Nutzerkonto ist vererblich wie ein Brief.\n\nVerschaffen Sie sich zuerst Zugang zum E-Mail-Postfach. Darüber laufen fast alle anderen Konten, und über die Passwort-Zurücksetzung kommen Sie an vieles heran. Prüfen Sie, ob es eine Liste mit Zugangsdaten gibt, oft im Schreibtisch oder in einem Passwortmanager.\n\nEntscheiden Sie dann pro Dienst: löschen, in den Gedenkzustand versetzen oder weiterführen. Große Anbieter haben eigene Verfahren für Todesfälle und verlangen Sterbeurkunde und Erbnachweis.\n\nDenken Sie an kostenpflichtige Dienste: Cloud-Speicher, App-Abonnements, Domains, Hosting. Sie laufen weiter, bis jemand kündigt.",
+      "documents": [
+        "Sterbeurkunde",
+        "Erbnachweis",
+        "Liste der Zugangsdaten, falls vorhanden",
+        "Geräte der verstorbenen Person"
+      ],
+      "contacts": [
+        "E-Mail-Anbieter",
+        "Betreiber sozialer Netzwerke",
+        "Cloud- und Hosting-Anbieter",
+        "Verbraucherzentrale, Ratgeber zum digitalen Nachlass"
+      ],
+      "tips": [
+        "Löschen Sie nichts vorschnell. In Postfächern und Cloud-Ordnern finden sich Verträge, Rechnungen und manchmal das Testament.",
+        "Sichern Sie Fotos und Dokumente, bevor Sie ein Konto schließen. Nach der Löschung ist nichts mehr zu holen.",
+        "Ein Gedenkzustand in sozialen Netzwerken verhindert Geburtstagserinnerungen, die für Angehörige schmerzhaft sind."
+      ],
+      "deadline": {
+        "type": "relative",
+        "unit": "days",
+        "amount": 60,
+        "label": "in den ersten Wochen",
+        "strict": false
+      },
+      "priority": 16
+    },
+    {
+      "id": "ausweise_zurueckgeben",
+      "phase": 3,
+      "title": "Ausweise und amtliche Dokumente zurückgeben",
+      "summary": "Personalausweis, Pass, Schwerbehindertenausweis, Wertmarken.",
+      "details": "Personalausweis und Reisepass werden meist bereits vom Standesamt eingezogen oder entwertet. Falls nicht, geben Sie sie beim Bürgeramt ab.\n\nEin Schwerbehindertenausweis muss an das Versorgungsamt zurück. Damit verbundene Vergünstigungen enden; nicht genutzte Wertmarken für den Nahverkehr werden anteilig erstattet.\n\nDen Führerschein können Sie behalten oder abgeben; eine Pflicht zur Rückgabe besteht in der Regel nicht.\n\nDenken Sie an Bibliotheksausweise, Kundenkarten mit Guthaben und den Parkausweis für Menschen mit Behinderung, der zurückgegeben werden muss.",
+      "documents": [
+        "Personalausweis und Reisepass",
+        "Schwerbehindertenausweis mit Beiblatt und Wertmarke",
+        "Sterbeurkunde"
+      ],
+      "contacts": [
+        "Bürgeramt",
+        "Versorgungsamt",
+        "Verkehrsverbund wegen Wertmarken"
+      ],
+      "tips": [
+        "Entwertete Ausweise werden auf Wunsch zurückgegeben. Fragen Sie danach, wenn Sie sie behalten möchten.",
+        "Guthaben auf Kunden- und Prepaid-Karten gehört zum Nachlass und kann oft ausgezahlt werden."
+      ],
+      "deadline": {
+        "type": "relative",
+        "unit": "days",
+        "amount": 60,
+        "label": "in den ersten Wochen",
+        "strict": false
+      },
+      "priority": 17
+    },
+    {
+      "id": "familienkasse_sozialleistungen",
+      "phase": 3,
+      "title": "Familienkasse und Sozialleistungen informieren",
+      "summary": "Kindergeld, Wohngeld, Grundsicherung und Unterhalt ändern sich.",
+      "details": "Laufende Leistungen müssen gemeldet werden, sonst entstehen Rückforderungen, die Monate später überraschend im Briefkasten liegen.\n\nBezog die verstorbene Person Kindergeld, informieren Sie die Familienkasse. Der Anspruch geht auf den anderen Elternteil über und muss neu beantragt werden. Ist ein Kind verstorben, endet das Kindergeld mit dem Sterbemonat.\n\nMelden Sie außerdem Wohngeld, Grundsicherung, Bürgergeld, BAföG und Unterhaltsvorschuss. Als Hinterbliebener kann sich Ihr eigener Anspruch ändern, meist zu Ihren Gunsten: Wenn ein Einkommen wegfällt, entsteht möglicherweise erstmals ein Anspruch auf Wohngeld oder Grundsicherung.\n\nHatte die verstorbene Person Unterhalt gezahlt oder erhalten, endet das mit dem Tod. Prüfen Sie, ob daraus Ansprüche gegen den Nachlass bestehen.",
+      "documents": [
+        "Sterbeurkunde",
+        "Bescheide über laufende Leistungen",
+        "Kindergeldnummer",
+        "Einkommensnachweise"
+      ],
+      "contacts": [
+        "Familienkasse der Agentur für Arbeit",
+        "Wohngeldstelle",
+        "Jobcenter oder Sozialamt",
+        "Jugendamt bei Unterhaltsvorschuss"
+      ],
+      "tips": [
+        "Melden Sie Änderungen schriftlich und heben Sie eine Kopie auf.",
+        "Prüfen Sie Ihren eigenen Anspruch neu. Viele Hinterbliebene beantragen zu spät, was ihnen zusteht.",
+        "Überzahlte Leistungen werden zurückgefordert. Legen Sie das Geld zurück, statt es auszugeben."
+      ],
+      "deadline": {
+        "type": "relative",
+        "unit": "days",
+        "amount": 30,
+        "label": "in den ersten Wochen",
+        "strict": true
+      },
+      "priority": 18
+    },
+    {
+      "id": "post_nachsenden",
+      "phase": 3,
+      "title": "Post nachsenden lassen",
+      "summary": "So erfahren Sie von Verträgen, an die niemand gedacht hat.",
+      "details": "Richten Sie bei der Deutschen Post einen Nachsendeauftrag auf Ihre Adresse ein. Als Erbe dürfen Sie die Post der verstorbenen Person entgegennehmen und öffnen.\n\nDas ist mehr als eine Formsache: Über die Post erfahren Sie von Verträgen, Mitgliedschaften, Forderungen und Guthaben, von denen sonst niemand wüsste. Rechnen Sie damit, dass über Monate hinweg immer wieder etwas auftaucht.\n\nRichten Sie den Auftrag rechtzeitig ein, bevor die Wohnung übergeben wird. Nach der Übergabe landet die Post beim Nachmieter.\n\nWerbung und Kataloge können Sie über die Robinsonliste eindämmen. Personalisierte Werbepost für Verstorbene ist für Angehörige eine wiederkehrende Belastung.",
+      "documents": [
+        "Sterbeurkunde",
+        "Erbnachweis",
+        "Ihr Personalausweis"
+      ],
+      "contacts": [
+        "Deutsche Post, Nachsendeservice",
+        "Robinsonliste des Deutschen Dialogmarketing Verbands"
+      ],
+      "tips": [
+        "Ein Nachsendeauftrag lässt sich für sechs oder zwölf Monate einrichten. Zwölf Monate sind meist die bessere Wahl.",
+        "Öffnen Sie auch scheinbar belanglose Briefe. Kündigungsbestätigungen und Guthabenmitteilungen sehen unscheinbar aus."
+      ],
+      "deadline": {
+        "type": "relative",
+        "unit": "days",
+        "amount": 30,
+        "label": "vor der Wohnungsübergabe",
+        "strict": false
+      },
+      "priority": 19
+    },
+    {
+      "id": "erbschein_pruefen",
+      "phase": 4,
+      "title": "Prüfen, ob ein Erbschein nötig ist",
+      "summary": "Oft geht es auch ohne. Ein Erbschein kostet je nach Nachlasswert einiges.",
+      "details": "Ein Erbschein weist Sie als Erben aus. Er wird beim Nachlassgericht beantragt und kostet Gebühren, die sich nach dem Wert des Nachlasses richten. Bei größeren Nachlässen sind das schnell mehrere hundert oder tausend Euro, und zwar zweimal: für den Antrag und für die eidesstattliche Versicherung.\n\nOft brauchen Sie ihn gar nicht. Ein notarielles Testament mit dem Eröffnungsprotokoll des Nachlassgerichts genügt Banken und Behörden in der Regel. Ebenso reicht eine Vollmacht über den Tod hinaus für den Zugriff auf Konten.\n\nNötig wird der Erbschein meist dann, wenn eine Immobilie im Grundbuch umgeschrieben werden muss und kein notarielles Testament vorliegt, oder wenn nur ein handschriftliches Testament existiert und eine Bank sich querstellt.\n\nFragen Sie deshalb zuerst bei den Stellen nach, die einen Nachweis verlangen, welche Unterlage sie akzeptieren. Beantragen Sie den Erbschein erst danach.",
+      "documents": [
+        "Sterbeurkunde",
+        "Testament mit Eröffnungsprotokoll",
+        "Geburts- und Heiratsurkunden zum Nachweis der Verwandtschaft",
+        "Angaben zum Nachlasswert",
+        "Personalausweise aller Erben"
+      ],
+      "contacts": [
+        "Nachlassgericht beim Amtsgericht",
+        "Notar",
+        "Banken und Grundbuchamt wegen der geforderten Nachweise"
+      ],
+      "tips": [
+        "Fragen Sie jede Bank einzeln, welchen Nachweis sie akzeptiert. Die Praxis ist uneinheitlich.",
+        "Bei einer Erbengemeinschaft ist ein gemeinschaftlicher Erbschein günstiger als mehrere einzelne.",
+        "Den Antrag können Sie beim Nachlassgericht oder beim Notar stellen. Die Gebühren sind gleich hoch."
+      ],
+      "deadline": {
+        "type": "relative",
+        "unit": "days",
+        "amount": 90,
+        "label": "in den ersten Monaten",
+        "strict": false
+      },
+      "priority": 1
+    },
+    {
+      "id": "erbschaftsteuer_anzeigen",
+      "phase": 4,
+      "title": "Erwerb beim Finanzamt anzeigen",
+      "summary": "Innerhalb von drei Monaten ab Kenntnis, formlos und schriftlich.",
+      "details": "Jeder Erwerb von Todes wegen ist dem Finanzamt binnen drei Monaten anzuzeigen. Die Anzeige ist formlos: ein Schreiben mit Angaben zur verstorbenen Person, zu Ihnen, zum Verwandtschaftsverhältnis und zum ungefähren Wert des Erwerbs.\n\nZuständig ist das Erbschaftsteuerfinanzamt am letzten Wohnsitz der verstorbenen Person.\n\nDie Anzeige ist entbehrlich, wenn der Erwerb auf einer notariell eröffneten Verfügung beruht und sich das Verwandtschaftsverhältnis daraus ergibt. Banken und Versicherungen melden Guthaben ohnehin. Wenn Sie unsicher sind, zeigen Sie lieber an; das kostet nichts.\n\nAnzeige und Steuererklärung sind zweierlei. Ob überhaupt Steuer anfällt, hängt von den Freibeträgen ab; die Anzeigepflicht besteht unabhängig davon.",
+      "documents": [
+        "Sterbeurkunde",
+        "Testament oder Erbschein",
+        "Übersicht über den Nachlasswert",
+        "Angaben zum Verwandtschaftsverhältnis"
+      ],
+      "contacts": [
+        "Erbschaftsteuerfinanzamt am letzten Wohnsitz der verstorbenen Person",
+        "Steuerberater"
+      ],
+      "tips": [
+        "Ein einfacher Brief genügt. Er muss keine genauen Werte enthalten, Schätzungen reichen.",
+        "Auch Vermächtnisnehmer sind anzeigepflichtig.",
+        "Schenkungen der letzten zehn Jahre werden mit dem Erbe zusammengerechnet. Denken Sie daran."
+      ],
+      "deadline": {
+        "type": "from_knowledge",
+        "unit": "months",
+        "amount": 3,
+        "label": "drei Monate ab Kenntnis",
+        "strict": true,
+        "note": "Nach § 30 Erbschaftsteuergesetz ab Kenntnis vom Erwerb. Wir rechnen ab dem Sterbedatum."
       },
       "priority": 2
+    },
+    {
+      "id": "grundbuch_berichtigen",
+      "phase": 4,
+      "title": "Grundbuch berichtigen lassen",
+      "summary": "Innerhalb von zwei Jahren ist die Berichtigung gebührenfrei.",
+      "details": "Gehört eine Immobilie zum Nachlass, muss das Grundbuch berichtigt werden. Die Erben werden zwar automatisch Eigentümer, aber das Grundbuch weist weiter die verstorbene Person aus. Ohne Berichtigung können Sie nicht verkaufen und nicht belasten.\n\nDer Antrag beim Grundbuchamt ist gebührenfrei, wenn er innerhalb von zwei Jahren nach dem Erbfall gestellt wird. Danach fallen Gebühren nach dem Wert der Immobilie an. Das ist einer der wenigen Fälle, in denen frühes Handeln unmittelbar Geld spart.\n\nAls Nachweis dient ein Erbschein oder ein notarielles Testament mit Eröffnungsprotokoll. Bei einer Erbengemeinschaft werden zunächst alle Erben in Erbengemeinschaft eingetragen.\n\nDenken Sie auch an laufende Grundschulden, die Gebäudeversicherung und die Grundsteuer, die jetzt umzumelden ist.",
+      "documents": [
+        "Erbschein oder notarielles Testament mit Eröffnungsprotokoll",
+        "Sterbeurkunde",
+        "Grundbuchauszug",
+        "Antrag auf Grundbuchberichtigung"
+      ],
+      "contacts": [
+        "Grundbuchamt beim Amtsgericht",
+        "Notar",
+        "Gemeinde wegen der Grundsteuer"
+      ],
+      "tips": [
+        "Die Zweijahresfrist gilt für die Gebührenfreiheit, nicht für die Pflicht. Nutzen Sie sie trotzdem.",
+        "Bei vermieteten Immobilien informieren Sie die Mieter über die neue Eigentümerstellung und die Bankverbindung.",
+        "Eine Grundschuld erlischt nicht mit dem Tod. Klären Sie den Kredit mit der Bank."
+      ],
+      "deadline": {
+        "type": "relative",
+        "unit": "months",
+        "amount": 24,
+        "label": "innerhalb von zwei Jahren gebührenfrei",
+        "strict": false
+      },
+      "priority": 3
+    },
+    {
+      "id": "erbengemeinschaft_klaeren",
+      "phase": 4,
+      "title": "Erbengemeinschaft auseinandersetzen",
+      "summary": "Mehrere Erben besitzen alles gemeinsam. Das muss geordnet aufgelöst werden.",
+      "details": "Gibt es mehrere Erben, bilden sie eine Erbengemeinschaft. Ihnen gehört alles gemeinsam, niemandem gehört ein bestimmter Gegenstand. Entscheidungen über die Verwaltung müssen mehrheitlich, über Verfügungen einstimmig getroffen werden. Das führt regelmäßig zu Streit.\n\nKlären Sie früh und schriftlich: Wer verwaltet was, wer zahlt laufende Kosten, wie wird abgerechnet. Halten Sie fest, wer welchen Gegenstand übernimmt und zu welchem Wert.\n\nDie Auseinandersetzung erfolgt am besten durch eine Vereinbarung aller Erben. Kommt keine Einigung zustande, bleibt der Weg über eine Teilungsversteigerung, die für alle Beteiligten meist ein schlechtes Geschäft ist.\n\nBei größeren Nachlässen oder festgefahrenen Fronten hilft eine Mediation oder ein Fachanwalt für Erbrecht. Das ist kein Zeichen von Streitlust, sondern verhindert jahrelange Konflikte.",
+      "documents": [
+        "Erbschein oder Testament",
+        "Nachlassverzeichnis",
+        "Wertgutachten bei Immobilien",
+        "Aufstellung der Aufwendungen einzelner Erben"
+      ],
+      "contacts": [
+        "Miterben",
+        "Fachanwalt für Erbrecht",
+        "Notar",
+        "Mediator"
+      ],
+      "tips": [
+        "Führen Sie von Anfang an eine einfache Liste: Wer hat was bezahlt, wer hat was mitgenommen.",
+        "Persönliche Erinnerungsstücke stiften mehr Streit als Geld. Sprechen Sie früh darüber.",
+        "Eine Vereinbarung über Immobilien muss notariell beurkundet werden."
+      ],
+      "deadline": {
+        "type": "relative",
+        "unit": "months",
+        "amount": 6,
+        "label": "in den ersten Monaten",
+        "strict": false
+      },
+      "priority": 4
+    },
+    {
+      "id": "steuererklaerung_todesjahr",
+      "phase": 4,
+      "title": "Steuererklärung für die verstorbene Person abgeben",
+      "summary": "Erben treten in die steuerlichen Pflichten ein. Oft gibt es Geld zurück.",
+      "details": "Als Erbe treten Sie in die steuerlichen Rechte und Pflichten der verstorbenen Person ein. Dazu gehört die Einkommensteuererklärung für das Todesjahr und gegebenenfalls für frühere Jahre, die noch offen sind.\n\nDas ist häufig kein Verlustgeschäft: Weil im Todesjahr oft nur wenige Monate Einkommen anfallen, der Grundfreibetrag aber voll gilt, kommt es regelmäßig zu einer Erstattung. Auch Krankheits- und Pflegekosten der letzten Monate lassen sich unter Umständen absetzen.\n\nWaren Sie mit der verstorbenen Person verheiratet, können Sie für das Todesjahr noch die Zusammenveranlagung wählen und im Folgejahr vom Witwensplitting profitieren.\n\nBei einer Erbengemeinschaft geben die Erben die Erklärung gemeinsam ab.",
+      "documents": [
+        "Steuerbescheide der Vorjahre",
+        "Rentenbezugsmitteilungen und Lohnsteuerbescheinigungen",
+        "Belege über Krankheits- und Pflegekosten",
+        "Erbnachweis",
+        "Steuer-Identifikationsnummer"
+      ],
+      "contacts": [
+        "Finanzamt",
+        "Steuerberater",
+        "Lohnsteuerhilfeverein"
+      ],
+      "tips": [
+        "Sammeln Sie Belege über Krankheits- und Bestattungskosten. Sie können sich lohnen.",
+        "Eine Erstattung fließt in den Nachlass und steht allen Erben zu.",
+        "Fragen Sie beim Finanzamt nach einer Fristverlängerung, wenn Sie Unterlagen erst suchen müssen. Das wird in Todesfällen meist gewährt."
+      ],
+      "deadline": {
+        "type": "relative",
+        "unit": "months",
+        "amount": 9,
+        "label": "im Folgejahr",
+        "strict": false,
+        "note": "Die reguläre Abgabefrist richtet sich nach dem Veranlagungsjahr, nicht nach dem Todestag."
+      },
+      "priority": 5
+    },
+    {
+      "id": "erbschaftsteuererklaerung",
+      "phase": 4,
+      "title": "Erbschaftsteuererklärung abgeben",
+      "summary": "Erst nach Aufforderung, dann aber fristgebunden.",
+      "details": "Ob Erbschaftsteuer anfällt, hängt vom Wert des Erwerbs und Ihrem Verwandtschaftsverhältnis ab. Die persönlichen Freibeträge betragen für Ehegatten und eingetragene Lebenspartner 500.000 Euro, für Kinder 400.000 Euro, für Enkel 200.000 Euro, für Eltern beim Erwerb von Todes wegen 100.000 Euro und für alle übrigen 20.000 Euro. Hinzu kommen Versorgungsfreibeträge für Ehegatten und Kinder.\n\nEine Erklärung müssen Sie erst abgeben, wenn das Finanzamt Sie dazu auffordert. Dann setzt es eine Frist, die mindestens einen Monat beträgt.\n\nFür das selbst genutzte Familienheim gibt es eine Steuerbefreiung, wenn der überlebende Ehepartner oder ein Kind mindestens zehn Jahre selbst darin wohnt. Wer vorher auszieht oder verkauft, verliert sie rückwirkend. Das ist eine der teuersten Fallen im Erbschaftsteuerrecht.\n\nBei Immobilien, Betriebsvermögen oder größeren Beträgen lohnt sich ein Steuerberater.",
+      "documents": [
+        "Aufforderung des Finanzamts",
+        "Nachlassverzeichnis mit Werten zum Todestag",
+        "Erbschein oder Testament",
+        "Nachweise über Schulden und Bestattungskosten",
+        "Angaben zu Schenkungen der letzten zehn Jahre"
+      ],
+      "contacts": [
+        "Erbschaftsteuerfinanzamt",
+        "Steuerberater"
+      ],
+      "tips": [
+        "Bestattungskosten werden pauschal berücksichtigt; höhere Kosten können Sie nachweisen.",
+        "Die Zehnjahresfrist beim Familienheim gilt streng. Planen Sie einen Verkauf nicht vorschnell.",
+        "Nachlassverbindlichkeiten mindern die Steuer. Tragen Sie sie vollständig zusammen."
+      ],
+      "deadline": {
+        "type": "relative",
+        "unit": "months",
+        "amount": 6,
+        "label": "nach Aufforderung des Finanzamts",
+        "strict": false
+      },
+      "priority": 6
+    },
+    {
+      "id": "haushaltsaufloesung",
+      "phase": 4,
+      "title": "Haushalt auflösen",
+      "summary": "Erst sichten, dann sortieren, dann entsorgen. Nicht umgekehrt.",
+      "details": "Die Wohnungsauflösung ist für viele der schwerste Teil, weil sie endgültig wirkt. Nehmen Sie sich Zeit und machen Sie es nicht allein.\n\nGehen Sie in dieser Reihenfolge vor: Zuerst alle Papiere sichern, auch die unscheinbaren. Verträge, Sparbücher, Versicherungspolicen und Bargeld tauchen erfahrungsgemäß in Schubladen, Büchern und Manteltaschen auf. Dann persönliche Erinnerungsstücke aussortieren und in der Familie verteilen. Erst danach entsorgen oder verkaufen.\n\nBei einer Erbengemeinschaft gehört der Hausrat allen. Stimmen Sie sich ab, bevor Sie etwas wegwerfen, und fotografieren Sie die Räume vorher.\n\nEntrümpelungsfirmen rechnen nach Volumen ab. Holen Sie zwei Angebote ein und lassen Sie sich die Entsorgung schriftlich bestätigen. Gut erhaltene Möbel nehmen Sozialkaufhäuser gern entgegen.",
+      "documents": [
+        "Übergabetermin mit dem Vermieter",
+        "Fotos der Räume vor der Auflösung",
+        "Angebote von Entrümpelungsfirmen"
+      ],
+      "contacts": [
+        "Miterben",
+        "Entrümpelungsunternehmen",
+        "Sozialkaufhaus oder gemeinnütziger Möbeldienst",
+        "Wertstoffhof"
+      ],
+      "tips": [
+        "Durchsuchen Sie Bücher, Manteltaschen und Schubladenrückseiten. Dort liegt erstaunlich oft Bargeld.",
+        "Werfen Sie keine Unterlagen weg, bevor die Steuererklärung erledigt ist.",
+        "Setzen Sie sich kein Tempo, das Sie nicht durchhalten. Zwei Stunden am Tag sind genug."
+      ],
+      "deadline": {
+        "type": "relative",
+        "unit": "months",
+        "amount": 3,
+        "label": "bis zur Wohnungsübergabe",
+        "strict": false
+      },
+      "priority": 7
+    },
+    {
+      "id": "wohnungsuebergabe",
+      "phase": 4,
+      "title": "Wohnung übergeben und Kaution zurückfordern",
+      "summary": "Mit Protokoll, Zählerständen und Zeugen.",
+      "details": "Vereinbaren Sie einen festen Übergabetermin und gehen Sie nicht allein hin. Erstellen Sie ein Übergabeprotokoll mit dem Zustand der Räume, allen Zählerständen und der Zahl der übergebenen Schlüssel. Beide Seiten unterschreiben, jede erhält ein Exemplar.\n\nPrüfen Sie vorher, was Sie tatsächlich schulden. Viele Klauseln zu Schönheitsreparaturen sind unwirksam, besonders starre Fristenpläne. Renovieren Sie nicht vorsorglich, ohne das geprüft zu haben; das kostet oft mehr, als der Vermieter verlangen dürfte.\n\nDie Kaution steht dem Nachlass zu und wird nach der Abrechnung ausgezahlt, üblicherweise innerhalb von drei bis sechs Monaten. Der Vermieter darf einen Teil bis zur nächsten Betriebskostenabrechnung zurückhalten. Fordern Sie die Auszahlung schriftlich ein und geben Sie eine Bankverbindung an.\n\nDenken Sie an das offene Guthaben aus der Betriebskostenabrechnung. Es kommt oft erst ein Jahr später.",
+      "documents": [
+        "Mietvertrag und Kautionsnachweis",
+        "Übergabeprotokoll",
+        "Zählerstände mit Datum",
+        "Erbnachweis",
+        "Bankverbindung des Nachlasskontos"
+      ],
+      "contacts": [
+        "Vermieter oder Hausverwaltung",
+        "Mieterverein",
+        "Miterben"
+      ],
+      "tips": [
+        "Nehmen Sie eine zweite Person als Zeugen mit.",
+        "Fotografieren Sie die leere Wohnung am Übergabetag.",
+        "Behalten Sie das Nachlasskonto offen, bis Kaution und Betriebskostenabrechnung erledigt sind."
+      ],
+      "deadline": {
+        "type": "relative",
+        "unit": "months",
+        "amount": 4,
+        "label": "zum Ende des Mietverhältnisses",
+        "strict": false
+      },
+      "priority": 8
+    },
+    {
+      "id": "grab_gestalten_pflegen",
+      "phase": 4,
+      "title": "Grabstein und Grabpflege klären",
+      "summary": "Ein Grabstein wird meist erst nach einigen Monaten gesetzt.",
+      "details": "Ein Erdgrab muss sich zunächst setzen. Steinmetze setzen den Grabstein deshalb üblicherweise erst nach etwa sechs Monaten. Bis dahin genügt eine schlichte Bepflanzung oder ein Holzkreuz.\n\nLassen Sie sich Zeit mit der Gestaltung. Ein Grabmal ist teuer und bleibt Jahrzehnte stehen. Holen Sie zwei Angebote ein und prüfen Sie die Gestaltungsvorschriften des Friedhofs; sie schreiben oft Material, Größe und Form vor.\n\nKlären Sie auch die dauerhafte Pflege. Sie können das selbst übernehmen, eine Friedhofsgärtnerei beauftragen oder eine Dauergrabpflege über die Laufzeit der Ruhefrist abschließen. Letzteres kostet einmalig mehr, entlastet aber diejenigen, die nach Ihnen kommen.\n\nDenken Sie daran, dass die Grabnutzungsgebühr regelmäßig neu fällig wird und die Verlängerung eine bewusste Entscheidung ist.",
+      "documents": [
+        "Grabnutzungsurkunde",
+        "Gestaltungsvorschriften des Friedhofs",
+        "Angebote von Steinmetzen"
+      ],
+      "contacts": [
+        "Friedhofsverwaltung",
+        "Steinmetzbetriebe",
+        "Friedhofsgärtnerei",
+        "Genossenschaft für Dauergrabpflege"
+      ],
+      "tips": [
+        "Holen Sie mindestens zwei Angebote ein. Die Preisunterschiede sind erheblich.",
+        "Prüfen Sie, ob eine Sterbegeld- oder Vorsorgeversicherung den Grabstein mit abdeckt.",
+        "Eine Dauergrabpflege verhindert, dass die Pflege später zur Last für Kinder oder Enkel wird."
+      ],
+      "deadline": {
+        "type": "relative",
+        "unit": "months",
+        "amount": 6,
+        "label": "nach etwa einem halben Jahr",
+        "strict": false
+      },
+      "priority": 9
+    },
+    {
+      "id": "danksagungen",
+      "phase": 4,
+      "title": "Danksagungen verschicken",
+      "summary": "An alle, die geholfen, kondoliert oder Blumen geschickt haben.",
+      "details": "Danksagungen werden üblicherweise zwei bis sechs Wochen nach der Trauerfeier verschickt, entweder als Karte oder als Anzeige in der Zeitung.\n\nGedacht sind sie für alle, die kondoliert, Blumen oder Spenden geschickt, an der Feier teilgenommen oder in den Tagen davor geholfen haben. Ein paar Zeilen genügen; niemand erwartet einen langen Text.\n\nEs gibt keine Pflicht dazu, und niemand wird es Ihnen verübeln, wenn Sie es lassen oder erst in einigen Monaten dazu in der Lage sind. Für viele Trauernde ist das Schreiben allerdings ein guter Abschluss der ersten Zeit.\n\nWenn Sie um Spenden statt Blumen gebeten hatten, erwähnen Sie die Gesamtsumme und den Empfänger. Das freut die Spender.",
+      "documents": [
+        "Liste der Kondolenzen und Blumengrüße",
+        "Adressliste",
+        "Spendenübersicht der begünstigten Einrichtung"
+      ],
+      "contacts": [
+        "Druckerei oder Bestattungsinstitut",
+        "Anzeigenabteilung der Zeitung",
+        "Begünstigte Spendenorganisation"
+      ],
+      "tips": [
+        "Der Bestatter hat meist Vorlagen und übernimmt den Druck.",
+        "Bitten Sie jemanden, beim Adressieren zu helfen. Zu zweit geht es leichter."
+      ],
+      "deadline": {
+        "type": "relative",
+        "unit": "months",
+        "amount": 2,
+        "label": "einige Wochen nach der Trauerfeier",
+        "strict": false
+      },
+      "priority": 10
+    },
+    {
+      "id": "trauerbegleitung",
+      "phase": 4,
+      "title": "Sich Unterstützung in der Trauer suchen",
+      "summary": "Wenn die Formalitäten erledigt sind, wird es für viele erst richtig schwer.",
+      "details": "Solange es etwas zu erledigen gibt, funktionieren viele Menschen erstaunlich gut. Wenn die Behördengänge abgeschlossen sind und der Alltag zurückkehrt, kommt bei vielen erst die eigentliche Trauer. Das ist normal und kein Rückschritt.\n\nEs gibt Hilfe, und sie kostet meist nichts: Trauergruppen, Trauercafés, Einzelbegleitung durch Hospizdienste, Angebote der Kirchengemeinden und Wohlfahrtsverbände, für Kinder und Jugendliche eigene Gruppen.\n\nWenn Sie über Wochen kaum schlafen, nichts essen, sich zurückziehen oder Gedanken haben, nicht mehr leben zu wollen, sprechen Sie mit Ihrem Hausarzt. Trauer kann in eine Depression übergehen, und die ist gut behandelbar.\n\nDiese Aufgabe hat keine Frist und darf offen bleiben, solange Sie möchten.",
+      "documents": [],
+      "contacts": [
+        "Telefonseelsorge, rund um die Uhr und kostenfrei: 0800 111 0 111 oder 0800 111 0 222",
+        "Ambulanter Hospizdienst in Ihrer Nähe",
+        "Kirchengemeinden und Wohlfahrtsverbände",
+        "Ihr Hausarzt",
+        "Bundesverband Trauerbegleitung für Angebote vor Ort"
+      ],
+      "tips": [
+        "Trauergruppen sind kein Ort für große Reden. Zuhören genügt oft.",
+        "Für trauernde Kinder gibt es eigene Gruppen. Kinder trauern anders, nicht weniger.",
+        "Jahrestage und der erste Geburtstag ohne die Person sind schwer. Planen Sie diese Tage nicht allein ein."
+      ],
+      "priority": 11
+    },
+    {
+      "id": "eigene_vorsorge",
+      "phase": 4,
+      "title": "Die eigene Vorsorge überdenken",
+      "summary": "Sie wissen jetzt genau, was fehlt, wenn nichts geregelt ist.",
+      "details": "Nach diesen Monaten kennen Sie den Unterschied zwischen geregelt und ungeregelt aus eigener Anschauung. Das ist ein guter Zeitpunkt, die eigenen Dinge zu ordnen, gerade wenn Sie es lange vor sich hergeschoben haben.\n\nSinnvoll sind vier Dokumente: eine Vorsorgevollmacht für den Fall, dass Sie selbst nicht mehr entscheiden können, eine Patientenverfügung für medizinische Entscheidungen, ein Testament, wenn die gesetzliche Erbfolge nicht Ihren Wünschen entspricht, und eine Bestattungsverfügung.\n\nHilfreich ist außerdem eine schlichte Liste: Wo liegen welche Unterlagen, welche Konten und Versicherungen gibt es, welche Verträge laufen, welche Zugangsdaten sind wichtig. Genau diese Liste hätte Ihnen in den letzten Wochen viel erspart.\n\nWenn Sie geerbt haben, prüfen Sie außerdem, ob Ihr eigenes Testament noch passt.",
+      "documents": [
+        "Vorsorgevollmacht",
+        "Patientenverfügung",
+        "Testament",
+        "Bestattungsverfügung",
+        "Übersicht über Konten, Verträge und Unterlagen"
+      ],
+      "contacts": [
+        "Notar",
+        "Betreuungsverein oder Betreuungsbehörde",
+        "Verbraucherzentrale",
+        "Zentrales Vorsorgeregister der Bundesnotarkammer"
+      ],
+      "tips": [
+        "Eine Vorsorgevollmacht sollte ausdrücklich über den Tod hinaus gelten. Das erspart Ihren Angehörigen den Erbschein.",
+        "Registrieren Sie Vollmacht und Patientenverfügung im Zentralen Vorsorgeregister, sonst findet sie im Ernstfall niemand.",
+        "Sagen Sie mindestens einer Person, wo die Unterlagen liegen. Das beste Testament nützt nichts, wenn es niemand findet."
+      ],
+      "priority": 12
     }
   ]
 }

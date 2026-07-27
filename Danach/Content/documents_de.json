@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "updated": "2026-07-27",
   "documents": [
     {
@@ -68,7 +68,9 @@
         "Nachlassgericht"
       ],
       "conditions": {
-        "relationship": ["spouse"]
+        "relationship": [
+          "spouse"
+        ]
       },
       "priority": 5
     },
@@ -82,7 +84,10 @@
         "Nachlassgericht"
       ],
       "conditions": {
-        "hasWill": ["yes", "unknown"]
+        "hasWill": [
+          "yes",
+          "unknown"
+        ]
       },
       "priority": 6
     },
@@ -132,6 +137,109 @@
         "Vermieter oder Hausverwaltung"
       ],
       "priority": 10
+    },
+    {
+      "id": "testament_eroeffnungsprotokoll",
+      "title": "Eröffnungsprotokoll des Nachlassgerichts",
+      "purpose": "Zusammen mit einem notariellen Testament ersetzt es bei den meisten Stellen den Erbschein.",
+      "recommended_count": "2 bis 3 beglaubigte Kopien",
+      "source": "Nachlassgericht beim Amtsgericht",
+      "used_for": [
+        "Banken und Sparkassen",
+        "Versicherungen",
+        "Grundbuchamt"
+      ],
+      "priority": 11
+    },
+    {
+      "id": "erbschein",
+      "title": "Erbschein",
+      "purpose": "Amtlicher Nachweis, wer Erbe ist. Nur nötig, wenn kein notarielles Testament oder keine Vollmacht vorliegt.",
+      "recommended_count": "2 bis 3 Ausfertigungen",
+      "source": "Nachlassgericht oder Notar",
+      "used_for": [
+        "Banken",
+        "Grundbuchamt",
+        "Versicherungen",
+        "Kfz-Zulassungsstelle"
+      ],
+      "priority": 12
+    },
+    {
+      "id": "vollmacht",
+      "title": "Vollmacht über den Tod hinaus",
+      "purpose": "Erspart den Erbschein und den Zugriffsstopp auf Konten. Prüfen Sie, ob eine existiert.",
+      "recommended_count": "Original",
+      "source": "Persönliche Unterlagen, Bank oder Notar",
+      "used_for": [
+        "Banken",
+        "Versicherungen",
+        "Behörden"
+      ],
+      "priority": 13
+    },
+    {
+      "id": "kfz_papiere",
+      "title": "Fahrzeugpapiere",
+      "purpose": "Zulassungsbescheinigung Teil I und II für Ummeldung, Verkauf oder Abmeldung.",
+      "recommended_count": "Original",
+      "source": "Persönliche Unterlagen",
+      "used_for": [
+        "Kfz-Zulassungsstelle",
+        "Kfz-Versicherung",
+        "Käufer"
+      ],
+      "priority": 14
+    },
+    {
+      "id": "grundbuchauszug",
+      "title": "Grundbuchauszug",
+      "purpose": "Nachweis über Immobilieneigentum und eingetragene Belastungen.",
+      "recommended_count": "1 Auszug",
+      "source": "Grundbuchamt beim Amtsgericht",
+      "used_for": [
+        "Nachlassverzeichnis",
+        "Finanzamt",
+        "Bank"
+      ],
+      "priority": 15
+    },
+    {
+      "id": "steuerunterlagen",
+      "title": "Steuerunterlagen und Steuer-Identifikationsnummer",
+      "purpose": "Für die Einkommensteuererklärung des Todesjahres und die Erbschaftsteuer.",
+      "recommended_count": "Kopien",
+      "source": "Persönliche Unterlagen, Steuerberater, Finanzamt",
+      "used_for": [
+        "Finanzamt",
+        "Steuerberater"
+      ],
+      "priority": 16
+    },
+    {
+      "id": "pflegegradbescheid",
+      "title": "Pflegegradbescheid",
+      "purpose": "Für die Abmeldung bei der Pflegekasse und für die Steuererklärung.",
+      "recommended_count": "Kopie",
+      "source": "Pflegekasse",
+      "used_for": [
+        "Pflegekasse",
+        "Finanzamt"
+      ],
+      "priority": 17
+    },
+    {
+      "id": "uebergabeprotokoll",
+      "title": "Wohnungsübergabeprotokoll",
+      "purpose": "Belegt den Zustand der Wohnung und die Zählerstände bei der Übergabe.",
+      "recommended_count": "Je ein Exemplar für beide Seiten",
+      "source": "Bei der Übergabe selbst erstellen",
+      "used_for": [
+        "Vermieter",
+        "Rückforderung der Kaution",
+        "Energieversorger"
+      ],
+      "priority": 18
     }
   ]
 }
