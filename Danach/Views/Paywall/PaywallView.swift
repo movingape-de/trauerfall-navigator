@@ -15,6 +15,7 @@ struct PaywallView: View {
                     included
                     honesty
                     purchaseButton
+                    unavailableHint
                     restoreButton
                     footer
                 }
@@ -129,19 +130,43 @@ struct PaywallView: View {
         }
     }
 
+    private var isBusy: Bool {
+        purchases.state == .purchasing || purchases.state == .loading
+    }
+
+    /// Ohne geladenes Produkt bietet der Knopf keinen Kauf an, sondern einen
+    /// neuen Versuch. Sonst verspräche er etwas, das er nicht halten kann.
     private var purchaseButton: some View {
         Button {
-            Task { await purchases.purchase() }
+            Task {
+                if purchases.canPurchase {
+                    await purchases.purchase()
+                } else {
+                    await purchases.loadProduct()
+                }
+            }
         } label: {
-            if purchases.state == .purchasing {
+            if isBusy {
                 ProgressView()
                     .tint(.white)
-            } else {
+            } else if purchases.canPurchase {
                 Text("Für \(purchases.displayPrice) freischalten")
+            } else {
+                Text("Erneut versuchen")
             }
         }
         .buttonStyle(CalmButtonStyle())
-        .disabled(purchases.state == .purchasing)
+        .disabled(isBusy)
+    }
+
+    @ViewBuilder
+    private var unavailableHint: some View {
+        if !purchases.canPurchase, !isBusy {
+            Text("Das Angebot lässt sich gerade nicht laden. Prüfen Sie Ihre Internetverbindung und versuchen Sie es noch einmal.")
+                .font(.footnote)
+                .foregroundStyle(Palette.textSecondary)
+                .fixedSize(horizontal: false, vertical: true)
+        }
     }
 
     private var restoreButton: some View {

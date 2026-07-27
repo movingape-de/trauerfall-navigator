@@ -47,9 +47,17 @@ final class PurchaseManager: ObservableObject {
 
     deinit { updateTask?.cancel() }
 
-    /// Preis als Text, wie ihn der App Store liefert. Fällt auf den
-    /// hinterlegten Preis zurück, solange nichts geladen ist.
-    var displayPrice: String { product?.displayPrice ?? "14,99 €" }
+    /// Der hinterlegte Preis. Gilt nur, solange der App Store noch keinen
+    /// eigenen geliefert hat – muss mit App Store Connect und
+    /// `Configuration/Danach.storekit` übereinstimmen.
+    static let fallbackPrice = "14,99 €"
+
+    /// Preis als Text. Bevorzugt der Wert aus dem App Store, weil nur der
+    /// Storefront, Währung und Preisstufe berücksichtigt.
+    var displayPrice: String { product?.displayPrice ?? Self.fallbackPrice }
+
+    /// Ob ein Kauf überhaupt angeboten werden kann.
+    var canPurchase: Bool { product != nil }
 
     func start() async {
         await loadProduct()
@@ -63,6 +71,7 @@ final class PurchaseManager: ObservableObject {
             product = products.first
             state = .idle
         } catch {
+            product = nil
             state = .failed("Der App Store ist gerade nicht erreichbar.")
         }
     }
