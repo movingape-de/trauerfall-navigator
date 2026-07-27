@@ -33,6 +33,9 @@ struct OnboardingFlowView: View {
                     StepIndicator(current: index, total: 5)
                         .padding(.horizontal, Spacing.l)
                         .padding(.top, Spacing.s)
+                        .padding(.bottom, Spacing.s)
+                        .background(Palette.background)
+                        .zIndex(1)
                 }
 
                 ScrollView {
@@ -42,11 +45,17 @@ struct OnboardingFlowView: View {
                         .padding(.bottom, Spacing.xxl)
                         .readableWidth()
                 }
+                // Ohne das Beschneiden schiebt sich der Inhalt beim Scrollen
+                // über die Fortschrittspunkte und unter den Knopf.
+                .clipped()
 
                 footer
                     .padding(.horizontal, Spacing.l)
+                    .padding(.top, Spacing.m)
                     .padding(.bottom, Spacing.l)
                     .readableWidth()
+                    .background(Palette.background)
+                    .zIndex(1)
             }
             .background(Palette.background)
             .toolbar {

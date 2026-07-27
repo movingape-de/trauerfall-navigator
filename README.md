@@ -210,7 +210,8 @@ die App weist an den betroffenen Stellen darauf hin.
 | Aufgabenkatalog | 59 Aufgaben, 18 Unterlagen |
 | App-Icon | fertig, aus Code erzeugt |
 | Syntaxprüfung aller Swift-Dateien | grün |
-| Kompilierlauf in Xcode | steht noch aus |
+| Kompilierlauf in Xcode | grün, ohne Warnungen (Xcode 26, iPhone 17) |
+| Durchlauf im Simulator | Onboarding, Aufgaben, Fristen, Erinnerungen geprüft |
 
 ### Vor der Veröffentlichung
 
@@ -248,8 +249,15 @@ Tools/preview/appstore.mjs               Screenshots im Store-Format
 
 ### Was maschinell geprüft ist und was nicht
 
-Das Projekt entstand in einer Linux-Umgebung ohne Xcode. Geprüft sind:
-Content-Schema, Swift-Syntax aller 27 Dateien, Typverweise und die Struktur
-der Projektdatei. Nicht geprüft ist der Typcheck des Swift-Compilers –
-rechnen Sie beim ersten Build mit einzelnen Korrekturen, vor allem an
-SwiftUI-Modifiern.
+Das Projekt entstand in einer Linux-Umgebung ohne Xcode. Maschinell geprüft
+sind Content-Schema, Swift-Syntax aller 27 Dateien, Typverweise und die
+Struktur der Projektdatei.
+
+Der erste echte Kompilierlauf ist inzwischen nachgeholt: Xcode 26 übersetzt
+das Projekt ohne Fehler und ohne Warnungen, die befürchteten Korrekturen an
+SwiftUI-Modifiern waren nicht nötig. Ein Durchlauf im Simulator bestätigt
+Onboarding, Aufgabenliste, Fristenberechnung und die Rückfrage nach
+Erinnerungen.
+
+Nicht auf einem Gerät geprüft sind bislang der tatsächliche Kaufvorgang gegen
+App Store Connect und das Verhalten auf einem physischen iPhone.
