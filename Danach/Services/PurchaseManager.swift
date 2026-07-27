@@ -17,20 +17,26 @@ final class PurchaseManager: ObservableObject {
         case failed(String)
     }
 
-    @Published private(set) var isUnlocked: Bool = false
+    /// Ob der App Store einen gültigen Kauf bestätigt hat.
+    @Published private(set) var hasEntitlement: Bool = false
     @Published private(set) var product: Product?
     @Published private(set) var state: State = .idle
 
     private var updateTask: Task<Void, Never>?
 
     /// Erlaubt das Freischalten im Simulator ohne StoreKit-Konfiguration.
-    /// Wird nur in Debug-Builds ausgewertet, siehe `refreshEntitlements()`.
-    @Published var debugUnlockOverride: Bool = false {
-        didSet {
-            #if DEBUG
-            isUnlocked = isUnlocked || debugUnlockOverride
-            #endif
-        }
+    /// Nur in Debug-Builds wirksam.
+    @Published var debugUnlockOverride: Bool = false
+
+    /// Bewusst berechnet statt gespeichert. Ein `didSet` auf
+    /// `debugUnlockOverride`, das hier hineinschreibt, verwirft SwiftUI
+    /// mitten im Aktualisierungslauf – der Schalter klappte zurück.
+    var isUnlocked: Bool {
+        #if DEBUG
+        return hasEntitlement || debugUnlockOverride
+        #else
+        return hasEntitlement
+        #endif
     }
 
     init() {
@@ -81,15 +87,11 @@ final class PurchaseManager: ObservableObject {
             if case .verified(let transaction) = entitlement,
                transaction.productID == Self.productID,
                transaction.revocationDate == nil {
-                isUnlocked = true
+                hasEntitlement = true
                 return
             }
         }
-        #if DEBUG
-        isUnlocked = debugUnlockOverride
-        #else
-        isUnlocked = false
-        #endif
+        hasEntitlement = false
     }
 
     /// - Returns: `true`, wenn der Kauf erfolgreich abgeschlossen wurde.
