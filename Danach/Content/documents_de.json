@@ -1,0 +1,137 @@
+{
+  "version": 1,
+  "updated": "2026-07-27",
+  "documents": [
+    {
+      "id": "sterbeurkunde",
+      "title": "Sterbeurkunde",
+      "purpose": "Das wichtigste Dokument. Fast jede Stelle verlangt eine beglaubigte Ausfertigung im Original und gibt sie nicht zurück.",
+      "recommended_count": "5 bis 10 beglaubigte Ausfertigungen",
+      "source": "Standesamt des Sterbeortes, meist über das Bestattungsinstitut",
+      "used_for": [
+        "Banken und Sparkassen",
+        "Lebens- und Unfallversicherung",
+        "Deutsche Rentenversicherung",
+        "Krankenkasse",
+        "Nachlassgericht",
+        "Vermieter",
+        "Kfz-Zulassungsstelle"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "todesbescheinigung",
+      "title": "Todesbescheinigung",
+      "purpose": "Ärztliche Feststellung des Todes, oft Totenschein genannt. Grundlage für die Sterbeurkunde.",
+      "recommended_count": "2 bis 3 Ausfertigungen",
+      "source": "Arzt, Krankenhaus oder Pflegeheim",
+      "used_for": [
+        "Standesamt",
+        "Bestattungsinstitut",
+        "Versicherungen, die nach der Todesursache fragen"
+      ],
+      "priority": 2
+    },
+    {
+      "id": "personalausweis",
+      "title": "Personalausweis oder Reisepass der verstorbenen Person",
+      "purpose": "Wird für die Anzeige beim Standesamt gebraucht und dort in der Regel eingezogen.",
+      "recommended_count": "Original",
+      "source": "Persönliche Unterlagen der verstorbenen Person",
+      "used_for": [
+        "Standesamt",
+        "Bestattungsinstitut"
+      ],
+      "priority": 3
+    },
+    {
+      "id": "geburtsurkunde_stammbuch",
+      "title": "Geburtsurkunde oder Stammbuch",
+      "purpose": "Belegt die Abstammung und wird für die Beurkundung des Sterbefalls benötigt.",
+      "recommended_count": "Original",
+      "source": "Persönliche Unterlagen, sonst Standesamt des Geburtsortes",
+      "used_for": [
+        "Standesamt",
+        "Nachlassgericht beim Erbschein"
+      ],
+      "priority": 4
+    },
+    {
+      "id": "heiratsurkunde",
+      "title": "Heiratsurkunde",
+      "purpose": "Nachweis der Ehe, unter anderem für Witwen- und Witwerrente.",
+      "recommended_count": "1 bis 2 Ausfertigungen",
+      "source": "Standesamt des Eheschließungsortes",
+      "used_for": [
+        "Standesamt",
+        "Deutsche Rentenversicherung",
+        "Nachlassgericht"
+      ],
+      "conditions": {
+        "relationship": ["spouse"]
+      },
+      "priority": 5
+    },
+    {
+      "id": "testament",
+      "title": "Testament oder Erbvertrag",
+      "purpose": "Muss im Original beim Nachlassgericht abgeliefert werden.",
+      "recommended_count": "Original plus eine Kopie für Sie",
+      "source": "Persönliche Unterlagen, Amtsgericht oder Notar",
+      "used_for": [
+        "Nachlassgericht"
+      ],
+      "conditions": {
+        "hasWill": ["yes", "unknown"]
+      },
+      "priority": 6
+    },
+    {
+      "id": "rentennummer",
+      "title": "Rentenversicherungsnummer und Rentenbescheid",
+      "purpose": "Für die Abmeldung der Rente und für Anträge auf Hinterbliebenenrente.",
+      "recommended_count": "Kopie genügt meist",
+      "source": "Rentenbescheid, Sozialversicherungsausweis",
+      "used_for": [
+        "Deutsche Rentenversicherung",
+        "Rentenservice der Deutschen Post"
+      ],
+      "priority": 7
+    },
+    {
+      "id": "versicherungspolicen",
+      "title": "Versicherungsunterlagen",
+      "purpose": "Übersicht über alle Verträge: Leben, Unfall, Haftpflicht, Hausrat, Kfz, Sterbegeld.",
+      "recommended_count": "Kopien",
+      "source": "Ordner mit Versicherungen, Kontoauszüge als Hinweis auf laufende Beiträge",
+      "used_for": [
+        "Meldung an Versicherer",
+        "Kündigung oder Umschreibung von Verträgen"
+      ],
+      "priority": 8
+    },
+    {
+      "id": "kontounterlagen",
+      "title": "Bankunterlagen und Vollmachten",
+      "purpose": "Für Nachlasskonten, laufende Lastschriften und die Bestattungskosten.",
+      "recommended_count": "Kopien",
+      "source": "Kontoauszüge, Bankvollmacht über den Tod hinaus",
+      "used_for": [
+        "Banken und Sparkassen",
+        "Übersicht über laufende Verträge"
+      ],
+      "priority": 9
+    },
+    {
+      "id": "mietvertrag",
+      "title": "Mietvertrag",
+      "purpose": "Für die Kündigung oder den Eintritt in das Mietverhältnis.",
+      "recommended_count": "Kopie",
+      "source": "Persönliche Unterlagen",
+      "used_for": [
+        "Vermieter oder Hausverwaltung"
+      ],
+      "priority": 10
+    }
+  ]
+}

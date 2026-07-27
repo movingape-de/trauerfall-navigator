@@ -1,0 +1,298 @@
+{
+  "version": 1,
+  "updated": "2026-07-27",
+  "tasks": [
+    {
+      "id": "totenschein_zuhause",
+      "phase": 1,
+      "title": "Arzt rufen für die Todesbescheinigung",
+      "summary": "Wenn jemand zuhause stirbt, muss ein Arzt kommen und den Tod feststellen.",
+      "details": "Rufen Sie den Hausarzt der verstorbenen Person an. Ist die Praxis geschlossen, wählen Sie den ärztlichen Bereitschaftsdienst unter 116 117. Bei einem plötzlichen oder ungeklärten Tod wählen Sie 112.\n\nDer Arzt führt die Leichenschau durch und stellt die Todesbescheinigung aus, die oft auch Totenschein genannt wird. Ohne dieses Dokument geht nichts weiter: Das Standesamt braucht es für die Sterbeurkunde, der Bestatter für die Überführung.\n\nSie müssen sich nicht beeilen im Sinne von Hetze. Nehmen Sie sich die Zeit, die Sie brauchen, um Abschied zu nehmen. Es ist erlaubt, dass die verstorbene Person noch einige Stunden zuhause bleibt.",
+      "documents": [
+        "Personalausweis oder Reisepass der verstorbenen Person",
+        "Krankenversichertenkarte",
+        "Falls vorhanden: Arztbriefe oder Medikamentenplan"
+      ],
+      "contacts": [
+        "Hausarzt der verstorbenen Person",
+        "Ärztlicher Bereitschaftsdienst: 116 117",
+        "Bei ungeklärter Todesursache: 112"
+      ],
+      "tips": [
+        "Fragen Sie nach mehreren Ausfertigungen der Todesbescheinigung.",
+        "Notieren Sie sich Name und Anschrift des Arztes – das wird später gelegentlich abgefragt."
+      ],
+      "deadline": {
+        "type": "relative",
+        "unit": "hours",
+        "amount": 0,
+        "label": "unverzüglich",
+        "strict": true
+      },
+      "conditions": {
+        "placeOfDeath": ["home"]
+      },
+      "priority": 1
+    },
+    {
+      "id": "todesbescheinigung_einrichtung",
+      "phase": 1,
+      "title": "Todesbescheinigung von der Einrichtung erhalten",
+      "summary": "Krankenhaus oder Pflegeheim stellen die Todesbescheinigung aus. Fragen Sie danach.",
+      "details": "In Krankenhaus und Pflegeheim übernimmt der diensthabende Arzt die Leichenschau. Sie müssen selbst keinen Arzt rufen.\n\nFragen Sie an der Station oder in der Verwaltung nach, wann die Todesbescheinigung vorliegt und wer sie Ihnen aushändigt. Häufig wird sie direkt an den Bestatter übergeben, den Sie beauftragen.\n\nKlären Sie im selben Gespräch, bis wann die verstorbene Person dort bleiben kann und wann die persönlichen Sachen abgeholt werden sollen.",
+      "documents": [
+        "Ihr eigener Personalausweis",
+        "Personalausweis der verstorbenen Person"
+      ],
+      "contacts": [
+        "Station oder Pflegedienstleitung",
+        "Verwaltung der Einrichtung"
+      ],
+      "tips": [
+        "Fragen Sie nach mehreren Ausfertigungen.",
+        "Bitten Sie darum, dass Wertsachen dokumentiert und Ihnen gegen Quittung übergeben werden."
+      ],
+      "deadline": {
+        "type": "relative",
+        "unit": "days",
+        "amount": 1,
+        "label": "in den ersten 24 Stunden",
+        "strict": false
+      },
+      "conditions": {
+        "placeOfDeath": ["hospital", "care_home"]
+      },
+      "priority": 1
+    },
+    {
+      "id": "engste_angehoerige",
+      "phase": 1,
+      "title": "Die engsten Angehörigen benachrichtigen",
+      "summary": "Nur der kleine Kreis, der es sofort erfahren sollte. Alles Weitere hat Zeit.",
+      "details": "Überlegen Sie in Ruhe, wer es unbedingt heute erfahren muss: Kinder, Eltern, Geschwister, engste Freunde.\n\nSie müssen nicht alle selbst anrufen. Es ist völlig in Ordnung, jemanden zu bitten, einen Teil der Anrufe zu übernehmen. Schreiben Sie sich auf, wer schon informiert ist – in diesem Zustand vergisst man das leicht.\n\nAlle anderen können später erfahren, oft ohnehin erst mit der Traueranzeige oder der Einladung zur Trauerfeier.",
+      "documents": [
+        "Adressbuch oder Telefonliste der verstorbenen Person"
+      ],
+      "contacts": [],
+      "tips": [
+        "Bitten Sie eine Person Ihres Vertrauens, die Telefonate zu verteilen.",
+        "Nutzen Sie das Notizfeld unten, um festzuhalten, wen Sie schon erreicht haben."
+      ],
+      "deadline": {
+        "type": "relative",
+        "unit": "days",
+        "amount": 1,
+        "label": "am ersten Tag",
+        "strict": false
+      },
+      "priority": 2
+    },
+    {
+      "id": "bestatter_beauftragen",
+      "phase": 1,
+      "title": "Ein Bestattungsinstitut auswählen",
+      "summary": "Der Bestatter übernimmt Überführung, Behördengänge und die Organisation der Bestattung.",
+      "details": "Sie sind frei in der Wahl des Bestatters und nicht an Empfehlungen des Krankenhauses oder Heims gebunden. Nehmen Sie sich ein paar Stunden Zeit und holen Sie ruhig zwei Angebote ein – die Preise unterscheiden sich erheblich.\n\nEin guter Bestatter erklärt Ihnen jede Position, drängt zu nichts und legt Ihnen einen schriftlichen Kostenvoranschlag vor, bevor Sie unterschreiben.\n\nDer Bestatter übernimmt üblicherweise auch die Anzeige beim Standesamt und besorgt die Sterbeurkunden. Klären Sie ausdrücklich, was im Preis enthalten ist und was zusätzlich berechnet wird.",
+      "documents": [
+        "Todesbescheinigung",
+        "Personalausweis der verstorbenen Person",
+        "Geburtsurkunde oder Stammbuch",
+        "Bei Verheirateten: Heiratsurkunde",
+        "Bei Geschiedenen: Scheidungsurteil",
+        "Bei Verwitweten: Sterbeurkunde des Partners",
+        "Falls vorhanden: Unterlagen zur Bestattungsvorsorge, Grabnutzungsurkunde"
+      ],
+      "contacts": [
+        "Bestattungsinstitute in Ihrer Nähe",
+        "Bundesverband Deutscher Bestatter für die Suche nach Mitgliedsbetrieben"
+      ],
+      "tips": [
+        "Lassen Sie sich einen schriftlichen Kostenvoranschlag geben, bevor Sie beauftragen.",
+        "Bestellen Sie gleich mehrere beglaubigte Sterbeurkunden – Sie brauchen erfahrungsgemäß fünf bis zehn.",
+        "Wenn das Geld knapp ist: Der Antrag auf Bestattungskosten beim Sozialamt sollte gestellt werden, bevor Sie einen teuren Auftrag unterschreiben."
+      ],
+      "deadline": {
+        "type": "relative",
+        "unit": "days",
+        "amount": 1,
+        "label": "innerhalb von 24 bis 36 Stunden",
+        "strict": false,
+        "note": "In den meisten Bundesländern muss die Überführung binnen 36 Stunden erfolgen."
+      },
+      "priority": 3
+    },
+    {
+      "id": "bestattungsvorsorge_pruefen",
+      "phase": 1,
+      "title": "Unterlagen zur Bestattungsvorsorge heraussuchen",
+      "summary": "Prüfen Sie, ob es einen Vorsorgevertrag gibt – er legt vieles bereits fest.",
+      "details": "Wenn die verstorbene Person zu Lebzeiten vorgesorgt hat, sind viele Entscheidungen bereits getroffen und häufig auch bezahlt. Das erspart Ihnen schwierige Fragen und schützt vor unnötigen Kosten.\n\nSuchen Sie nach einem Bestattungsvorsorgevertrag, einer Sterbegeldversicherung, einem Treuhandvertrag oder einer Grabnutzungsurkunde. Solche Unterlagen liegen oft bei den Versicherungspapieren, im Ordner mit wichtigen Dokumenten oder im Bankschließfach.\n\nGeben Sie den Vertrag dem Bestatter, bevor Sie Neues beauftragen.",
+      "documents": [
+        "Bestattungsvorsorgevertrag",
+        "Sterbegeldversicherung",
+        "Grabnutzungsurkunde für ein bestehendes Familiengrab"
+      ],
+      "contacts": [
+        "Bestattungsinstitut, mit dem der Vertrag geschlossen wurde",
+        "Deutsche Bestattungsvorsorge Treuhand AG bei Treuhandverträgen"
+      ],
+      "tips": [
+        "Auch wenn Sie unsicher sind: Ein Blick in den Ordner mit den Versicherungen lohnt sich fast immer."
+      ],
+      "conditions": {
+        "hasFuneralProvision": ["yes", "unknown"]
+      },
+      "priority": 4
+    },
+    {
+      "id": "sterbeurkunde_standesamt",
+      "phase": 2,
+      "title": "Sterbefall beim Standesamt anzeigen",
+      "summary": "Der Sterbefall muss spätestens am dritten Werktag nach dem Tod angezeigt werden.",
+      "details": "Zuständig ist das Standesamt des Ortes, an dem die Person gestorben ist – nicht das des Wohnortes. Das Standesamt beurkundet den Sterbefall und stellt die Sterbeurkunde aus.\n\nIn der Praxis übernimmt fast immer der Bestatter diesen Gang. Fragen Sie ausdrücklich nach, ob er das tut, und bitten Sie um mehrere beglaubigte Ausfertigungen.\n\nSie brauchen die Sterbeurkunde für nahezu jeden weiteren Schritt: Banken, Versicherungen, Rentenversicherung, Nachlassgericht, Vermieter.",
+      "documents": [
+        "Todesbescheinigung",
+        "Personalausweis der verstorbenen Person",
+        "Geburtsurkunde oder Stammbuch",
+        "Heiratsurkunde beziehungsweise Scheidungsurteil",
+        "Bei Verwitweten: Sterbeurkunde des früheren Partners"
+      ],
+      "contacts": [
+        "Standesamt des Sterbeortes",
+        "Ihr Bestattungsinstitut"
+      ],
+      "tips": [
+        "Bestellen Sie fünf bis zehn beglaubigte Ausfertigungen. Nachbestellen kostet Zeit und Wege.",
+        "Für die Rentenversicherung gibt es eine gebührenfreie Ausfertigung – fragen Sie danach."
+      ],
+      "deadline": {
+        "type": "relative",
+        "unit": "business_days",
+        "amount": 3,
+        "label": "spätestens am dritten Werktag",
+        "strict": true,
+        "note": "Gesetzlich geregelt in § 28 Personenstandsgesetz."
+      },
+      "priority": 1
+    },
+    {
+      "id": "arbeitgeber_informieren",
+      "phase": 2,
+      "title": "Arbeitgeber informieren",
+      "summary": "Den Arbeitgeber der verstorbenen Person und Ihren eigenen benachrichtigen.",
+      "details": "Informieren Sie den Arbeitgeber der verstorbenen Person. Dort sind offene Gehaltszahlungen, Urlaubsabgeltung, eine mögliche Betriebsrente und die Direktversicherung zu klären. Fragen Sie ausdrücklich nach einer betrieblichen Altersversorgung – daran denkt sonst niemand.\n\nMelden Sie sich außerdem bei Ihrem eigenen Arbeitgeber. Für nahe Angehörige sehen viele Arbeits- und Tarifverträge bezahlte Freistellung vor, üblich sind ein bis drei Tage. Die Grundlage ist meist § 616 BGB oder Ihr Tarifvertrag.",
+      "documents": [
+        "Sterbeurkunde",
+        "Arbeitsvertrag der verstorbenen Person, falls auffindbar"
+      ],
+      "contacts": [
+        "Personalabteilung des Arbeitgebers",
+        "Betriebsrat",
+        "Ihre eigene Personalabteilung"
+      ],
+      "tips": [
+        "Fragen Sie nach Betriebsrente, Direktversicherung und Unterstützungskasse.",
+        "War der Tod Folge eines Arbeitsunfalls, muss die Berufsgenossenschaft informiert werden."
+      ],
+      "deadline": {
+        "type": "relative",
+        "unit": "days",
+        "amount": 3,
+        "label": "in den ersten Tagen",
+        "strict": false
+      },
+      "priority": 5
+    },
+    {
+      "id": "lebensversicherung_melden",
+      "phase": 2,
+      "title": "Lebensversicherung melden",
+      "summary": "Viele Verträge verlangen eine Meldung binnen 48 bis 72 Stunden.",
+      "details": "Lebens- und Unfallversicherungen haben kurze Meldefristen, die in den Vertragsbedingungen stehen. Üblich sind 48 bis 72 Stunden. Melden Sie den Todesfall deshalb zuerst formlos per Telefon oder E-Mail und reichen Sie Unterlagen später nach.\n\nWichtig: Bei einer Lebensversicherung mit benanntem Bezugsberechtigten fällt die Summe nicht in den Nachlass. Sie wird direkt ausgezahlt – auch dann, wenn das Erbe später ausgeschlagen wird.\n\nPrüfen Sie auch, ob es eine Restschuldversicherung zu einem Kredit gab.",
+      "documents": [
+        "Versicherungsschein oder Policennummer",
+        "Sterbeurkunde",
+        "Todesbescheinigung mit Angabe der Todesursache, sofern verlangt"
+      ],
+      "contacts": [
+        "Versicherungsgesellschaft",
+        "Ihr Versicherungsmakler"
+      ],
+      "tips": [
+        "Fristwahrend ist schon eine kurze formlose Meldung. Unterlagen können nachgereicht werden.",
+        "Bei Unfalltod gilt oft eine gesonderte, noch kürzere Frist."
+      ],
+      "deadline": {
+        "type": "relative",
+        "unit": "hours",
+        "amount": 72,
+        "label": "meist binnen 48 bis 72 Stunden",
+        "strict": true,
+        "note": "Die genaue Frist steht in Ihren Vertragsbedingungen."
+      },
+      "priority": 3
+    },
+    {
+      "id": "testament_abliefern",
+      "phase": 3,
+      "title": "Testament beim Nachlassgericht abliefern",
+      "summary": "Wer ein Testament findet, muss es unverzüglich beim Nachlassgericht abgeben.",
+      "details": "Jedes Testament und jeder Erbvertrag muss beim Nachlassgericht abgeliefert werden – auch dann, wenn Sie glauben, es sei ungültig oder überholt. Das gilt selbst für handschriftliche Zettel.\n\nZuständig ist das Amtsgericht am letzten Wohnsitz der verstorbenen Person. Das Gericht eröffnet das Testament und benachrichtigt anschließend alle Beteiligten schriftlich.\n\nWurde das Testament beim Amtsgericht oder Notar hinterlegt, geschieht das automatisch über das Zentrale Testamentsregister. Sie müssen dann nichts tun.\n\nDas Testament zurückzuhalten ist strafbar.",
+      "documents": [
+        "Testament oder Erbvertrag im Original",
+        "Sterbeurkunde"
+      ],
+      "contacts": [
+        "Nachlassgericht beim Amtsgericht des letzten Wohnsitzes",
+        "Zentrales Testamentsregister der Bundesnotarkammer"
+      ],
+      "tips": [
+        "Geben Sie das Original ab und behalten Sie eine Kopie für sich.",
+        "Auch mehrere widersprüchliche Testamente müssen alle abgegeben werden."
+      ],
+      "deadline": {
+        "type": "relative",
+        "unit": "days",
+        "amount": 14,
+        "label": "unverzüglich",
+        "strict": true,
+        "note": "Das Gesetz sagt „unverzüglich“ (§ 2259 BGB) und nennt keine feste Zahl. Wir schlagen zwei Wochen als Erinnerung vor."
+      },
+      "conditions": {
+        "hasWill": ["yes", "unknown"]
+      },
+      "priority": 1
+    },
+    {
+      "id": "erbausschlagung_pruefen",
+      "phase": 3,
+      "title": "Prüfen, ob das Erbe ausgeschlagen werden sollte",
+      "summary": "Sechs Wochen ab Kenntnis – danach haften Sie für Schulden mit Ihrem eigenen Vermögen.",
+      "details": "Mit dem Erbe gehen auch Schulden über. Wer nichts tut, nimmt das Erbe automatisch an, sobald sechs Wochen verstrichen sind.\n\nDie Frist beginnt, sobald Sie vom Todesfall und davon erfahren haben, dass Sie Erbe sind – bei gesetzlicher Erbfolge also meist mit dem Todestag, bei einem Testament erst mit dem Schreiben des Nachlassgerichts.\n\nVerschaffen Sie sich deshalb zügig einen Überblick über Vermögen und Schulden: Kontoauszüge, Kredite, offene Rechnungen, Bürgschaften. Sind Sie unsicher, lassen Sie sich anwaltlich beraten. Es gibt neben Annahme und Ausschlagung auch Zwischenwege wie die Nachlassverwaltung.\n\nDie Ausschlagung wird beim Nachlassgericht oder beim Notar erklärt und kostet eine Gebühr.",
+      "documents": [
+        "Sterbeurkunde",
+        "Ihr Personalausweis",
+        "Übersicht über Vermögen und Verbindlichkeiten"
+      ],
+      "contacts": [
+        "Nachlassgericht beim Amtsgericht",
+        "Notar",
+        "Fachanwalt für Erbrecht"
+      ],
+      "tips": [
+        "Schlagen Sie aus, rücken Ihre Kinder nach – auch minderjährige. Denken Sie das mit.",
+        "Zahlen Sie keine Rechnungen des Erblassers aus dem Nachlass, solange Sie über eine Ausschlagung nachdenken.",
+        "Leben Sie im Ausland oder hatte die verstorbene Person ihren letzten Wohnsitz im Ausland, beträgt die Frist sechs Monate."
+      ],
+      "deadline": {
+        "type": "from_knowledge",
+        "unit": "days",
+        "amount": 42,
+        "label": "sechs Wochen ab Kenntnis",
+        "strict": true,
+        "note": "Die Frist läuft ab Kenntnis vom Erbfall (§ 1944 BGB). Wir rechnen ab dem Sterbedatum – im Zweifel haben Sie also eher mehr Zeit, verlassen Sie sich aber nicht darauf."
+      },
+      "priority": 2
+    }
+  ]
+}
