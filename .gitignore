@@ -27,3 +27,6 @@ Tools/package-lock.json
 
 # Screenshots werden per Tools/preview/shoot.mjs erzeugt
 Tools/preview/screenshots/
+
+# Store-Screenshots per Tools/preview/appstore.mjs erzeugen (auf dem Mac)
+Tools/preview/appstore/

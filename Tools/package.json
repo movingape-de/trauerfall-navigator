@@ -10,6 +10,7 @@
     "check:project": "python3 check_project.py"
   },
   "dependencies": {
+    "playwright-core": "^1.62.0",
     "tree-sitter": "^0.22.4",
     "tree-sitter-swift": "^0.7.1"
   }

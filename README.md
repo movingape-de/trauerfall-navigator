@@ -214,12 +214,37 @@ die App weist an den betroffenen Stellen darauf hin.
 
 ### Vor der Veröffentlichung
 
-- [ ] Impressum ausfüllen: `Danach/Views/Settings/LegalViews.swift`, `struct ImprintView` – alle Angaben in eckigen Klammern
+Alles Vorbereitbare liegt fertig in `AppStore/`. Offen bleibt:
+
+- [ ] Angaben in eckigen Klammern ersetzen – an drei Stellen:
+      `Danach/Views/Settings/LegalViews.swift` (ImprintView),
+      `AppStore/website/impressum.html`, `AppStore/website/datenschutz.html`.
+      Finden mit `grep -rn "\[" AppStore/website/*.html`
 - [ ] Signing-Team in Xcode setzen
-- [ ] In App Store Connect das Produkt `de.movingape.danach.vollversion` anlegen, siehe `Configuration/README.md`
-- [ ] Datenschutzerklärung als erreichbare URL hinterlegen
-- [ ] App-Datenschutz im App Store: keine Datenerfassung – das trifft hier tatsächlich zu
+- [ ] Website veröffentlichen, siehe `AppStore/website/README.md`
+- [ ] Produkt `de.movingape.danach.vollversion` in App Store Connect anlegen
+- [ ] Texte aus `AppStore/metadaten.md` übernehmen
+- [ ] Screenshots: erst mit `node Tools/preview/appstore.mjs` als Entwurf,
+      später durch echte Simulator-Aufnahmen ersetzen
 - [ ] `tasks_de.json` von einem Fachanwalt für Erbrecht gegenlesen lassen
+
+Die vollständige Schritt-für-Schritt-Anleitung steht in
+[`AppStore/anleitung.md`](AppStore/anleitung.md).
+
+### Was für den Store schon fertig ist
+
+```
+AppStore/
+  anleitung.md          Schritt für Schritt bis zur Einreichung
+  metadaten.md          Name, Untertitel, Beschreibung, Schlüsselwörter,
+                        Kategorien, Datenschutzangaben, Prüfhinweise
+  website/              Support-, Datenschutz- und Impressumsseite,
+                        fertig für GitHub Pages
+Danach/Resources/PrivacyInfo.xcprivacy   Datenschutz-Manifest
+Tools/preview/appstore.mjs               Screenshots im Store-Format
+```
+
+![Beispiel für einen Store-Screenshot](AppStore/beispiel-screenshot.png)
 
 ### Was maschinell geprüft ist und was nicht
 
