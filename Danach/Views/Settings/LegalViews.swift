@@ -115,19 +115,13 @@ struct ImprintView: View {
     var body: some View {
         LegalPage(title: "Impressum") {
             LegalParagraph("Anbieter",
-                           "[Name des Anbieters]\n[Straße und Hausnummer]\n[Postleitzahl und Ort]\nDeutschland")
+                           "Dominik Stingl\nKüllenhahnerstr. 194\n42349 Wuppertal\nDeutschland")
 
             LegalParagraph("Kontakt",
-                           "E-Mail: [kontakt@example.de]")
+                           "E-Mail: movingape@gmail.com")
 
-            LegalParagraph("Vertretungsberechtigt",
-                           "[Name]")
-
-            LegalParagraph("Umsatzsteuer-Identifikationsnummer",
-                           "[falls vorhanden]")
-
-            LegalParagraph("Hinweis",
-                           "Die Angaben in eckigen Klammern sind vor Veröffentlichung im App Store zu ersetzen. Ohne vollständiges Impressum und eine erreichbare Datenschutzerklärung wird die App nicht freigegeben.")
+            LegalParagraph("Verantwortlich für den Inhalt",
+                           "Dominik Stingl, Anschrift wie oben")
 
             LegalParagraph("Streitbeilegung",
                            "Wir sind nicht bereit und nicht verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.")

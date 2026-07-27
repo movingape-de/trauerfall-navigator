@@ -10,15 +10,8 @@ impressum.html    Impressum
 stil.css          Gestaltung, Farbwelt wie in der App
 ```
 
-## Vor der Veröffentlichung
-
-Alle Angaben in eckigen Klammern ersetzen. Sie stehen in
-`impressum.html`, `datenschutz.html` und im Fußbereich von `index.html`.
-So finden Sie sie:
-
-```bash
-grep -rn "\[" AppStore/website/*.html
-```
+Anbieterangaben, Kontakt und Datum sind eingetragen; es stehen keine
+Platzhalter mehr offen.
 
 ## Veröffentlichen über GitHub Pages
 

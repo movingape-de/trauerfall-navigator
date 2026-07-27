@@ -217,10 +217,8 @@ die App weist an den betroffenen Stellen darauf hin.
 
 Alles Vorbereitbare liegt fertig in `AppStore/`. Offen bleibt:
 
-- [ ] Angaben in eckigen Klammern ersetzen – an drei Stellen:
-      `Danach/Views/Settings/LegalViews.swift` (ImprintView),
-      `AppStore/website/impressum.html`, `AppStore/website/datenschutz.html`.
-      Finden mit `grep -rn "\[" AppStore/website/*.html`
+- [x] Anbieterangaben eingetragen – in `LegalViews.swift` (ImprintView),
+      `AppStore/website/impressum.html`, `datenschutz.html` und `index.html`
 - [ ] Signing-Team in Xcode setzen
 - [ ] Website veröffentlichen, siehe `AppStore/website/README.md`
 - [ ] Produkt `de.movingape.danach.vollversion` in App Store Connect anlegen

@@ -128,8 +128,6 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 }
 .kasten p { margin: 0; font-size: 0.94rem; }
 
-.platzhalter { color: var(--text-2); }
-
 footer {
   border-top: 1px solid var(--sep);
   padding: 28px clamp(20px, 5vw, 40px) 48px;
