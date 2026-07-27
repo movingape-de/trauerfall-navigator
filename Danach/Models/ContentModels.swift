@@ -210,8 +210,38 @@ struct DocumentDefinition: Codable, Identifiable, Hashable, Sendable {
     var priority: Int
 
     private enum CodingKeys: String, CodingKey {
-        case id, title, purpose, recommendedCount = "recommended_count",
-             source, usedFor = "used_for", conditions, priority
+        case id
+        case title
+        case purpose
+        case recommendedCount = "recommended_count"
+        case source
+        case usedFor = "used_for"
+        case conditions
+        case priority
+    }
+
+    init(from decoder: Decoder) throws {
+        let c = try decoder.container(keyedBy: CodingKeys.self)
+        id = try c.decode(String.self, forKey: .id)
+        title = try c.decode(String.self, forKey: .title)
+        purpose = try c.decode(String.self, forKey: .purpose)
+        recommendedCount = try c.decodeIfPresent(String.self, forKey: .recommendedCount)
+        source = try c.decode(String.self, forKey: .source)
+        usedFor = try c.decodeIfPresent([String].self, forKey: .usedFor) ?? []
+        conditions = try c.decodeIfPresent(TaskConditions.self, forKey: .conditions)
+        priority = try c.decodeIfPresent(Int.self, forKey: .priority) ?? 100
+    }
+
+    func encode(to encoder: Encoder) throws {
+        var c = encoder.container(keyedBy: CodingKeys.self)
+        try c.encode(id, forKey: .id)
+        try c.encode(title, forKey: .title)
+        try c.encode(purpose, forKey: .purpose)
+        try c.encodeIfPresent(recommendedCount, forKey: .recommendedCount)
+        try c.encode(source, forKey: .source)
+        try c.encode(usedFor, forKey: .usedFor)
+        try c.encodeIfPresent(conditions, forKey: .conditions)
+        try c.encode(priority, forKey: .priority)
     }
 }
 

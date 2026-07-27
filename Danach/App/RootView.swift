@@ -1,52 +1,30 @@
 import SwiftUI
 import SwiftData
 
-/// Vorläufige Wurzelansicht für Schritt 1 der Entwicklung: zeigt den
-/// geladenen Katalog, damit Datenmodell und JSON überprüft werden können.
-/// Wird im nächsten Schritt durch Onboarding und Hauptansicht ersetzt.
+/// Entscheidet, ob das Onboarding oder die Hauptansicht gezeigt wird.
+/// Es gibt genau ein Profil; fehlt es, wird es beim ersten Start angelegt.
 struct RootView: View {
 
-    private let content = ContentStore.shared
-    @State private var profile = ProfileSnapshot.preview
+    @Environment(\.modelContext) private var modelContext
+    @Query(sort: \Profile.createdAt) private var profiles: [Profile]
 
     var body: some View {
-        NavigationStack {
-            List {
-                Section {
-                    LabeledContent("Aufgaben im Katalog", value: "\(content.tasks.count)")
-                    LabeledContent("davon sichtbar", value: "\(content.tasks(for: profile).count)")
-                    LabeledContent("Dokumente", value: "\(content.documents.count)")
-                    LabeledContent("Content-Version", value: "\(content.contentVersion)")
-                } header: {
-                    SectionHeading(text: "Katalog")
+        Group {
+            if let profile = profiles.first {
+                if profile.onboardingCompleted {
+                    MainTabView(profile: profile)
+                } else {
+                    OnboardingFlowView(profile: profile)
                 }
-
-                ForEach(Phase.allCases) { phase in
-                    Section {
-                        ForEach(content.tasks(in: phase, for: profile)) { task in
-                            VStack(alignment: .leading, spacing: Spacing.xs) {
-                                Text(task.title).font(.headline)
-                                Text(task.summary)
-                                    .font(.subheadline)
-                                    .foregroundStyle(Palette.textSecondary)
-                                if let deadline = task.deadline {
-                                    Text(deadline.label)
-                                        .font(.footnote)
-                                        .foregroundStyle(deadline.strict ? Palette.alert : Palette.caution)
-                                }
-                            }
-                            .padding(.vertical, Spacing.xs)
-                        }
-                    } header: {
-                        SectionHeading(text: "\(phase.title) · \(content.tasks(in: phase, for: profile).count)")
+            } else {
+                // Kurzer Moment beim allerersten Start, bis das Profil steht.
+                Color.clear
+                    .onAppear {
+                        modelContext.insert(Profile())
+                        try? modelContext.save()
                     }
-                }
             }
-            .navigationTitle("Katalogprüfung")
         }
+        .background(Palette.background)
     }
-}
-
-#Preview {
-    RootView()
 }

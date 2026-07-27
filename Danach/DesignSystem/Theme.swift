@@ -1,4 +1,5 @@
 import SwiftUI
+import UIKit
 
 /// Farbwelt der App: warmes Off-White, dunkles Graublau, gedämpftes
 /// Salbeigrün als einziger Akzent. Bewusst zurückhaltend – die App soll
