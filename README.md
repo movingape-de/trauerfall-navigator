@@ -130,3 +130,21 @@ Warentest, dem Bundesverband Deutscher Bestatter und den Verbraucherzentralen
 sowie auf den einschlägigen Gesetzen (BGB, PStG, ErbStG, SGB VI). Bestattungs-
 und Friedhofsrecht ist Landesrecht und unterscheidet sich je nach Bundesland;
 die App weist an den betroffenen Stellen darauf hin.
+
+## Stand der Umsetzung
+
+| Bereich | Stand |
+|---|---|
+| Datenmodell, Content-Schema, Loader | fertig |
+| Onboarding, Phasen, Aufgaben, Fristen, Unterlagen, Einstellungen | fertig |
+| Fristen-Engine inkl. Werktagen und Feiertagen | fertig |
+| Lokale Erinnerungen | fertig |
+| StoreKit 2, Paywall, Wiederherstellung | fertig |
+| Aufgabenkatalog | 59 Aufgaben, 18 Unterlagen |
+| Kompilierlauf in Xcode | steht noch aus |
+| App-Icon | Platzhalter |
+| Impressum | Platzhalter, vor Veröffentlichung ersetzen |
+
+Das Projekt wurde in einer Linux-Umgebung ohne Xcode geschrieben. Der
+Content ist maschinell geprüft, der Swift-Code nicht kompiliert. Rechnen
+Sie beim ersten Build mit einzelnen Korrekturen.

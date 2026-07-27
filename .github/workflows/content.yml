@@ -1,0 +1,21 @@
+name: Content prüfen
+
+on:
+  push:
+    paths:
+      - 'Danach/Content/**'
+      - 'Tools/validate_content.mjs'
+      - '.github/workflows/content.yml'
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Aufgaben- und Dokumentenkatalog prüfen
+        run: node Tools/validate_content.mjs
